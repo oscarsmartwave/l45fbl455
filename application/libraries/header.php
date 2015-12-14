@@ -22,8 +22,8 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="<?php echo base_url();?>assets/dist/css/custom.css" rel="stylesheet">
-	<link href="<?php echo base_url();?>assets/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/dist/css/bootstrap2/bootstrap-switch.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
