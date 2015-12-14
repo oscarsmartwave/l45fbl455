@@ -32,15 +32,17 @@ include APPPATH.'libraries/header.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            foreach($results as $row)
+                                            foreach($ratings as $rating)
                                             {
-                                                    echo '<tr>
-                                                    <td>'.$row->email.'</td>
-                                                    <td>'.$row->lastName.'</td>
-                                                    <td>'.$row->firstName.'</td>
-                                                    <td>'.$row->count.'</td>
-                                                    <td>'.$row->rating.'</td>
-                                                    </tr>';
+                                                    echo "<tr>
+                                                    <td>".$rating->get("email")."</td>
+                                                    <td>".$rating->get("lastName")."</td>
+                                                    <td>".$rating->get("firstName")."</td>
+                                                    <td>".$rating->get("count")."</td>
+                                                    <td>".$rating->get("rating")."</td>
+                                                    </tr>
+
+                                                ";
                                                 
                                             }
 
