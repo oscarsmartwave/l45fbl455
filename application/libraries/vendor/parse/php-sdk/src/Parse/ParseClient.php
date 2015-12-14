@@ -282,6 +282,8 @@ final class ParseClient
             $url .= '?'.http_build_query($data);
         }
         $rest = curl_init();
+        curl_setopt($rest, CURLOPT_SSL_VERIFYPEER, false);
+        //curl_setopt($rest, , $url);
         curl_setopt($rest, CURLOPT_URL, $url);
         curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
         if ($method === 'POST') {
