@@ -1,0 +1,59 @@
+/*** STYLES ***/
+
+
+.operators tr > :first-child {
+	font-size: 15px;
+	/*background-color: rgba(51, 122, 183, 0.65);*/
+}
+
+.users tr > :first-child {
+	font-size: 15px;
+	color: #fff;
+	background-color: #337ab7;
+}
+
+.users tr td {
+	background-color: rgba(51, 122, 183, 0.35);
+}
+
+
+tr > :first-child img {
+	margin: auto;
+	max-width: 100px;
+}
+
+.users thead {
+	background-color: #337ab7;
+}
+
+.users th {
+	color: #fff;
+}
+
+th.sorting_desc, th.sorting_asc, th.sorting {
+	text-align: center !important;
+	width: 100% !important;
+	min-width: 102px;
+	vertical-align: inherit !important;
+}
+
+
+table.table {
+	text-align: center;
+}
+
+td {
+	vertical-align: inherit !important;
+}
+
+textarea {
+    resize: none !important;
+}
+
+.bootstrap-switch { 
+	float: right; 
+}
+
+#dataTables-example_filter label {
+	float: right;
+}

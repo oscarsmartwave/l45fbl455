@@ -18,7 +18,7 @@ include APPPATH.'libraries/header.php';
                     <div class="col-lg-12">
                         <div class="panel-body">
 
-                            <div class="dataTable_wrapper">
+                            <div class="dataTable_wrapper users">
                         
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>

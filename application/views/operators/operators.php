@@ -20,7 +20,7 @@ include APPPATH.'libraries/header.php';
                         <a href="<?php echo base_url(); ?>index.php/operators/add" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i> &nbsp; Add Operator</a>
                         <div class="panel-body">
 
-                                <div class="dataTable_wrapper">
+                                <div class="dataTable_wrapper operators">
                             
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
