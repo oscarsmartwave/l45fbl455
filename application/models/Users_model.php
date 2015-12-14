@@ -68,10 +68,10 @@ class Users_model extends CI_Model
 	public function edit($id, $data)
 	{	
 		$query =
-			'{"username":"'.$data['username'].'", "password":"'.$data['password'].'", 
-			"firstName":"'.$data['firstName'].'","lastName":"'.$data['lastName'].'", 
-			"email":"'.$data['email'].'", "homeAddress":"'.$data['homeAddress'].'",
-			"phoneNumber":"'.$data['phoneNumber'].'","isOperator":false}';
+		'{"username":"'.$data['username'].'", "password":"'.$data['password'].'", 
+		"firstName":"'.$data['firstName'].'","lastName":"'.$data['lastName'].'", 
+		"email":"'.$data['email'].'", "homeAddress":"'.$data['homeAddress'].'",
+		"phoneNumber":"'.$data['phoneNumber'].'","isOperator":false}';
 
 		$url = 'https://api.parse.com/1/classes/_User/'.$id;
 
@@ -79,13 +79,13 @@ class Users_model extends CI_Model
 		$rest_key = '7PJB1F4g8aFSv5f8e0gSMwi9Ghv2AeAkTW0O50pe';
 		$master_key = 'y95bItd5BI6Btqos1De4m8HZUllSM3HMcOs04WWB';
 		$headers = array(
-		    "Content-Type: application/json",
-		    "X-Parse-Application-Id: $app_id",
-		    "X-Parse-Master-Key: $master_key"
-		);
+			"Content-Type: application/json",
+			"X-Parse-Application-Id: $app_id",
+			"X-Parse-Master-Key: $master_key"
+			);
 
-	    $handle = curl_init(); 
-	    
+		$handle = curl_init(); 
+
 		curl_setopt($handle, CURLOPT_URL, $url);
 		curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'PUT');
@@ -93,7 +93,7 @@ class Users_model extends CI_Model
 		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 
-	    $data = curl_exec($handle);
+		$data = curl_exec($handle);
 		curl_close($handle);
 		$array = json_decode($data);
 		return $array;
@@ -102,7 +102,7 @@ class Users_model extends CI_Model
 	public function delete($id)
 	{
 		$query =
-			'{"isOperator":false}';
+		'{"isOperator":false}';
 
 		$url = 'https://api.parse.com/1/classes/_User/'.$id;
 
@@ -111,13 +111,13 @@ class Users_model extends CI_Model
 		$master_key = 'y95bItd5BI6Btqos1De4m8HZUllSM3HMcOs04WWB';
 
 		$headers = array(
-		    "Content-Type: application/json",
-		    "X-Parse-Application-Id: $app_id",
-		    "X-Parse-Master-Key: $master_key"
-		);
+			"Content-Type: application/json",
+			"X-Parse-Application-Id: $app_id",
+			"X-Parse-Master-Key: $master_key"
+			);
 
-	    $handle = curl_init(); 
-	    
+		$handle = curl_init(); 
+
 		curl_setopt($handle, CURLOPT_URL, $url);
 		curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'PUT');
@@ -125,10 +125,26 @@ class Users_model extends CI_Model
 		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 
-	    $data = curl_exec($handle);
+		$data = curl_exec($handle);
 		curl_close($handle);
 		$array = json_decode($data);
 		return $array;
+	}
+
+	public function getCars($userID)
+	{
+		$query = new ParseQuery("Car");
+		try
+		{
+			$results = $query->get("owner", $userID);
+			return $results;	
+		}
+		catch(ParseException $ex)
+		{
+			// die(print_r(array("message"=>$ex->getMessage(), "code"=>$ex->getCode())));
+			return "Error";	
+		}
+		
 	}
 
 }

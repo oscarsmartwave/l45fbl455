@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql:host=localhost;dbname=db_lb_transactions',
-	'username' => 'root',
-	'password' => '5m@rtw@v3',
-	'database' => 'db_lb_transactions',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -135,7 +135,7 @@ final class ParseClient
     {
         if ($value instanceof \DateTime || $value instanceof \DateTimeImmutable) {
             return [
-                '__type' => 'Date', 'iso' => self::getProperDateFormat($value),
+            '__type' => 'Date', 'iso' => self::getProperDateFormat($value),
             ];
         }
 
@@ -270,7 +270,7 @@ final class ParseClient
         $sessionToken = null,
         $data = null,
         $useMasterKey = false
-    ) {
+        ) {
         if ($data === '[]') {
             $data = '{}';
         }
@@ -282,6 +282,8 @@ final class ParseClient
             $url .= '?'.http_build_query($data);
         }
         $rest = curl_init();
+        //hello world
+        curl_setopt($rest, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($rest, CURLOPT_URL, $url);
         curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
         if ($method === 'POST') {
@@ -326,7 +328,7 @@ final class ParseClient
             throw new ParseException(
                 $decoded['error'],
                 isset($decoded['code']) ? $decoded['code'] : 0
-            );
+                );
         }
 
         return $decoded;
@@ -370,7 +372,7 @@ final class ParseClient
         if (self::$applicationId === null) {
             throw new Exception(
                 'You must call Parse::initialize() before making any requests.'
-            );
+                );
         }
     }
 
@@ -383,7 +385,7 @@ final class ParseClient
     public static function _getRequestHeaders($sessionToken, $useMasterKey)
     {
         $headers = ['X-Parse-Application-Id: '.self::$applicationId,
-            'X-Parse-Client-Version: '.self::VERSION_STRING, ];
+        'X-Parse-Client-Version: '.self::VERSION_STRING, ];
         if ($sessionToken) {
             $headers[] = 'X-Parse-Session-Token: '.$sessionToken;
         }

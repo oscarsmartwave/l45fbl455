@@ -42,20 +42,28 @@ class Users extends CI_Controller {
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-				$user = $this->users_model->get_id($id);
+			$user = $this->users_model->get_id($id);
 				// die('<pre>'.print_r($user, true));
-				$this->load->view("users/deactivate", $user);
-				break; 
+			$this->load->view("users/deactivate", $user);
+			break; 
 
 			case "POST" :
-				$deac = $this->users_model->deactivate($id);
-				redirect(base_url()."users?deactivated=".$deac["user"][0]->getObjectId(),"refresh");
-				break;
+			$deac = $this->users_model->deactivate($id);
+			redirect(base_url()."users?deactivated=".$deac["user"][0]->getObjectId(),"refresh");
+			break;
 
 			default:
-				redirect(base_url(),"refresh");
-				break;
+			redirect(base_url(),"refresh");
+			break;
 		}
+	}
+
+	public function viewCars($userID)
+	{
+		$this->load->model("users_model");
+		$cars["carsOwned"] = $this->users_model->getCars($userID);
+
+		$this->load->view("users/carsOwned_view", $cars);
 	}
 
 }
