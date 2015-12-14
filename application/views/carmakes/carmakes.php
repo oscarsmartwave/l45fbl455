@@ -25,19 +25,19 @@ include APPPATH.'/libraries/header.php';
                                         <thead>
                                             <tr>
                                                 <th>Make</th>
-                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            foreach($results as $val)
+                                            foreach($makes as $val)
                                             {
-                                                    echo '<tr><td>'.$val->carMake.'</td>
-                                                    <td class="center">
-                                                    <a href="'.base_url().'index.php/carmakes/edit/'.$val->objectId.'"><i class="glyphicon glyphicon-edit"></i></a>
-                                                    <a href="'.base_url().'index.php/carmakes/delete/'.$val->objectId.'"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                                                echo 
+                                                "
+                                                <tr>
+                                                    <td>".$val->name."
                                                     </td>
-                                                    </tr>';
+                                                </tr>
+                                                ";
                                             }
 
                                             ?>

@@ -3,22 +3,13 @@
 
 class CarMakes extends CI_Controller {
 
-	public function test()
-	{
-		$this->load->model("carmakes_model");
-		$test = $this->carmakes_model->test();
-
-		die('<pre>'.print_r($test, true));
-	}
-
 	public function index()
 	{
-		
-		$this->load->model('carmakes_model');
-		//$data['cartypes'] = $this->cartypes_model->view();
-		//die(print_r($data, true));
-		$this->load->view('carmakes/carmakes', $this->carmakes_model->view());
+		$this->load->model("carmakes_model");
+		$makes = $this->carmakes_model->getCarMake();
 
+		// die('<pre>'.print_r($makes, true));
+		$this->load->view("carmakes/carmakes", $makes);
 	}
 	public function add()
 	{

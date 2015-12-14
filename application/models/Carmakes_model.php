@@ -33,7 +33,7 @@ class Carmakes_model extends CI_Model
 		return $htis->view();
 	}
 
-	public function test($state="used",$view="basic")
+	public function getCarMake($state="used",$view="basic")
 	{
 		$curl = new Curl();
 		$curl->get("https://api.edmunds.com/api/vehicle/v2/makes?state=used&view=basic&fmt=json&api_key=".$this->edmunds);
