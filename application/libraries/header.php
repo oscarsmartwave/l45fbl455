@@ -91,24 +91,7 @@
                             </a> -->
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <!-- <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a> 
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li> -->
+                        
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
@@ -288,11 +271,18 @@
                             <a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>/"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
+                            <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>/notifications/push">Push</a>
+                                    <a href="<?php echo base_url(); ?>notifications/all">All</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>notifications/user">user</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>notifications/timezone">Time Zone</a>
+                                </li>
+                                
                                 <li>
                                     <a href="#per-operator">View All</a>
                                 </li>

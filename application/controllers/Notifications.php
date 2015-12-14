@@ -1,27 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once (APPPATH.'libraries/REST_Controller.php');
 require_once (APPPATH.'libraries/vendor/autoload.php');
-require_once (APPPATH.'libraries/Curl/Curl.php');
-
-//ob_start("ob_gzhandler");
 
 class Notifications extends CI_controller {
 
-	public function index()
+	public function __construct()
 	{
-		echo 'indeex';
+		parent::__construct();
+		$this->load->model("notifications_model", "n_model");
 	}
 
-	public function view()
+	public function all()
 	{
+		$this->load->model("notifications_model", "n_model");
 
+		switch ($_SERVER["REQUEST_METHOD"])
+		{
+			case "GET" :
+				break;
+			case "POST" :
+				$notif = $this->n_model->pushToAll($_POST);
+				break;
+		}
+
+		$this->load->view('notifications/push');
 	} 
 
-	public function push()
+	public function user()
 	{
-		$this->load->view('notifications/push');
+		switch ($_SERVER["REQUEST_METHOD"])
+		{
+			case "GET" :
+				break;
+			case "POST" :
+				$notif = $this->n_model->pushToUser($_POST);
+				break;
+		}
+		$this->load->view('notifications/user');
+	}
+
+	public function timezone()
+	{
+		$this->load->model("notifications_model","n_model");
+		$tz = $this->n_model->getTimeZones();
+		die('<pre>'.print_r($tz, true));
+		// $this->load->view('notifications/timezone');
 	}
 }
 

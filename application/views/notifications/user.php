@@ -17,8 +17,13 @@
                             Push Notification
                         </div><!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form role="form" class="form" method="POST" action="<?php echo base_url()."notifications/all"; ?>">
+                            <form role="form" method="POST" action="<?php echo base_url()."notifications/user"; ?>" class="">
 
+                                <div class="form-group">
+                                    <label for="users" class="control-label"> User : </label>
+                                    <select id="users" class="form-control" name="user">
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="message"> Message : </label>
                                     <textarea class="form-control" rows="4" name="message"></textarea>
@@ -29,8 +34,8 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-rocket"></i>&nbsp;Send</button>
 
-                            </form> <!-- /form > 
-                        </div><!-- /.panel-body>
+                            </form> <!-- /form --> 
+                        </div><!-- /.panel-body -->
                     </div>
                 </div>
             </div>
@@ -42,6 +47,6 @@
     <!-- /#wrapper -->
 <?php
 
-    include 'footer.php';
+    include 'user_footer.php';
 
 ?>
