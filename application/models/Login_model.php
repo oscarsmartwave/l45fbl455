@@ -1,7 +1,5 @@
 <?php
 
-require_once APPPATH.'libraries/vendor/autoload.php';
-
 use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseACL;

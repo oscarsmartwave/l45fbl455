@@ -245,7 +245,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url(); ?>index.php/login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url(); ?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -268,7 +268,7 @@
                             </div>
                             <!-- /input-group -->
                         <li>
-                            <a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
@@ -308,22 +308,22 @@
                             <a href="#"><i class="fa fa-space-shuttle fa-fw"></i> Appointments<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/appointments/view">View All</a>
+                                    <a href="<?php echo base_url(); ?>appointments/view">View All</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/appointments/operators">Per Operator</a>
+                                    <a href="<?php echo base_url(); ?>appointments/operators">Per Operator</a>
                                 </li>
                                 <li>
                                     <a href="#time-of-day">Time / Day <span class="fa arrow"></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>">Year</a>
+                                            <a href="<?php echo base_url(); ?>appointments/year/<?php echo date('Y'); ?>">Year</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/months">Month</a>
+                                            <a href="<?php echo base_url(); ?>appointments/months">Month</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/Day">Day</a>
+                                            <a href="<?php echo base_url(); ?>appointments/Day">Day</a>
                                         </li>
 
                                     </ul>
@@ -332,10 +332,10 @@
                                     <a href="#status">Status<span class="fa arrow"></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/assigned">Assigned Appointments</a>
+                                            <a href="<?php echo base_url(); ?>appointments/assigned">Assigned Appointments</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/unassigned">Unassigned Appointments</a>
+                                            <a href="<?php echo base_url(); ?>appointments/unassigned">Unassigned Appointments</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -347,13 +347,13 @@
                             <a href="#"><i class="fa fa-hand-spock-o fa-fw"></i> Operators<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/operators/">View All</a>
+                                    <a href="<?php echo base_url(); ?>operators/">View All</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/operators/add">Add</a>
+                                    <a href="<?php echo base_url(); ?>operators/add">Add</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/operators/ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
+                                    <a href="<?php echo base_url(); ?>operators/ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
                                 </li>
                             </ul>
                         </li>
@@ -371,7 +371,7 @@
                         </li>
                         <!-- Users -->
                         <li>
-                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></a>
+                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
                         <!-- CarMakes -->
                         <li>
