@@ -362,57 +362,20 @@
                             <a href="#"><i class="fa fa-folder-open-o fa-fw"></i> Packages<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/packages/">View All</a>
+                                    <a href="<?php echo base_url(); ?>packages/">View All</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>indxe.php/packages/add">Add</a>
+                                    <a href="<?php echo base_url(); ?>packages/add">Add</a>
                                 </li>
                             </ul>
                         </li>
                         <!-- Users -->
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/users/">View All</a>
-                                </li>
-                            </ul>
+                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></a>
                         </li>
                         <!-- CarMakes -->
                         <li>
-                            <a href="#"><i class="fa fa-cogs fa-fw"></i> Car Make<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/carmakes/">View All</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/carmakes/add/">Add</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- CarTypes -->
-                        <li>
-                            <a href="#"><i class="fa fa-truck fa-fw"></i> Car Types<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/cartypes/">View All</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/cartypes/add/">Add</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- CarModels -->
-                        <li>
-                            <a href="#"><i class="fa fa-car fa-fw"></i></i></i> Car Models<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/carmodels/">View All</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/carmodels/add/">Add</a>
-                                </li>
-                            </ul>
+                            <a href="<?php echo base_url(); ?>carmakes"><i class="fa fa-cogs fa-fw"></i> Car Makes</a>
                         </li>
 
                     </ul>
