@@ -22,6 +22,7 @@ class Packages_model extends CI_Model
 		$cp->set("priceNum", (float) $data["priceNum"]);
 		$cp->set("price", "$".$data["priceNum"]);
 		$cp->set("estTime", (int) $data["estTime"]);
+		$cp->set("isRemoved", false);
 
 		try 
 		{
