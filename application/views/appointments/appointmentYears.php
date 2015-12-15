@@ -14,7 +14,7 @@ include APPPATH.'/libraries/header.php';
                 <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <div class="row allapoint">
                     <div class="col-lg-12">
                         <div class="panel-body">
 

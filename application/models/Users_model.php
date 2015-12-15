@@ -22,6 +22,7 @@ class Users_model extends CI_Model
 	public function view()
 	{
 		$query = new ParseQuery('_User');
+		$query->equalTo("isOperator", false);
 		$results["users"] = $query->find();
 
 		return $results;

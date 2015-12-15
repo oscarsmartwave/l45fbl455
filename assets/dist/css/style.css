@@ -1,6 +1,10 @@
 /*** STYLES ***/
 
 
+.page-header {
+	font-weight: 500;
+}
+
 .operators tr > :first-child {
 	font-size: 15px;
 	background-color: #337ab7;
@@ -31,7 +35,7 @@ tr > :first-child img {
 	background-color: #337ab7;
 }
 
-.users th, .operators th {
+.users th, .operators th, .allapoint th, .days th, .appointed th {
 	color: #fff;
 }
 
@@ -59,6 +63,52 @@ textarea {
 	float: right; 
 }
 
-#dataTables-example_filter label {
-	float: right;
+
+.months ul {
+	list-style: none;
+	background-color: rgba(51, 122, 183, 0.65);
+	padding: 10px;
 }
+
+.months ul li {
+	float: left;
+	padding: 8px;
+    font-size: 17px;
+    /*background-color: rgba(51, 122, 183, 0.65);*/
+    
+}
+
+.months ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.allapoint thead, .appointed thead, .days thead {
+	background-color: #337ab7;
+}
+
+.allapoint tr.odd, .days tr.odd, .appointed tr.odd {
+	background-color: rgba(51, 122, 183, 0.65) !important;
+}
+
+.allapoint tr.even, .allapoint tr.even:hover, .days tr.even, .days tr.even:hover, .appointed tr.even, .appointed tr.even:hover {
+	background-color: rgba(51, 122, 183, 0.35);
+}
+
+.days thead {
+	background-color: #337ab7;
+}
+
+
+
+
+
+
+ /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    #dataTables-example_filter label {
+		float: right;
+}
+
+    }

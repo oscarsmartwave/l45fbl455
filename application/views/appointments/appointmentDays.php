@@ -14,7 +14,7 @@ include APPPATH.'/libraries/header.php';
                 <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <div class="row days">
                     <div class="col-lg-12">
                         <div class="panel-body">
 
@@ -33,7 +33,7 @@ include APPPATH.'/libraries/header.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            
+                                            error_reporting(0);                                            
                                             foreach($results as $val)
                                             {
                                                 $dateStart = $val->timeStart->iso;

@@ -12,48 +12,48 @@ include APPPATH.'/libraries/header.php';
                 <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <div class="row  months">
                     <div class="col-lg-12">
                         <div class="panel-body">
                                 <div class="dataTable_wrapper">
                                     <div id="year-graph" style="height:300px;">
                                     </div>
-                                    <ul>
+                                    <ul class="clearfix">
                                         <li>
                                             <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/january">January</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/">February</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/february">February</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/march">March</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/march">March</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/april">April</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/april">April</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/may">May</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/may">May</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/june">June</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/june">June</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/july">July</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/july">July</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/august">August</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/august">August</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/september">September</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/september">September</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/october">October</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/october">October</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/november">November</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/november">November</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>index.php/appointments/<?php echo date('Y'); ?>/month/december">December</a>
+                                            <a href="<?php echo base_url(); ?>index.php/appointments/year/<?php echo date('Y'); ?>/month/december">December</a>
                                         </li>
                                     </ul>
                                 </div>
