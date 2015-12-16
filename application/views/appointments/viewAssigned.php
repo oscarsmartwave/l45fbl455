@@ -31,25 +31,7 @@ include APPPATH.'/libraries/header.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            foreach($results as $val)
-                                            {
-                                                $apptDate = $val->apptDate->iso;
-                                                $date = strtotime($apptDate);
-                                                $date = date('l, F jS Y \a\t g:ia', $date);
-
-                                                    echo '
-                                                    <tr>
-                                                        <td>'.$val->apptLocation.'</td>
-                                                        <td>'.$val->operatorId->username.'</td>
-                                                        <td>'.$val->carId->model.'</td>
-                                                        <td>'.$val->carId->license.'</td>
-                                                        <td>'.$val->carId->ownerId->lastName.', '.$val->carId->ownerId->firstName.'</td>
-                                                        <td>'.$date.'</td>
-                                                    </tr>';
-                                            }
-
-                                            ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
