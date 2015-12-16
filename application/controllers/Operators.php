@@ -82,6 +82,40 @@ class Operators extends CI_Controller {
 		//die('<pre>'.print_r($data, true));
 		$this->load->view('operators/delete', $data);
 	}
+	public function suspended($id)
+	{
+		$this->load->model('operators_model');
+		if($_SERVER['REQUEST_METHOD'] == 'POST')
+		{	
+			$suspended = $this->operators_model->suspended($_POST);
+			//die('<pre>'.print_r($delete, true));
+			if($suspended == true)
+			{
+				redirect(base_url()."operators/?suspended=success&suspended=".$id);
+			}
+		}
+
+		$data = $this->operators_model->get_id($id);
+		//die('<pre>'.print_r($data, true));
+		$this->load->view('operators/suspended', $data);
+	}
+	public function reset($id)
+	{
+		$this->load->model('operators_model');
+		if($_SERVER['REQUEST_METHOD'] == 'POST')
+		{	
+			$reset = $this->operators_model->reset($_POST);
+			//die('<pre>'.print_r($delete, true));
+			if($reset == true)
+			{
+				redirect(base_url()."operators/?reset=success&reset=".$id);
+			}
+		}
+
+		$data = $this->operators_model->get_id($id);
+		//die('<pre>'.print_r($data, true));
+		$this->load->view('operators/reset', $data);
+	}
 	public function ratings()
 	{
 		$this->load->model('operators_model');
