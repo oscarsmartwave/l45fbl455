@@ -126,6 +126,46 @@ class Operators_model extends CI_Model
 		}		
 	}
 
+	public function suspended($data)
+	{
+		$cp = new ParseQuery("_User");
+		$results = $cp->get($data["objectId"]);
+
+		$results->set("isSuspended", true);
+
+		try
+		{
+			$results->save(true);
+			return true;
+		}
+		catch(ParseException $ex)
+		{
+			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
+		}		
+	}
+
+	public function reset($data)
+	{
+		$cp = new ParseQuery("_User");
+		$results = $cp->get($data["objectId"]);
+
+		$results->set("password", "leafblast");
+			
+		
+		try
+		{
+			$results->save(true);
+			return $this->get_id($data["objectId"]);
+		}
+		catch(ParseException $ex)
+		{
+			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
+		}
+
+	}
+
 
 
 	/**********

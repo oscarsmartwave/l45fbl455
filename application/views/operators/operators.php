@@ -52,8 +52,9 @@ include APPPATH.'libraries/header.php';
                                                     <td>".$operator->get("homeAddress")."</td>
                                                     <td>".$operator->get("phoneNumber")."</td>
                                                     <td>
-                                                    <a href='".base_url()."operators/edit/".$operator->getObjectId()."'><i class='glyphicon glyphicon-edit'></i></a>
-                                                    <a href='".base_url()."operators/delete/".$operator->getObjectId()."'><i class='glyphicon glyphicon-remove-circle'></i></a>
+                                                    <a href='".base_url()."operators/edit/".$operator->getObjectId()."'>EDIT</i></a>
+                                                    <a href='".base_url()."operators/suspended/".$operator->getObjectId()."'>SUSPEND</i></a>
+                                                    <a href='".base_url()."operators/delete/".$operator->getObjectId()."'>DELETE</i></a>
                                                     </td>
                                                     </tr>
                                                 ";
