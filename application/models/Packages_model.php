@@ -68,6 +68,32 @@ class Packages_model extends CI_Model
 		}
 
 	}
+
+	public function price($data)
+	{
+		$cp = new ParseQuery("CarWashPackages");
+		$results = $cp->get($data["objectId"]);
+
+
+		$results->set("details", $data["details"]);
+		$results->set("title", $data["title"]);
+		$results->set("priceNum", (float) $data["priceNum"]);
+		$results->set("price", "$".$data["priceNum"]);
+		$results->set("estTime", (int) $data["estTime"]);
+		
+		try
+		{
+			$results->save();
+			return $results;
+		}
+		catch(ParseException $ex)
+		{
+			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
+		}
+
+	}
+
 	public function get_id($id)
 	{
 		$query = new ParseQuery('CarWashPackages');

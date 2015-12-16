@@ -34,10 +34,6 @@ include APPPATH.'libraries/header.php';
                                             <input type="text" class="form-control" name="username" placeholder="Username">
                                         </div>
                                         <div class="form-group">
-                                            <label for="username">Password : </label>                                            
-                                            <input type="password" class="form-control" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
                                             <label for="username">First Name : </label>
                                             <input type="text" class="form-control" name="firstName" placeholder="First Name">
                                         </div>

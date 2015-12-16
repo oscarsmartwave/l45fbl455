@@ -29,7 +29,7 @@ class Operators_model extends CI_Model
 		$url = $file->getUrl();
 		$cp = new ParseObject("_User");
 		$cp->set("username", $data["username"]);
-		$cp->set("password", $data["password"]);
+		$cp->set("password", 'leafblast');
 		$cp->set("firstName", $data["firstName"]);
 		$cp->set("lastName", $data["lastName"]);
 		$cp->set("email", $data["email"]);
