@@ -20,7 +20,7 @@ include APPPATH.'libraries/header.php';
                         <div class="panel-heading">
                             Edit Operator
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body panel-body-bg">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="<?php echo base_url(); ?>operators/edit/<?php echo $operators[0]->getObjectId(); ?>" method="post">

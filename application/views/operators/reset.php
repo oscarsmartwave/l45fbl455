@@ -64,7 +64,7 @@ include APPPATH.'libraries/header.php';
                                 ?>
                                 <form method="post" action="<?php echo base_url(); ?>operators/reset/<?php echo $operators[0]->getObjectId(); ?>">
                                 <input type="hidden" name="objectId" value="<?php echo $operators[0]->getObjectId(); ?>" />
-                                <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
+                                <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="fa fa-repeat"></i> &nbsp; YES</button>
                                 <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
                                 </form>  
                                 <?php
