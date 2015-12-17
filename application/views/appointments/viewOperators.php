@@ -20,18 +20,7 @@ include APPPATH.'/libraries/header.php';
                                     <div id="operator-graph" style="height:300px;">
                                     </div>
                                     <ul>
-                                    <?php
-                                        foreach($results as $row)
-                                        {
-                                            echo 
-                                            '
-                                            <li>
-                                                <a href="'.base_url().'index.php/appointments/operators/'.$row->objectId.'">
-                                                Username : '.$row->username.'&nbsp; Name : '.$row->lastName.', '.$row->firstName.'</a>
-                                            </li>
-                                            ';
-                                        }
-                                    ?>
+                                    
                                     </ul>
                                 </div>
                                 <!-- /.table-responsive -->
