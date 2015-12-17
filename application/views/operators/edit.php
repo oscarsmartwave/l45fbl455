@@ -1,6 +1,6 @@
 <?php
 include APPPATH.'libraries/header.php';
-// die('<pre>'.print_r($operators, true));
+// die('<pre>'.print_r($operators[0]->get("isSuspended"), true));
 ?>
 
 
@@ -43,18 +43,40 @@ include APPPATH.'libraries/header.php';
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="phoneNumber" placeholder="Contact Number" value="<?php echo $operators[0]->get("phoneNumber"); ?>">
                                         </div>
-                                        
+                                         
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">
                                             <span class="glyphicon glyphicon-edit"></span> Update Record
-                                            </button>  
+                                            </button>
+                                            <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-warning">
+                                            <i class="fa fa-repeat"></i> &nbsp; Reset Password
+                                        </a>  
                                         <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success">
                                             <i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index
                                         </a>
             
                                         </div>
                                     </form>
-                                </div> <!-- /.col-lg-6 -->
+                                </div> 
+                                <div class="col-lg-6">
+                                    <img class='img-responsive col-centered center-block' src='<?php echo $operators[0]->get("operatorPicture")->getUrl(); ?>' alt="<?php echo $operators[0]->get("operatorPicture")->getName(); ?>"/><br>
+                                    <?php $suspended = $operators[0]->get("isSuspended"); ?>
+                                    <?php
+                                        if ($suspended==true){
+                                            echo
+    
+                                                "<div class='alert alert-warning suspend'>
+                                                SUSPENDED</div>";
+                                           }
+                                        else {
+                                            echo 
+                                            " ";
+                                        }
+
+                                        ?>
+
+                                   
+                                </div>
                             </div> <!-- /.row -->
                         </div> <!-- /.panel-body -->
                         </div> <!-- /.panel -->
