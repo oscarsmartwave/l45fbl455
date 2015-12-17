@@ -38,11 +38,12 @@ include APPPATH.'libraries/header.php';
                                             <?php
                                             foreach($operators as $operator)
                                             {
+                                                $opImage = $operator->get("operatorPicture"); 
                                                 echo 
                                                 "
                                                     <tr>
                                                     <td>".
-                                                        ((empty($operator->get("operatorPicture"))) ? 
+                                                        (empty($opImage) ? 
                                                             "N / A" : 
                                                             "<img class='img-responsive col-centered' width=50% src='".$operator->get("operatorPicture")->getUrl()."' alt=".$operator->get("operatorPicture")->getName()."/>").
                                                     "</td>
