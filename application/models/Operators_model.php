@@ -39,10 +39,21 @@ class Operators_model extends CI_Model
 		$cp->set("isOperator", true);
 		$cp->set("isRemoved", false);
 
+		
+		
+
+
+
 		try 
 		{
 			$cp->save();
-			return $cp;
+			// die('<pre>'.print_r($cp, true));
+			
+			$cu = new ParseObject("UserData");
+			$cu->set("user", $cp);
+			$cu->save();
+			
+			return $this->get_id($data["objectId"]);
 		} 
 		catch (ParseException $ex) 
 		{    
