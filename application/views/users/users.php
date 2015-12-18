@@ -52,14 +52,13 @@ include APPPATH.'libraries/header.php';
                                                 </td>
                                                 <td>".$row->get("phoneNumber")."
                                                 </td>
-                                                <td>CARS
+                                                <td><a href='".base_url()."cars/getUserCar/".$row->getObjectId()."'>CARS</a>
                                                 </td>
                                                 <td><a href='".base_url()."users/deactivate/".$row->getObjectId()."'>DEACTIVATE</a>
                                                 </td>
                                             </tr>
                                             ";
                                         }
-
                                         ?>
                                     </tbody>
                                 </table>

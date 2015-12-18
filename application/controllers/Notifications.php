@@ -13,15 +13,13 @@ class Notifications extends CI_controller {
 
 	public function all()
 	{
-		$this->load->model("notifications_model", "n_model");
-
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-				break;
+			break;
 			case "POST" :
-				$notif = $this->n_model->pushToAll($_POST);
-				break;
+			$notif = $this->n_model->pushToAll($_POST);
+			break;
 		}
 
 		$this->load->view('notifications/push');
@@ -29,23 +27,34 @@ class Notifications extends CI_controller {
 
 	public function user()
 	{
+
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-				break;
+			break;
 			case "POST" :
-				$notif = $this->n_model->pushToUser($_POST);
-				break;
+			$notif = $this->n_model->pushToUser($_POST);
+			break;
 		}
 		$this->load->view('notifications/user');
 	}
 
 	public function timezone()
 	{
-		$this->load->model("notifications_model","n_model");
-		$tz = $this->n_model->getTimeZones();
-		die('<pre>'.print_r($tz, true));
-		// $this->load->view('notifications/timezone');
+
+		switch ($_SERVER["REQUEST_METHOD"])
+		{
+			case "GET" :
+			break;
+			case "POST" :
+			$notif = $this->n_model->pushToTimeZone($_POST);
+			break;
+		}
+		// $result = $this->n_model->getTimeZone();
+		// $this->load->model("notifications_model","n_model");
+		$tz["america"] = $this->n_model->getTimeZones()["America"];
+		// die('<pre>'.print_r($tz, true));
+		$this->load->view('notifications/timezone', $tz);
 	}
 }
 
