@@ -270,6 +270,25 @@
                         <li>
                             <a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        <!-- Operators -->
+                        <li>
+                            <a href="#"><i class="fa fa-hand-spock-o fa-fw"></i> Operators<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>operators/">View All</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>operators/add">Add</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>operators/ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Users -->
+                        <li>
+                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
+                        </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
@@ -287,7 +306,7 @@
                                     <a href="#per-operator">View All</a>
                                 </li>
                             </ul>
-                        </li>                        
+                        </li>
                         <!-- Financial Tables -->
                         <li>
                             <a href="#"><i class="fa fa-money fa-fw"></i> Financial Tables<span class="fa arrow"></a>
@@ -341,22 +360,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <!-- Operators -->
-                        <li>
-                            <a href="#"><i class="fa fa-hand-spock-o fa-fw"></i> Operators<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>operators/">View All</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>operators/add">Add</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>operators/ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
-                                </li>
-                            </ul>
-                        </li>
                         <!-- Packages -->
                         <li>
                             <a href="#"><i class="fa fa-folder-open-o fa-fw"></i> Packages<span class="fa arrow"></a>
@@ -368,10 +371,6 @@
                                     <a href="<?php echo base_url(); ?>packages/add">Add</a>
                                 </li>
                             </ul>
-                        </li>
-                        <!-- Users -->
-                        <li>
-                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
                         <!-- CarMakes -->
                         <li>
