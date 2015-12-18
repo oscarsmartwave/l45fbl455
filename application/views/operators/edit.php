@@ -20,7 +20,7 @@ include APPPATH.'libraries/header.php';
                         <div class="panel-heading">
                             Edit Operator
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body panel-body-bg">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="<?php echo base_url(); ?>operators/edit/<?php echo $operators[0]->getObjectId(); ?>" method="post">
@@ -48,7 +48,7 @@ include APPPATH.'libraries/header.php';
                                             <button type="submit" class="btn btn-primary">
                                             <span class="glyphicon glyphicon-edit"></span> Update Record
                                             </button>
-                                            <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-warning">
+                                            <a href="<?php echo base_url(); ?>operators/reset/<?php echo $operators[0]->getObjectId(); ?>" class="btn btn-large btn-warning">
                                             <i class="fa fa-repeat"></i> &nbsp; Reset Password
                                         </a>  
                                         <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success">

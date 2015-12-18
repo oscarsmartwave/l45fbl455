@@ -66,7 +66,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'mysql:host=localhost;dbname=db_lb_transactions',
 	'username' => 'root',
-	'password' => '5m@rtw@v3',
+	'password' => '',
 	'database' => 'db_lb_transactions',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
