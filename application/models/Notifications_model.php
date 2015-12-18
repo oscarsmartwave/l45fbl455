@@ -35,8 +35,8 @@ class Notifications_model extends CI_Model
 		$query = ParseInstallation::query();
 		$query->equalTo("channels", "global");
 		$data = 
-			array(
-				"alert" => $data["message"]
+		array(
+			"alert" => $data["message"]
 			);
 
 		try
@@ -44,7 +44,7 @@ class Notifications_model extends CI_Model
 			$send = ParsePush::send(array(
 				"where" => $query,
 				"data" => $data
-			));
+				));
 		}
 		catch(ParseException $ex)
 		{
@@ -61,8 +61,8 @@ class Notifications_model extends CI_Model
 		$query = ParseInstallation::query();
 		$query->equalTo("installationUser", $data["user"]);
 		$data = 
-			array(
-				"alert" => $data["message"]
+		array(
+			"alert" => $data["message"]
 			);
 
 		try
@@ -70,7 +70,7 @@ class Notifications_model extends CI_Model
 			$send = ParsePush::send(array(
 				"where" => $query,
 				"data" => $data
-			));
+				));
 		}
 		catch(ParseException $ex)
 		{
@@ -85,7 +85,7 @@ class Notifications_model extends CI_Model
 	public function getTimeZones()
 	{
 		$zones = timezone_identifiers_list();
-        
+
 		foreach ($zones as $zone) 
 		{
 		    $zone = explode('/', $zone); // 0 => Continent, 1 => City
@@ -93,13 +93,62 @@ class Notifications_model extends CI_Model
 		    // Only use "friendly" continent names
 		    if ($zone[0] == 'Africa' || $zone[0] == 'America' || $zone[0] == 'Antarctica' || $zone[0] == 'Arctic' || $zone[0] == 'Asia' || $zone[0] == 'Atlantic' || $zone[0] == 'Australia' || $zone[0] == 'Europe' || $zone[0] == 'Indian' || $zone[0] == 'Pacific')
 		    {        
-		        if (isset($zone[1]) != '')
-		        {
+		    	if (isset($zone[1]) != '')
+		    	{
 		            $locations[$zone[0]][$zone[0]. '/' . $zone[1]] = str_replace('_', ' ', $zone[1]); // Creates array(DateTimeZone => 'Friendly name')
 		        } 
 		    }
 		}
+		// die("<pre>".print_r($locations, true));
 		return $locations;
+	}
+
+	public function pushToTimeZone($data)
+	{	
+		$query = ParseInstallation::query();
+		$query->equalTo("timeZone", $data["timezone"]);
+		$data = 
+		array(
+			"alert" => $data["message"]
+			);
+
+		try
+		{
+			$send = ParsePush::send(array(
+				"where" => $query,
+				"data" => $data
+				));
+		}
+		catch(ParseException $ex)
+		{
+			die('<pre>'.print_r(array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode())));
+		}
+		
+
+		return $send;
+	}
+
+	public function getTimeZone()
+	{
+		// ParseInstallation.getCurrentInstallation().getString("_Installation");
+
+		$query = new ParseQuery('_Installation', true);
+
+		try
+		{
+			// $results = $query->get("timeZone");
+			$results["timeZone"] = $query->find();
+
+			// die(print_r($results));
+		}
+		catch(ParseException $ex)
+		{
+			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			die('<pre>'.print_r($ex_array, true));
+		}
+		
+		return $results;
+
 	}
 }
 

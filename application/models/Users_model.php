@@ -132,20 +132,23 @@ class Users_model extends CI_Model
 		return $array;
 	}
 
-	public function getCars($userID)
+	public function getUserCar($userObjectId)
 	{
-		$query = new ParseQuery("Car");
-		try
-		{
-			$results = $query->get("owner", $userID);
-			return $results;	
-		}
-		catch(ParseException $ex)
-		{
-			// die(print_r(array("message"=>$ex->getMessage(), "code"=>$ex->getCode())));
-			return "Error";	
-		}
+		$_user = new ParseQuery("_User");
+		$user = $_user->get($userObjectId);
+
+		// die(print_r($user));
+
+		$_car = new ParseQuery("Car");
+		$_car->equalTo("owner", $user);
+		$cars = $_car->find();
 		
+		$array = array(
+			"user"=>$user,
+			"cars"=>$cars
+			);
+
+		return $array;
 	}
 
 }
