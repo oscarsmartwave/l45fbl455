@@ -281,13 +281,17 @@
                                     <a href="<?php echo base_url(); ?>operators/add">Add</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>operators/ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
+                                    <a href="<?php echo base_url(); ?>ratings">Ratings&nbsp;<span class="fa fa-star-o"></a>
                                 </li>
                             </ul>
                         </li>
                         <!-- Users -->
                         <li>
                             <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
+                        </li>
+                        <!-- Graphs -->
+                        <li>
+                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-dashboard fa-fw"></i> Graphs</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
