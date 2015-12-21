@@ -42,29 +42,27 @@ class Appointments extends CI_Controller {
 	}
 	public function assigned()
 	{
-		$today = date("c");
-		$yesterday = date("c", strtotime("-1 days"));
+		$this->load->model("appointments_model");
 
-		$dates = array("today" => $today, "yesterday" => $yesterday);
-		$this->load->model('appointments_model');
-//		$appt = $this->appointments_model->assigned($dates);
+		$appointments = $this->appointments_model->assigned();
 
-		$this->load->view('appointments/viewAssigned', $this->appointments_model->assigned($dates));
-		
+		// $result["data"] = $this->appointments_model->getCurlResponse($appointments);
+
+		$this->load->view("appointments/viewAssigned", $appointments);
 	}
 	public function unassigned()
 	{
-		$this->load->model('appointments_model');
-//		$appt = $this->appointments_model->unassigned();
-		
-		$this->load->view('appointments/viewUnassigned', $this->appointments_model->unassigned());
+		$this->load->model("appointments_model");
+
+		$appointments = $this->appointments_model->unassigned();
+		$this->load->view("appointments/viewUnassigned", $appointments);
 	}
 	public function assignment($apptId='')
 	{
 		$this->load->model('appointments_model');
 		$this->load->model('operators_model');
 		if($apptId == '')
-		{ }
+			{ }
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
@@ -113,43 +111,43 @@ class Appointments extends CI_Controller {
 	public function months($year='' ,$month='')
 	{
 		switch($month){
-		case '01' :
+			case '01' :
 			$numOfDays = 31;
 			break;
-		case '02' :
+			case '02' :
 			if($year % 4 == 0)
 				{ $numOfDays = 28; }
 			else 
 				{ $numOfDays = 29; }
 			break;
-		case '03' :
+			case '03' :
 			$numOfDays = 31;
 			break;
-		case '04' :
+			case '04' :
 			$numOfDays = 30;
 			break;
-		case '05' :
+			case '05' :
 			$numOfDays = 31;
 			break;
-		case '06' :
+			case '06' :
 			$numOfDays = 30;
 			break;
-		case '07' :
+			case '07' :
 			$numOfDays = 31;
 			break;
-		case '08' :
+			case '08' :
 			$numOfDays = 31;
 			break;
-		case '09' :
+			case '09' :
 			$numOfDays = 30;
 			break;
-		case '10' :
+			case '10' :
 			$numOfDays = 31;
 			break;
-		case '11' :
+			case '11' :
 			$numOfDays = 30;
 			break;
-		case '12' :
+			case '12' :
 			$numOfDays = 31;
 			break;
 		}
@@ -176,6 +174,7 @@ class Appointments extends CI_Controller {
 		$this->load->view('appointments/appointmentyears', $data);
 
 	}
+
 }
 
 /* End file Appointments.php */
