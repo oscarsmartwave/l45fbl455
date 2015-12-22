@@ -34,7 +34,7 @@ include APPPATH.'/libraries/header.php';
                                 <?php
                                 foreach($Data as $val)
                                 {
-                                   $newDate = date("j F Y", strtotime($val->apptDate)); 
+                                   // $newDate = date("j F Y", strtotime($val->apptDate)); 
                                    echo 
                                    "
                                    <tr>
@@ -48,7 +48,7 @@ include APPPATH.'/libraries/header.php';
                                     </td>
                                     <td>".$val->userObjectId."
                                     </td>
-                                    <td>".$newDate."
+                                    <td>".$val->apptDate."
                                     </td>
                                 </tr>
                                 ";
