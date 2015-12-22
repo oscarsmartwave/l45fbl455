@@ -24,8 +24,8 @@ class Appointments extends CI_Controller {
 	public function view()
 	{
 		$this->load->model('appointments_model');
-		//$this->appointments_model->view();
-		$this->load->view('appointments/view', $this->appointments_model->view());
+		$results = $this->appointments_model->view();
+		$this->load->view('appointments/view', $results);
 	}
 	public function operators($id='')
 	{
@@ -45,7 +45,8 @@ class Appointments extends CI_Controller {
 		$this->load->model("appointments_model");
 
 		$appointments = $this->appointments_model->assigned();
-
+		// die("<pre>".print_r($appointments, true));
+		// $appt["data"] = $appointments;
 		// $result["data"] = $this->appointments_model->getCurlResponse($appointments);
 
 		$this->load->view("appointments/viewAssigned", $appointments);
