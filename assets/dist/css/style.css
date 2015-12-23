@@ -114,6 +114,16 @@ tr.even, tr.even:hover, .days tr.even, .days tr.even:hover, .appointed tr.even, 
 
 }
 
+.settings .btn {
+	width: 100%;
+    text-align: left;
+    background: transparent;
+    color: #31b0d5;
+    border-color: transparent;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 
 
 

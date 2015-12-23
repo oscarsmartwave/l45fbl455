@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a> << <?php
+                                    <a> <?php
                                     echo $Data->year-1;
                                     ?></a>
                                     <div class="table-responsive">
@@ -86,5 +86,5 @@
     <!-- /#wrapper -->
 <?php
 
-include APPPATH.'libraries/footer.php';
+include 'footer.php';
 ?>

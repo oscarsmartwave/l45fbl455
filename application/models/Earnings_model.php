@@ -13,6 +13,17 @@ class Earnings_model extends CI_Model
 		$curl->get('http://localhost/stripe/index.php/api/v1/earnings/index/'.$year);
 		return $curl->response;
 	}
+
+	// public function view()
+	// {
+	// 	$query = new ParseQuery('_User');
+	// 	$query->equalTo("isOperator", false);
+	// 	$results["users"] = $query->find();
+
+	// 	return $results;
+
+
+	// }//END VIEW ALL
 	
 }
 

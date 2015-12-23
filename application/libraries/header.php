@@ -96,7 +96,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
@@ -172,8 +172,8 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
+                    <!-- /.dropdown-tasks 
+                </li> -->
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -316,13 +316,13 @@
                             <a href="#"><i class="fa fa-money fa-fw"></i> Financial Tables<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#total">Total</a>
+                                    <a href="<?php echo base_url(); ?>earnings/total">Total</a>
                                 </li>
                                 <li>
-                                    <a href="#per-operator">Per Operator</a>
+                                    <a href="<?php echo base_url(); ?>earnings/peroperator">Per Operator</a>
                                 </li>
                                 <li>
-                                    <a href="#time-period">For a Time Period</a>
+                                    <a href="<?php echo base_url(); ?>earnings/time">For a Time Period</a>
                                 </li>
                             </ul>
                         </li>
