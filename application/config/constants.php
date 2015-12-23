@@ -48,7 +48,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
 |
 */
 define('SHOW_DEBUG_BACKTRACE', TRUE);
-
+define('API', 'http://localhost/api.leafblast/api/v1/');
+// define('API', 'http://52.24.133.167/api.leafblast/api/v1/');
 /*
 |--------------------------------------------------------------------------
 | Exit Status Codes
