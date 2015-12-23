@@ -32,47 +32,52 @@ include APPPATH.'/libraries/header.php';
                             </thead>
                             <tbody>
                                 <?php
+                                $i = 0;
                                 foreach($Data as $val)
                                 {
-                                   // $newDate = date("j F Y", strtotime($val->apptDate)); 
-                                   echo 
-                                   "
-                                   <tr>
-                                    <td>".$val->locationString."
-                                    </td>
-                                    <td>".$val->optrObjectId."
-                                    </td>
-                                    <td>".$val->packageObjectId."
-                                    </td>
-                                    <td>".$val->carObjectId."
-                                    </td>
-                                    <td>".$val->userObjectId."
-                                    </td>
-                                    <td>".$val->apptDate."
-                                    </td>
-                                </tr>
-                                ";
-                            }
+                                    $i++;
+                                    $optr = $val->optrObjectId;
+                                    $pkg = $val->packageObjectId;
+                                    $car = $val->carObjectId;
+                                    $user = $val->userObjectId;
+                                    echo 
+                                    "
+                                    <tr>
+                                        <td>".$val->locationString."
+                                        </td>
+                                        <td id='".$optr."'>".$optr."
+                                        </td>
+                                        <td id='".$pkg."'>".$pkg."
+                                        </td>
+                                        <td id='".$car."'>".$car."
+                                        </td>
+                                        <td id='".$user."'>".$user."
+                                        </td>
+                                        <td>".$val->apptDate."
+                                        </td>
+                                    </tr>
+                                    ";
+                                }
 
-                            ?>
-                        </tbody>
-                    </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+
                 </div>
-                <!-- /.table-responsive -->
+                <!-- /.panel-body -->
 
             </div>
-            <!-- /.panel-body -->
-
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.col-lg-12 -->
+        <!-- /.row -->
     </div>
-    <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
 
 <?php
-include APPPATH.'/libraries/footer.php';
+// include APPPATH.'/libraries/footer.php';
+require_once 'appointments_footer.php';
 ?>
-<script src="<?php echo base_url();?>assets/js/appointments/appointments_assigned.js"></script>

@@ -289,9 +289,12 @@
                         <li>
                             <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>reports/"><i class="fa fa-user-times fa-fw"></i> Reports</a>
+                        </li>
                         <!-- Graphs -->
                         <li>
-                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-dashboard fa-fw"></i> Graphs</a>
+                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-bar-chart fa-fw"></i> Graphs</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>

@@ -8,7 +8,7 @@ include APPPATH.'/libraries/header.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">All Appointments</h1>
+                <h1 class="page-header">User Reports</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -22,39 +22,32 @@ include APPPATH.'/libraries/header.php';
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Location</th>
-                                    <th>Model</th>
-                                    <th>Car</th>
-                                    <th>Owner</th>
-                                    <th>Time Start</th>
-                                    <th>Time End</th>
+                                    <th>Reason</th>
+                                    <th>User</th>
+                                    <th>Date Created</th>
+                                    <th>Operator</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               <?php
-                               foreach($Data as $val)
-                               {
-                                   // $newDate = date("j F Y", strtotime($val->apptDate)); 
-                                 echo 
-                                 "
-                                 <tr>
-                                    <td>".$val->locationString."
+                              <?php
+                              for($i = 0; $i < count($reports); $i++)
+                              {
+                                $newDate = date_format($reports[$i]->getCreatedAt(), "j F Y");
+                                echo
+                                "
+                                <tr>
+                                    <td>".$reports[$i]->get("reason")."
                                     </td>
-                                    <td>".$val->model."
+                                    <td>".$reports[$i]->get("user")->get("firstName")." ".$reports[$i]->get("user")->get("lastName")."
                                     </td>
-                                    <td>".$val->make."
+                                    <td>".$newDate."
                                     </td>
-                                    <td>".$val->userObjectid."
-                                    </td>
-                                    <td>".$val->madeAt."
-                                    </td>
-                                    <td>".$val->apptDate."
+                                    <td>".$reports[$i]->get("operator")->get("firstName")." ".$reports[$i]->get("operator")->get("lastName")."
                                     </td>
                                 </tr>
                                 ";
                             }
-
-                            ?> 
+                            ?>
                         </tbody>
                     </table>
                 </div>
