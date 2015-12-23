@@ -46,8 +46,6 @@ class Appointments extends CI_Controller {
 
 		$appointments = $this->appointments_model->assigned();
 		// die("<pre>".print_r($appointments, true));
-		// $appt["data"] = $appointments;
-		// $result["data"] = $this->appointments_model->getCurlResponse($appointments);
 
 		$this->load->view("appointments/viewAssigned", $appointments);
 	}
