@@ -16,10 +16,7 @@
                                             </div>
                                                 <!-- /.panel-heading -->
                                         <div class="panel-body">
-                                        <div class="flot-chart">
-                                        <div class="flot-chart-content" id="flot-line-chart"></div>
-                                    </div>
-                                    </div>
+                                        <img src="http://placehold.it/920x400" class="center-block img-responsive">
                                     <!-- /.panel-body -->
                                     </div>
                                     <!-- /.panel -->

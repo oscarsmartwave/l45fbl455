@@ -11,22 +11,21 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/dist/js/sb-admin-2.js"></script>
-    <script src="<?php echo base_url();?>assets/dist/js/bootstrap-switch.js"></script>
-    <script src="<?php echo base_url();?>assets/dist/js/bootstrap-switch.min.js"></script>
     
-    <!-- Flot Charts JavaScript 
+    <!-- Flot Charts JavaScript
     <script src="<?php echo base_url();?>assets/bower_components/flot/excanvas.min.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.pie.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.resize.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.time.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/appointments/js/operators_graph.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/appointments/js/operators_graph.js"></script>   -->
 
     <!-- DataTables JavaScript -->
+    <!--
     <script src="<?php echo base_url();?>assets/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-    
+    -->
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     
     <!-- Morris Charts JavaScript -->

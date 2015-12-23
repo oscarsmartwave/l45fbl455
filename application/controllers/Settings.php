@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Earnings extends CI_Controller {
+class Settings extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,15 +18,9 @@ class Earnings extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function settings()
+	public function index()
 	{
-		// $this->load->model('earnings_model');
-		// $results = array();
-		// $results = $this->earnings_model->all($year);
-		//die('<pre>'.print_r($results, true));
 		$this->load->view('settings/settings', true);
 	}
 
-
-	
 }
