@@ -286,13 +286,13 @@
                             <a href="#financial-table"><i class="fa fa-money fa-fw"></i></i> Financial Tables<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#total">Total</a>
+                                    <a href="<?php echo base_url(); ?>/earnings/total/">Total</a>
                                 </li>
                                 <li>
-                                    <a href="#per-operator">Per Operator</a>
+                                    <a href="<?php echo base_url(); ?>earnings/per-operator">Per Operator</a>
                                 </li>
                                 <li>
-                                    <a href="#time-period">For a Time Period</a>
+                                    <a href="<?php echo base_url(); ?>earnings/time-period">For a Time Period</a>
                                 </li>
                             </ul>
                         </li>

@@ -46,7 +46,14 @@ class Users_model extends CI_Model
 		
 		return $results;
 	}
+	public function profiles()
+	{	
+		$query = new ParseQuery('_User');
+		$query->equalTo("isOperator", false);
+		$results["users"] = $query->find();
 
+		return $results;
+	}
 	public function deactivate($objectId)
 	{
 		$cp = new ParseQuery("_User");
