@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+session_start();
 class Login extends CI_Controller {
 
 	public $currentUser;
@@ -28,14 +28,13 @@ class Login extends CI_Controller {
 				break; 
 
 			case "POST" :
-
+				// $this->session->sess_destroy();
+				
+				$this->session->sess_create();
 				$login = $this->login_model->login($_POST);
-				if($login->getCurrentUser()->getSessionToken() != null)
-				{
-					session_start();
-					$_SESSION["parse_token"] = $login->getCurrentUser()->getSessionToken();
-					redirect(base_url().'leafblast', 'refresh');
-				}
+				// $this->session->user = $login->Data;
+				$_SESSION["current_user"] = $login->Data;
+				redirect(base_url()."leafblast", "refresh");
 				break;
 
 			default:
