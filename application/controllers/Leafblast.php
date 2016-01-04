@@ -1,17 +1,18 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+session_start();
 class Leafblast extends CI_Controller {
+
 
 	public function index()
 	{
+		if(!isset($_SESSION["current_user"]))
+		{
+			redirect(base_url(), "refresh");
+		}
 		$this->load->model('dashboard_model');
 		
-		if(isset($_SESSION["parse_token"]))
-		{
-			redirect(base_url().'login', 'refresh');
-		}
-		else
-		{
+		
 			$date = date('Y-m-d');
 			$dashboard = array();
 			
@@ -22,7 +23,6 @@ class Leafblast extends CI_Controller {
 			$dashboard['appointmentsTimeline'] = $this->dashboard_model->appointmentsTimeline();
 			
 			$this->load->view('index', $dashboard);	
-		}
 
 		
 	}

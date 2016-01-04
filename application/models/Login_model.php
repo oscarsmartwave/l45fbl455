@@ -1,5 +1,5 @@
 <?php
-
+use Curl\Curl;
 use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseACL;
@@ -16,17 +16,13 @@ class Login_model extends CI_Model
 {
 	public function login($data)
 	{
-		try
-		{
-			$user = ParseUser::logIn($data["username"],$data["password"]);
-			$currentUser = ParseUser::getCurrentUser();
-			// die('<pre>'.print_r($currentUser, true));
-			return $currentUser;
-		}
-		catch(ParseException $e)
-		{
-			die('<pre>'.print_r(array("Message"=>$e->getMessage(),"Code"=>$e->getCode())));
-		}
+		$curl = new Curl();
+		$curl->post(API."login", 
+			$data
+			);
+		// die('<pre>'.print_r($curl->response, true));
+		return $curl->response;
+
 	}
 	public function getCurrentUser()
 	{
@@ -34,7 +30,7 @@ class Login_model extends CI_Model
 	}
 	public function logout()
 	{
-		ParseUser::logOut();
+		
 	}
 }
 
