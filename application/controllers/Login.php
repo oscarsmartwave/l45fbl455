@@ -22,9 +22,7 @@ class Login extends CI_Controller {
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-			
-				$this->session->sess_destroy();
-				die(":P");
+				redirect(base_url(), "refresh");	
 				break; 
 
 			case "POST" :
@@ -32,7 +30,12 @@ class Login extends CI_Controller {
 				
 				$this->session->sess_create();
 				$login = $this->login_model->login($_POST);
-				// $this->session->user = $login->Data;
+				
+				if($login->Status != 200)
+				{
+					redirect(base_url()."?login_attempt=1", "refresh");
+				}
+
 				$_SESSION["current_user"] = $login->Data;
 				redirect(base_url()."leafblast", "refresh");
 				break;
