@@ -29,13 +29,6 @@ class Users extends CI_Controller {
 		$data['users'] = $this->users_model->get_id($id); 
 		$this->load->view('users/edit', $data);
 	}
-	public function profiles()
-	{
-		$this->load->model('users_model');
-		$results = $this->users_model->view();
-		// die('<pre>'.print_r($results, true));
-		$this->load->view('users/profiles', $results);
-	}
 	public function settings()
 	{
 		$this->load->model('users_model');
