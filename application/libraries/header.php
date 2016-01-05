@@ -57,15 +57,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Leafblast CMS</a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">Leafblast CMS</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
+                    </a> -->
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <!-- <a href="#">
@@ -172,7 +172,11 @@
                             </a>
                         </li>
                     </ul>
+<<<<<<< HEAD
+                    <!-- /.dropdown-tasks
+=======
                     <!-- /.dropdown-tasks 
+>>>>>>> ef13545d90c0f4341f8805bacf35545721b3fb63
                 </li> -->
                 <!-- /.dropdown -->
                 <li class="dropdown">
@@ -242,7 +246,11 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?php echo base_url(); ?>users/profiles"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
+<<<<<<< HEAD
+                        <li><a href="<?php echo base_url(); ?>users/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+=======
                         <li><a href="<?php echo base_url(); ?>settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+>>>>>>> ef13545d90c0f4341f8805bacf35545721b3fb63
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -287,7 +295,19 @@
                         </li>
                         <!-- Users -->
                         <li>
-                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
+                            <a href=""><i class="fa fa-user fa-fw"></i></i> Users<span class="fa arrow"></a>
+                            <!-- <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a> -->
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/">View All</a>                                    
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/activated/">Active</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/deactivated/">Deactivated</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>reports/"><i class="fa fa-user-times fa-fw"></i> Reports</a>
