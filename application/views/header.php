@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Leafblast CMS</a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">Leafblast CMS</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -279,7 +279,7 @@
                             </div>
                             <!-- /input-group -->
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <!-- Financial Tables -->
                         <li>
@@ -301,10 +301,10 @@
                             <a href="#"><i class="fa fa-hand-spock-o fa-fw"></i></i> Operators<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/operators/">View All</a>
+                                    <a href="<?php echo base_url(); ?>operators/">View All</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/operators/add">Add</a>
+                                    <a href="<?php echo base_url(); ?>operators/add">Add</a>
                                 </li>
                             </ul>
                         </li>
@@ -313,7 +313,13 @@
                             <a href=""><i class="fa fa-user fa-fw"></i></i> Users<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/users/">View All</a>
+                                    <a href="<?php echo base_url(); ?>users/">View All</a>                                    
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/activated/">Active</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/deactivated/">Deactivated</a>
                                 </li>
                             </ul>
                         </li>

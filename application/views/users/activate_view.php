@@ -9,7 +9,7 @@ include APPPATH.'libraries/header.php';
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Users</h1>
+                        <h1 class="page-header">Active Users</h1>
                     </div>
                 <!-- /.col-lg-12 -->
                 </div>
@@ -56,6 +56,7 @@ include APPPATH.'libraries/header.php';
                                                 </td>
                                                 <td><a href='".base_url()."users/deactivate/".$row->getObjectId()."'>DEACTIVATE</a>
                                                 </td>
+                                                
                                             </tr>
                                             ";
                                         }
