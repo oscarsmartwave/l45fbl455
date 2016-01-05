@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Leafblast CMS</a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">Leafblast CMS</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -253,7 +253,7 @@
 >>>>>>> ef13545d90c0f4341f8805bacf35545721b3fb63
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url(); ?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -295,7 +295,19 @@
                         </li>
                         <!-- Users -->
                         <li>
-                            <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
+                            <a href=""><i class="fa fa-user fa-fw"></i></i> Users<span class="fa arrow"></a>
+                            <!-- <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a> -->
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/">View All</a>                                    
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/activated/">Active</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>users/deactivated/">Deactivated</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>reports/"><i class="fa fa-user-times fa-fw"></i> Reports</a>

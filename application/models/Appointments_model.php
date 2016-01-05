@@ -25,17 +25,19 @@ class Appointments_model extends CI_Model
 	
 	public function view()
 	{
-		ini_set('max_execution_time', 300);
+		// ini_set('max_execution_time', 300);
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments");
-		// $resp = $curl->response;
+		$curl->get(API."appointments");
+		$resp = $curl->response;
 		// die("<pre>".print_r($resp, true));
 		return $curl->response;
 	}
+	
 	public function get_id($id)
 	{
 
 	}
+
 	public function operators($id='')
 	{
 
@@ -45,7 +47,7 @@ class Appointments_model extends CI_Model
 	{
 		// $_user = new ParseQuery("_User");
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments/status/assigned");
+		$curl->get(API."appointments/status/assigned");
 
 		return $curl->response;
 		// die("<pre>".print_r($curl->response, true));
@@ -81,7 +83,7 @@ class Appointments_model extends CI_Model
 	public function unassigned()
 	{
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments/status/unassigned");
+		$curl->get(API."appointments/status/unassigned");
 
 		return $curl->response;
 	}

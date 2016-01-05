@@ -40,11 +40,11 @@ include APPPATH.'/libraries/header.php';
                                  <tr>
                                     <td>".$val->locationString."
                                     </td>
-                                    <td>".$val->model."
+                                    <td id=".$val->carObjectId.">
                                     </td>
-                                    <td>".$val->make."
+                                    <td id=".$val->carObjectId.">
                                     </td>
-                                    <td>".$val->userObjectid."
+                                    <td id=".$val->userObjectId.">
                                     </td>
                                     <td>".$val->madeAt."
                                     </td>
@@ -73,5 +73,5 @@ include APPPATH.'/libraries/header.php';
 <!-- /#page-wrapper -->
 
 <?php
-include APPPATH.'/libraries/footer.php';
+include 'view-footer.php';
 ?>
