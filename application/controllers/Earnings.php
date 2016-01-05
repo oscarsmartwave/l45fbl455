@@ -21,10 +21,8 @@ class Earnings extends CI_Controller {
 	public function year($year)
 	{
 		$this->load->model('earnings_model');
-		$results = array();
-		$results = $this->earnings_model->all($year);
-		//die('<pre>'.print_r($results, true));
-		$this->load->view('earnings/total', $results);
+		
+		$this->load->view('earnings/total');
 	}
 
 	public function total()

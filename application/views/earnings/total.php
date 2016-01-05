@@ -13,9 +13,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a> <?php
-                                    echo $Data->year-1;
-                                    ?></a>
+                                    <a> </a>
                                     <div class="table-responsive">
                                         <div class="dataTable_wrapper">
                                             <table class="table table-bordered table-hover table-striped" id="earningsTable">
@@ -32,22 +30,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    foreach($Data->month as $row)
-                                                    {
-                                                        echo '
-                                                        <tr>
-                                                            <td>
-                                                                '.$row->monthName.'
-                                                            </td>
-                                                            <td>
-                                                                '.$row->totalPayment.'
-                                                            </td>
-                                                            <td>
-                                                                '.$row->sum.'
-                                                            </td>
-                                                        </tr>
-                                                        ';
-                                                    }
+                                                    
 
                                                     ?>
                                                 </tbody>
@@ -61,12 +44,12 @@
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <span class="pull-left">TOTAL EARNINGS OF 2015 : </span> <span class="pull-right">$ <?php echo $Data->sum_this_year; ?></span>
+                                            <span class="pull-left">TOTAL EARNINGS OF 2015 : </span> <span class="pull-right">$ </span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <span class="pull-left">TOTAL EARNINGS : </span> <span class="pull-right">$ <?php echo $Data->sum_total; ?></span>
+                                            <span class="pull-left">TOTAL EARNINGS : </span> <span class="pull-right">$ </span>
                                         </div>
                                     </div>
                                 </div>
