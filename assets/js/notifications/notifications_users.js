@@ -18,7 +18,6 @@ $(document).ready(function(){
 			$.each(user, function(index, item) {
 			  users.append(new Option(item.get("lastName") +', '+item.get("firstName"), item.id));
 			});
-
 		},
 		error: function(object, error) {
 			alert("failed!");

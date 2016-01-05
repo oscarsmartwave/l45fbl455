@@ -10,7 +10,13 @@ class Users extends CI_Controller {
 		// die('<pre>'.print_r($results, true));
 		$this->load->view('users/users', $results);
 	}
-
+	public function profiles()
+	{
+		// $this->load->model('users_model');
+		// $results = $this->users_model->view();
+		// die('<pre>'.print_r($results, true));
+		$this->load->view('users/profiles', true);
+	}
 	public function edit($id='')
 	{
 		if($_SERVER['REQUEST_METHOD'] == 'POST')

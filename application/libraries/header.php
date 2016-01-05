@@ -172,7 +172,11 @@
                             </a>
                         </li>
                     </ul>
+<<<<<<< HEAD
                     <!-- /.dropdown-tasks
+=======
+                    <!-- /.dropdown-tasks 
+>>>>>>> ef13545d90c0f4341f8805bacf35545721b3fb63
                 </li> -->
                 <!-- /.dropdown -->
                 <li class="dropdown">
@@ -242,7 +246,11 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?php echo base_url(); ?>users/profiles"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
+<<<<<<< HEAD
                         <li><a href="<?php echo base_url(); ?>users/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+=======
+                        <li><a href="<?php echo base_url(); ?>settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+>>>>>>> ef13545d90c0f4341f8805bacf35545721b3fb63
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?php echo base_url(); ?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -289,9 +297,12 @@
                         <li>
                             <a href="<?php echo base_url(); ?>users/"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>reports/"><i class="fa fa-user-times fa-fw"></i> Reports</a>
+                        </li>
                         <!-- Graphs -->
                         <li>
-                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-dashboard fa-fw"></i> Graphs</a>
+                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-bar-chart fa-fw"></i> Graphs</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
@@ -316,13 +327,13 @@
                             <a href="#"><i class="fa fa-money fa-fw"></i> Financial Tables<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#total">Total</a>
+                                    <a href="<?php echo base_url(); ?>earnings/total">Total</a>
                                 </li>
                                 <li>
-                                    <a href="#per-operator">Per Operator</a>
+                                    <a href="<?php echo base_url(); ?>earnings/peroperator">Per Operator</a>
                                 </li>
                                 <li>
-                                    <a href="#time-period">For a Time Period</a>
+                                    <a href="<?php echo base_url(); ?>earnings/time">For a Time Period</a>
                                 </li>
                             </ul>
                         </li>

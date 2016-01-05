@@ -22,13 +22,12 @@ class Appointments_model extends CI_Model
 		$this->load->config("parse_config");
 		$this->edmunds = $this->config->item("edmunds");
 	}
+	
 	public function view()
 	{
 		ini_set('max_execution_time', 300);
 		$curl = new Curl();
-		// $curl->get("https://api.edmunds.com/api/v1/appointments/status/assigned?state=used&view=basic&fmt=json&api_key=".$this->edmunds);
 		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments");
-
 		// $resp = $curl->response;
 		// die("<pre>".print_r($resp, true));
 		return $curl->response;
@@ -48,8 +47,8 @@ class Appointments_model extends CI_Model
 		$curl = new Curl();
 		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments/status/assigned");
 
-		// return $curl->response;
-		die("<pre>".print_r($curl->response, true));
+		return $curl->response;
+		// die("<pre>".print_r($curl->response, true));
 
 	//Retrieve from parse
 		$response = $curl->response;

@@ -3,8 +3,6 @@ include APPPATH.'libraries/header.php';
 // die('<pre>'.print_r($operators[46]->get("operatorPicture")->getUrl(), true));
 
 ?>
-
-
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">

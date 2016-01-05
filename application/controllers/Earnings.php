@@ -26,4 +26,31 @@ class Earnings extends CI_Controller {
 		//die('<pre>'.print_r($results, true));
 		$this->load->view('earnings/total', $results);
 	}
+
+	public function total()
+	{
+		// $this->load->model('earnings_model');
+		// $results = array();
+		// $results = $this->earnings_model->all($year);
+		//die('<pre>'.print_r($results, true));
+		$this->load->view('earnings/total', true);
+	}
+
+
+	public function peroperator()
+	{
+		// $this->load->model('earnings_model');
+		// $results = array();
+		// $results = $this->earnings_model->all($year);
+		//die('<pre>'.print_r($results, true));
+		$this->load->view('earnings/per-operator', true);
+	}
+	public function time()
+	{
+		// $this->load->model('earnings_model');
+		// $results = array();
+		// $results = $this->earnings_model->all($year);
+		//die('<pre>'.print_r($results, true));
+		$this->load->view('earnings/time-period', true);
+	}
 }
