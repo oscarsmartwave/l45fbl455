@@ -1,15 +1,22 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-session_start();
 class Leafblast extends CI_Controller {
 
-
-	public function index()
+	public function __construct()
 	{
-		if(!isset($_SESSION["current_user"]))
+		parent::__construct();
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
 		{
 			redirect(base_url(), "refresh");
 		}
+	}
+
+	public function index()
+	{
+		// die('<pre>'.print_r($this->session->token));
+		
 		$this->load->model('dashboard_model');
 		
 		

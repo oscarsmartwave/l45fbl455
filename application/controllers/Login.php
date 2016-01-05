@@ -1,12 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-session_start();
+
 class Login extends CI_Controller {
 
 	public $currentUser;
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == true)
+		{
+			redirect(base_url()."leafblast", "refresh");
+		}
+	}
+
 	public function index()
 	{
-		if($this->session)
+		if($this->session->has_userdata('token') == false)
 		{
 			$this->load->view('login');
 		}
@@ -22,13 +34,12 @@ class Login extends CI_Controller {
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-				redirect(base_url(), "refresh");	
+				$this->session->sess_destroy();
+				redirect(base_url(), "refresh");
 				break; 
 
 			case "POST" :
-				// $this->session->sess_destroy();
-				
-				$this->session->sess_create();
+
 				$login = $this->login_model->login($_POST);
 				
 				if($login->Status != 200)
@@ -36,7 +47,10 @@ class Login extends CI_Controller {
 					redirect(base_url()."?login_attempt=1", "refresh");
 				}
 
-				$_SESSION["current_user"] = $login->Data;
+				$this->session->set_userdata((array)$login->Data);
+				$this->session->set_userdata(array("token" => $login->token));
+				// $this->session->session_id = $login->token;
+				// die('<pre>'.print_r($this->session->userdata(), true));
 				redirect(base_url()."leafblast", "refresh");
 				break;
 
