@@ -23,8 +23,10 @@ include APPPATH.'/libraries/header.php';
                             <thead>
                                 <tr>
                                     <th>Location</th>
-                                    <th>Model</th>
+                                    <th>Package</th>
+                                    <th>Operator</th>
                                     <th>Car</th>
+                                    <th>Model</th>
                                     <th>Owner</th>
                                     <th>Time Start</th>
                                     <th>Time End</th>
@@ -32,46 +34,108 @@ include APPPATH.'/libraries/header.php';
                             </thead>
                             <tbody>
                                <?php
+
                                foreach($Data as $val)
                                {
-                                   // $newDate = date("j F Y", strtotime($val->apptDate)); 
-                                 echo 
-                                 "
-                                 <tr>
-                                    <td>".$val->locationString."
+
+                                  $timeStart = date("j F Y H:i:s A", strtotime($val->startedAt)); 
+                                  $timeEnd = date("j F Y H:i:s A", strtotime($val->endedAt)); 
+
+                                  echo "<tr>
+                                  <td>".$val->locationString."
+                                  </td>
+                                  <td id=".$val->packageObjectId.">
+                                  </td>
+                                  <td id=".$val->optrObjectId.">
+                                  </td>
+                                  <td id=".$val->carObjectId.">
+                                  </td>
+                                  <td id=".$val->carObjectId.">
+                                  </td>
+                                  <td id=".$val->userObjectId.">
+                                  </td>";
+
+                                  if($val->startedAt == "")
+                                  {
+                                    if($val->endedAt == "")
+                                    {
+                                        echo "<td>".$val->startedAt."
                                     </td>
-                                    <td>".$val->model."
-                                    </td>
-                                    <td>".$val->make."
-                                    </td>
-                                    <td>".$val->userObjectid."
-                                    </td>
-                                    <td>".$val->madeAt."
-                                    </td>
-                                    <td>".$val->apptDate."
+                                    <td>".$val->endedAt."
                                     </td>
                                 </tr>
                                 ";
                             }
+                            else
+                            {
+                             echo "<td>".$val->startedAt."
+                         </td>
+                         <td>".$timeEnd."
+                         </td>
+                     </tr>
+                     ";
+                 }
 
-                            ?> 
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.table-responsive -->
+             }
+             elseif($val->endedAt = "")
+             {
+                if($val->startedAt = "")
+                {
+                 echo "<td>".$val->startedAt."
+             </td>
+             <td>".$val->endedAt."
+             </td>
+         </tr>
+         ";
+     }
+     else
+     {
+         echo "<td>".$timeStart."
+     </td>
+     <td>".$val->endedAt."
+     </td>
+ </tr>
+ ";
+}
+}
+elseif($val->startedAt && $val->endedAt = "")
+{
+   echo "<td>".$val->startedAt."
+</td>
+<td>".$val->endedAt."
+</td>
+</tr>
+";
+}
+else
+{
+    echo "<td>".$timeStart."
+</td>
+<td>".$timeEnd."
+</td>
+</tr>
+";
+}
+}
 
-            </div>
-            <!-- /.panel-body -->
+?> 
+</tbody>
+</table>
+</div>
+<!-- /.table-responsive -->
 
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+</div>
+<!-- /.panel-body -->
+
+</div>
+<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
 </div>
 <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
 
 <?php
-include APPPATH.'/libraries/footer.php';
+include 'appointments_footer.php';
 ?>

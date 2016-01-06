@@ -25,17 +25,18 @@ class Appointments_model extends CI_Model
 	
 	public function view()
 	{
-		ini_set('max_execution_time', 300);
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments");
-		// $resp = $curl->response;
+		$curl->get(API."appointments");
+		$resp = $curl->response;
 		// die("<pre>".print_r($resp, true));
 		return $curl->response;
 	}
+	
 	public function get_id($id)
 	{
 
 	}
+
 	public function operators($id='')
 	{
 
@@ -43,45 +44,15 @@ class Appointments_model extends CI_Model
 
 	public function assigned()
 	{
-		// $_user = new ParseQuery("_User");
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments/status/assigned");
+		$curl->get(API."appointments/status/assigned");
 
 		return $curl->response;
-		// die("<pre>".print_r($curl->response, true));
-
-	//Retrieve from parse
-		$response = $curl->response;
-		$count = count($response->Data);
-		$view = array();
-		ini_set('max_execution_time', 300);
-		for($i = 0; $i < $count; $i++)
-		{
-			$view[$i]["location"] = $response->Data[$i]->locationString;
-			$view[$i]["date"] = date("j F Y", strtotime($response->Data[$i]->apptDate));
-
-	//raw data
-			// $view[$i]["operator"] = $response->Data[$i]->optrObjectId;
-			// $view[$i]["package"] = $response->Data[$i]->packageObjectId;
-			// $view[$i]["car"] = $response->Data[$i]->carObjectId;
-			// $view[$i]["user"] = $response->Data[$i]->userObjectId;
-
-	//from Parse
-			// $view[$i]["operator"] = $this->parseGetUserName($response->Data[$i]->optrObjectId);
-			// $view[$i]["package"] = $this->parseGetPackageTitle($response->Data[$i]->packageObjectId);
-			// $view[$i]["car"] = $this->parseGetCar($response->Data[$i]->carObjectId);
-			// $view[$i]["user"] = $this->parseGetUserName($response->Data[$i]->userObjectId);
-		}
-
-
-		// return $view;
-		// die("<pre>".print_r($view, true));
-
 	}
 	public function unassigned()
 	{
 		$curl = new Curl();
-		$curl->get("http://52.24.133.167/api.leafblast/api/v1/appointments/status/unassigned");
+		$curl->get(API."appointments/status/unassigned");
 
 		return $curl->response;
 	}
@@ -93,44 +64,50 @@ class Appointments_model extends CI_Model
 	{
 		
 	}
-	public function view_month($year, $month, $days)
+	public function view_month($year, $month)
 	{
-		
+		$curl = new Curl();
+		$curl->get(API."history/month/".$year."/".$month);
+		return $curl->response;
+
+		// die("<pre>".print_r($curl->response, true));
 	}
 	public function view_year($year)
 	{
-		
+		$curl = new Curl();
+		$curl->get(API."history/year/".$year);
+
+		return $curl->response;
+		// $resp = $curl->response;
+		// die("<pre>".print_r($resp, true));
 	}
 	public function view_day($year, $month, $day)
 	{
 		
 	}
-	public function parseGetUserName($objectId)
-	{
-		$_user = new ParseQuery("_User");
-		$_user->limit(1);
-		$user = $_user->get($objectId);
-		// $user = $_user->find();
-		return $user->get("firstName")." ".$user->get("lastName");
-	}
+	// public function parseGetUserName($objectId)
+	// {
+	// 	$_user = new ParseQuery("_User");
+	// 	$_user->limit(1);
+	// 	$user = $_user->get($objectId);
+	// 	return $user->get("firstName")." ".$user->get("lastName");
+	// }
 
-	public function parseGetCar($objectId)
-	{
-		$car = new ParseQuery("Car");
-		$car->limit(1);
-		$_car = $car->get($objectId);
-		// $carInfo = $car->find();
-		return $_car->get("make");
-	}
+	// public function parseGetCar($objectId)
+	// {
+	// 	$car = new ParseQuery("Car");
+	// 	$car->limit(1);
+	// 	$_car = $car->get($objectId);
+	// 	return $_car->get("make");
+	// }
 
-	public function parseGetPackageTitle($objectId)
-	{
-		$carWashPackage = new ParseQuery("CarWashPackages");
-		$carWashPackage->limit(1);
-		$package = $carWashPackage->get($objectId);
-		// $package = $carWashPackage->find();
-		return $package->get('title');
-	}
+	// public function parseGetPackageTitle($objectId)
+	// {
+	// 	$carWashPackage = new ParseQuery("CarWashPackages");
+	// 	$carWashPackage->limit(1);
+	// 	$package = $carWashPackage->get($objectId);
+	// 	return $package->get('title');
+	// }
 
 }
 

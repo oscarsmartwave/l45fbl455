@@ -72,6 +72,45 @@ class Users_model extends CI_Model
 			return $ex_array;
 		}
 	}
+	public function activate($objectId)
+	{
+		$cp = new ParseQuery("_User");
+		$results = $cp->get($objectId);
+
+		$results->set("isDeactivated", false);
+		
+		try
+		{
+			$results->save(true);
+			return $this->get_id($objectId);
+		}
+		catch(ParseException $ex)
+		{
+			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
+		}
+	}
+	public function deactivated()
+	{
+		$query = new ParseQuery('_User');
+		$query->equalTo("isOperator", false);
+		$query->equalTo("isDeactivated", true);
+		$results["users"] = $query->find();
+
+		return $results;
+
+	}
+
+	public function activated()
+	{
+		$query = new ParseQuery('_User');
+		$query->equalTo("isOperator", false);
+		$query->equalTo("isDeactivated", false);
+		$results["users"] = $query->find();
+
+		return $results;
+
+	}
 
 	public function edit($id, $data)
 	{	
