@@ -91,7 +91,7 @@ class Appointments extends CI_Controller {
 
 	public function day($year='' ,$month='', $day='')
 	{
-		//die($year. $month. $day);
+		// die("<pre>".print_r($year. $month. $day, true));
 		$appointments = $this->am->view_day($year,$month,$day);
 		$this->load->view('appointments/appointmentdays', $appointments);
 	}

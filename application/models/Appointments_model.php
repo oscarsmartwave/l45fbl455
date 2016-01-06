@@ -81,9 +81,17 @@ class Appointments_model extends CI_Model
 		// $resp = $curl->response;
 		// die("<pre>".print_r($resp, true));
 	}
-	public function view_day($year, $month, $day)
+	public function view_day($year, $month, $view_day)
 	{
-		
+		$dateFormat = array(
+			"date"=>$year."/".$month."/".$view_day
+			);
+		$curl = new Curl();
+		$curl->post(API."history/date", $dateFormat);
+
+		// die("<pre>".print_r($curl->response, true));
+		return $curl->response;
+
 	}
 	// public function parseGetUserName($objectId)
 	// {
