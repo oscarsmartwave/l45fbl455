@@ -34,7 +34,6 @@ class Login extends CI_Controller {
 		switch ($_SERVER["REQUEST_METHOD"])
 		{
 			case "GET" :
-				$this->session->sess_destroy();
 				redirect(base_url(), "refresh");
 				break; 
 
