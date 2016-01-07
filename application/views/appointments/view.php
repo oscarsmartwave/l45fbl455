@@ -35,24 +35,23 @@ include APPPATH.'/libraries/header.php';
                                foreach($Data as $val)
                                {
                                    // $newDate = date("j F Y", strtotime($val->apptDate)); 
-                                 echo 
-                                 "
-                                 <tr>
-                                    <td>".$val->locationString."
-                                    </td>
-                                    <td id=".$val->carObjectId.">
-                                    </td>
-                                    <td id=".$val->carObjectId.">
-                                    </td>
-                                    <td id=".$val->userObjectId.">
-                                    </td>
-                                    <td>".$val->madeAt."
-                                    </td>
-                                    <td>".$val->apptDate."
-                                    </td>
-                                </tr>
-                                ";
-                            }
+                                    echo 
+                                    "<tr>
+                                        <td>".$val->locationString."
+                                        </td>
+                                        <td id=".$val->carObjectId.">
+                                        </td>
+                                        <td id=".$val->carObjectId.">
+                                        </td>
+                                        <td id=".$val->userObjectId.">
+                                        </td>
+                                        <td>".$val->madeAt."
+                                        </td>
+                                        <td>".$val->apptDate."
+                                        </td>
+                                    </tr>
+                                    ";
+                                }
 
                             ?> 
                         </tbody>

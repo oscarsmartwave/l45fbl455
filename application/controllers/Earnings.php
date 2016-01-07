@@ -3,45 +3,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Earnings extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function year($year)
+	public function __construct()
 	{
-		$this->load->model('earnings_model');
-		
-		$this->load->view('earnings/total');
+		parent::__construct();
+		$this->load->model("earnings_model", "em");
+		$this->load->driver("session");
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
 	}
 
-	public function total()
+	public function year($year = "")
 	{
-		// $this->load->model('earnings_model');
-		// $results = array();
-		// $results = $this->earnings_model->all($year);
-		//die('<pre>'.print_r($results, true));
+		$this->load->model("earnings_model", "em");
+		$result = $this->em->all($year);
+		
+		$this->load->view('earnings/year', $result);
+	}
+
+	public function total($year='')
+	{
+		$this->load->model('earnings_model');
+		$results = array();
+		$results = $this->earnings_model->all($year);
 		$this->load->view('earnings/total', true);
 	}
 
 
-	public function peroperator()
+	public function operators($optrObjectId ='')
 	{
-		// $this->load->model('earnings_model');
-		// $results = array();
-		// $results = $this->earnings_model->all($year);
-		//die('<pre>'.print_r($results, true));
-		$this->load->view('earnings/per-operator', true);
+		$bool = !($optrObjectId == '');
+
+		switch($bool)
+		{
+			case true :
+				$results = $this->em->operator($optrObjectId);
+				// die('<pre>'.print_r($results, true));
+				$this->load->view("earnings/operator", $results);
+				break;
+			case false :
+				$operators = $this->em->operators();
+				// die('<pre>'.print_r($operators, true));
+				$this->load->view("earnings/operators", $operators);
+				break;
+			default : break;
+		}
+
+		// $this->load->view('earnings/operator', true);
 	}
 	public function time()
 	{
