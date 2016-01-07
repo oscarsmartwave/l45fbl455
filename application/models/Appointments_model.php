@@ -27,8 +27,6 @@ class Appointments_model extends CI_Model
 	{
 		$curl = new Curl();
 		$curl->get(API."appointments");
-		$resp = $curl->response;
-		// die("<pre>".print_r($resp, true));
 		return $curl->response;
 	}
 	
