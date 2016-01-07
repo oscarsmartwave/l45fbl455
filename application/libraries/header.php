@@ -135,6 +135,14 @@
                         <!-- Graphs -->
                         <li>
                             <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-bar-chart fa-fw"></i> Graphs</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>graphs/size">Size</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>graphs/time">Time</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>notifications"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
@@ -205,7 +213,7 @@
                                             <a href="<?php echo base_url(); ?>appointments/months">Month</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>appointments/Day">Day</a>
+                                            <a href="<?php echo base_url(); ?>appointments/date">Day</a>
                                         </li>
 
                                     </ul>

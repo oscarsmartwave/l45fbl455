@@ -1,8 +1,7 @@
 $(function(){
 	var API = "http://52.24.133.167/api.leafblast/api/v1/";
-	var API = "http://52.24.133.167/api.leafblast/api/v1/";
 	console.log("Ready!");
-	
+
 	Parse.initialize("mVOnxcUCEBLer0c0z7yiXOtyRXcMFrgabGyKEYvY", "M4TXuuTzPT4uMCEGR4txOeuQIA4TekIxBhbXhKGg");
 	var _User = Parse.Object.extend("_User");
 	var _Car = Parse.Object.extend("Car");
@@ -40,29 +39,35 @@ $(function(){
 		var getDate = year+"/"+month+"/"+day;
 		console.log(getDate);
 
-
-		$.post("http://52.24.133.167/api.leafblast/api/v1/earnings/date", { date : getDate })
+		$.post("http://52.24.133.167/api.leafblast/api/v1/history/date", { date : getDate })
 		.done(function(data) { 
 			console.log(data);
 
-			var timeTable = $("<table class='table table-bordered table-hover table-striped' id='earningsTable'>");
+			var timeTable = $("<table class='table table-bordered table-hover table-striped' id='apptTable'>");
 			$("#table-container").empty();
 			var thead = $("<thead>"+
+				"<td>Location</td>"+
+				"<td>Package</td>"+
 				"<td>Operator</td>"+
-				"<td>Owner</td>"+
-				"<td>Car License</td>"+
+				"<td>Car</td>"+
 				"<td>Model</td>"+
-				"<td>Made at</td>"+
+				"<td>Owner</td>"+
+				"<td>Time Start</td>"+
+				"<td>Time End</td>"+
 				"</thead>");
 			var tbody = $("<tbody></tbody>");
 			$.each(data.Data, function(key, value){
-				// var formatDate = dateFormat(value.madeAt, "d mmmm yyyy h:MM:ss TT");
+				// var timeStart = dateFormat(value.startedAt, "d mmm yyyy h:MM:ss TT");
+				// var timeEnd = dateFormat(value.endedAt, "d mmmm yyyy h:MM:ss TT");
 
-				var row = $("<tr><td id='"+value.optrObjectId+"'>"+
+				var row = $("<tr><td>"+value.locationString+
+					"</td><td id='"+value.packageObjectId+"'>"+
+					"</td><td id='"+value.optrObjectId+"'>"+
+					"</td><td id='"+value.carObjectId+"'>"+
+					"</td><td id='"+value.carObjectId+"'>"+
 					"</td><td id='"+value.userObjectId+"'>"+
-					"</td><td id='"+value.carObjectId+"'></td>"+
-					"</td><td id='"+value.carObjectId+"'></td>"+
-					"<td>"+value.madeAt+"</td></tr>");
+					"</td><td>"+value.startedAt+"</td>"+
+					"<td>"+value.endedAt+"</td></tr>");
 				tbody.append(row);
 			});
 			var table = timeTable.append(thead, tbody);
@@ -71,29 +76,34 @@ $(function(){
 
 			var _User = Parse.Object.extend("_User");
 			var _Car = Parse.Object.extend("Car");
+			var _Pkg = Parse.Object.extend("CarWashPackages");
 
 			var users = new Parse.Query(_User);
 			var cars = new Parse.Query(_Car);
+			var pkg = new Parse.Query(_Pkg);
 
-			$('#earningsTable > tbody  > tr').each(function(){
+			$("#apptTable > tbody > tr").each(function(){
 
-				var carObjectId = this.cells[2].id;
-				var td_license = this.cells[2];
-				var td_model = this.cells[3];
+				var carObjectId = this.cells[3].id;
+				var td_car = this.cells[3];
+				var td_model = this.cells[4];
 
-				var userObjectId = this.cells[1].id;
-				var td_owner = this.cells[1];
+				var userObjectId = this.cells[5].id;
+				var td_owner = this.cells[5];
 
-				var optrObjectId = this.cells[0].id;
-				var td_optr = this.cells[0];
+				var packageObjectId = this.cells[1].id;
+				var td_package = this.cells[1];
+
+				var optrObjectId = this.cells[2].id;
+				var td_optr = this.cells[2];
 
 				cars.get(carObjectId, {
 					success: function(car)
 					{
 						var model = car.get("model");
-						var license = car.get("license");
+						var make = car.get("make");
 						td_model.innerText = model;
-						td_license.innerText = license;
+						td_car.innerText = make;
 					},
 					error: function(object, error) 
 					{
@@ -116,6 +126,20 @@ $(function(){
 
 		});//end users.get
 
+				pkg.get(packageObjectId, {
+					success: function(pkg)
+					{
+						var title = pkg.get("title");
+
+						td_package.innerText = title;
+					},
+					error: function(object, error) 
+					{
+						alert(error);
+					}
+
+		});//end pkg.get
+
 				users.get(optrObjectId, {
 					success: function(optr)
 					{
@@ -131,12 +155,12 @@ $(function(){
 
 		});//end opt.get
 
-	}); // end each function
+			});
 
-	$('#earningsTable').DataTable({
-		responsive: true
-	});
-} );
+$('#earningsTable').DataTable({
+	responsive: true
+});
+});
 });
 
 //date format
@@ -255,4 +279,4 @@ Date.prototype.format = function (mask, utc) {
 
 //end date format
 
-});	
+});

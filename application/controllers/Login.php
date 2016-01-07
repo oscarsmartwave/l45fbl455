@@ -60,7 +60,6 @@ class Login extends CI_Controller {
 	public function logout()
 	{
 		redirect(base_url().'login', 'refresh');
-
 	}
 }
 ?>

@@ -54,9 +54,11 @@ include APPPATH.'libraries/header.php';
                     <div class = "panel-heading">
                         TABLE
                     </div>
-                    <div class="panel-body" id="table-container">
-                        
+                    <div class="panel-body">
 
+                        <div class="table-responsive" id="table-container">
+
+                        </div>
 
                     </div><!-- /.panel-body -->
                 </div><!-- /.panel.panel-default -->
