@@ -38,7 +38,10 @@ include APPPATH.'/libraries/header.php';
                                foreach($Data as $val)
                                {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a53f62a7108166c24c9fe01a4d92d028a4ce970
                                   $timeStart = date("j F Y H:i:s A", strtotime($val->startedAt)); 
                                   $timeEnd = date("j F Y H:i:s A", strtotime($val->endedAt)); 
 
@@ -76,6 +79,7 @@ include APPPATH.'/libraries/header.php';
                      </tr>
                      ";
                  }
+<<<<<<< HEAD
              }
              elseif($val->endedAt = "")
              {
@@ -128,6 +132,61 @@ else
 <!-- /.panel-body -->
 
 </div>
+=======
+
+             }
+             elseif($val->endedAt = "")
+             {
+                if($val->startedAt = "")
+                {
+                 echo "<td>".$val->startedAt."
+             </td>
+             <td>".$val->endedAt."
+             </td>
+         </tr>
+         ";
+     }
+     else
+     {
+         echo "<td>".$timeStart."
+     </td>
+     <td>".$val->endedAt."
+     </td>
+ </tr>
+ ";
+}
+}
+elseif($val->startedAt && $val->endedAt = "")
+{
+   echo "<td>".$val->startedAt."
+</td>
+<td>".$val->endedAt."
+</td>
+</tr>
+";
+}
+else
+{
+    echo "<td>".$timeStart."
+</td>
+<td>".$timeEnd."
+</td>
+</tr>
+";
+}
+}
+
+?> 
+</tbody>
+</table>
+</div>
+<!-- /.table-responsive -->
+
+</div>
+<!-- /.panel-body -->
+
+</div>
+>>>>>>> 6a53f62a7108166c24c9fe01a4d92d028a4ce970
 <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
