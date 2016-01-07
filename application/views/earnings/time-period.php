@@ -4,7 +4,7 @@ include APPPATH.'libraries/header.php';
 ?>
 <div id="page-wrapper">
     <div class="col-lg-12">
-        <h4 clas="page-header">Per Operator</h4>
+        <h4 clas="page-header">Exact Date</h4>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">

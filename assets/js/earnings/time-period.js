@@ -41,18 +41,32 @@ $(function(){
 		$.post("http://localhost/api.leafblast/api/v1/earnings/date", { date : getDate })
 			.done(function(data) { 
 				console.log(data);
-				var tableResponsive = $("<div class='table-responsive'>");
-				var divTimeTable = tableResponsive.append($("<div id='time-table'>"));
+				
 				var timeTable = $("<table class='table table-bordered table-hover table-striped' id='earningsTable'>");
-				var thead = $("<thead>
-									<td>Operator</td>
-									<td>Owner</td>
-									<td>Car License</td>
-									<td>Model</td>
-									<td>Made at</td>
-								</thead>");
+				var thead = $("<thead>"+
+									"<td>Operator</td>"+
+									"<td>Owner</td>"+
+									"<td>Car License</td>"+
+									"<td>Model</td>"+
+									"<td>Made at</td>"+
+								"</thead>");
 				var tbody = $("<tbody></tbody>");
-				$('#table-container').append(timeTable);
+				$.each(data.Data, function(key, value){
+					var row = $("<tr><td>"+value.optrObjectId+
+								"</td><td>"+value.userObjectId+
+								"</td><td id='"+value.carObjectId+"'></td>"+
+								"</td><td id='"+value.carObjectId+"'></td>"+
+								"<td>"+value.madeAt+"</td></tr>");
+					tbody.append(row);
+				});
+				var table = timeTable.append(thead, tbody);
+				var divTimeTable = $("<div id='time-table'>").append(table);
+				var tableResponsive = $("<div class='table-responsive'>").append(divTimeTable);
+				$('#table-container').append(tableResponsive);
+
+				$('#earningsTable').DataTable({
+		                responsive: true
+		        });
 			} );
 	});
 
