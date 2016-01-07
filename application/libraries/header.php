@@ -213,7 +213,7 @@
                                             <a href="<?php echo base_url(); ?>appointments/months">Month</a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url(); ?>appointments/Day">Day</a>
+                                            <a href="<?php echo base_url(); ?>appointments/date">Day</a>
                                         </li>
 
                                     </ul>

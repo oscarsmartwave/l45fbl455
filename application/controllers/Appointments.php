@@ -7,11 +7,6 @@ class Appointments extends CI_Controller {
 		parent::__construct();
 		$this->load->model("appointments_model", "am");
 		$this->load->driver("session");
-
-		if($this->session->has_userdata('token') == false)
-		{
-			redirect(base_url(), "refresh");
-		}
 	}
 
 	public function index()
@@ -158,6 +153,11 @@ class Appointments extends CI_Controller {
 		//die('<pre>'.print_r($data, true));
 		$this->load->view('appointments/appointmentyears', $data);
 
+	}
+
+	public function date()
+	{
+		$this->load->view('appointments/appointmentdays', true);
 	}
 
 }

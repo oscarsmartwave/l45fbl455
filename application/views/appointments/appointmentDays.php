@@ -4,52 +4,73 @@ include APPPATH.'/libraries/header.php';
 ?>
 
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">All Appointments</h1>
-                    </div>
-                <!-- /.col-lg-12 -->
+<!-- Page Content -->
+<div id="page-wrapper">
+   <div class="col-lg-12">
+       <h4 clas="page-header">Exact Date</h4>
+       <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    SELECT DATE :
                 </div>
-                <!-- /.row -->
-                <div class="row days">
-                    <div class="col-lg-12">
-                        <div class="panel-body">
-
-                                <div class="dataTable_wrapper">
-                            
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>Location</th>
-                                                <th>Model</th>
-                                                <th>Car</th>
-                                                <th>Owner</th>
-                                                <th>Time Start</th>
-                                                <th>Time End</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                                
-                            </div>
-                            <!-- /.panel-body -->
-
+                <div class = "panel-body">
+                    <div class="form-inline col-centered">
+                        <div class="form-group">
+                            <label class="sr-only" for="year">SELECT YEAR:</label>
+                            <select class="form-control" name="year" id="years">
+                                <option value = 0 >-- YEAR --</option>
+                                <?php
+                                for($i = 0; $i <= 30; $i++)
+                                {
+                                    $year = date("Y")-$i;
+                                    echo "<option value=".$year.">".$year."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="year">SELECT MONTH:</label>
+                            <select class="form-control" name="month" id="months">
+                                <option value = 0 >-- MONTH --</option>
+                                <?php
+                                for($i = 1; $i <= 12; $i++)
+                                {
+                                    $dateObj   = DateTime::createFromFormat('!m', $i);
+                                    $monthName = $dateObj->format('F');
+                                    echo "<option value=".$i.">".$monthName."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="year">SELECT DAY:</label>
+                            <select class="form-control" name="day" id="days">
+                                <option value = 0 >-- DAY --</option>
+                            </select>
+                        </div>                             
+                        <button class="btn btn-default" id="btnGo">GO</button>
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
-            <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-    
+            </div><!-- /.panel.panel-default -->
+            <div class="panel panel-default">
+                <div class = "panel-heading">
+                    TABLE
+                </div>
+                <div class="panel-body">
+
+                    <div class="table-responsive" id="table-container">
+                        
+                    </div>
+
+                </div><!-- /.panel-body -->
+            </div><!-- /.panel.panel-default -->
+        </div><!-- /.col-lg-12 -->
+    </div> <!-- /.row -->
+</div> <!-- /.page-wrapper -->
+</div>
+<!-- /#page-wrapper -->
+
 <?php
-include APPPATH.'/libraries/footer.php';
+include 'date_footer.php';
 ?>
