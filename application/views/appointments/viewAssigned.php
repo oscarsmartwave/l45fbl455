@@ -22,58 +22,116 @@ include APPPATH.'/libraries/header.php';
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Location</th>
-                                    <th>Operator</th>
-                                    <th>Package</th>
-                                    <th>Car</th>
-                                    <th>Owner</th>
-                                    <th>Appointment Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $i = 0;
-                                foreach($Data as $val)
+                                   <th>Location</th>
+                                   <th>Package</th>
+                                   <th>Operator</th>
+                                   <th>Car</th>
+                                   <th>Model</th>
+                                   <th>Owner</th>
+                                   <th>Time Start</th>
+                                   <th>Time End</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                            <?php
+                            
+                            foreach($Data as $val)
+                            {
+                              $timeStart = date("j F Y H:i:s A", strtotime($val->startedAt)); 
+                              $timeEnd = date("j F Y H:i:s A", strtotime($val->endedAt)); 
+
+                              echo "<tr>
+                              <td>".$val->locationString."
+                              </td>
+                              <td id=".$val->packageObjectId.">
+                              </td>
+                              <td id=".$val->optrObjectId.">
+                              </td>
+                              <td id=".$val->carObjectId.">
+                              </td>
+                              <td id=".$val->carObjectId.">
+                              </td>
+                              <td id=".$val->userObjectId.">
+                              </td>";
+
+                              if($val->startedAt == "")
+                              {
+                                if($val->endedAt == "")
                                 {
-                                    $i++;
-                                    $optr = $val->optrObjectId;
-                                    $pkg = $val->packageObjectId;
-                                    $car = $val->carObjectId;
-                                    $user = $val->userObjectId;
-                                    echo 
-                                    "
-                                    <tr>
-                                        <td>".$val->locationString."
-                                        </td>
-                                        <td id='".$optr."'>".$optr."
-                                        </td>
-                                        <td id='".$pkg."'>".$pkg."
-                                        </td>
-                                        <td id='".$car."'>".$car."
-                                        </td>
-                                        <td id='".$user."'>".$user."
-                                        </td>
-                                        <td>".$val->apptDate."
-                                        </td>
-                                    </tr>
-                                    ";
-                                }
+                                    echo "<td>".$val->startedAt."
+                                </td>
+                                <td>".$val->endedAt."
+                                </td>
+                            </tr>
+                            ";
+                        }
+                        else
+                        {
+                         echo "<td>".$val->startedAt."
+                     </td>
+                     <td>".$timeEnd."
+                     </td>
+                 </tr>
+                 ";
+             }
 
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.table-responsive -->
+         }
+         elseif($val->endedAt = "")
+         {
+            if($val->startedAt = "")
+            {
+             echo "<td>".$val->startedAt."
+         </td>
+         <td>".$val->endedAt."
+         </td>
+     </tr>
+     ";
+ }
+ else
+ {
+     echo "<td>".$timeStart."
+ </td>
+ <td>".$val->endedAt."
+ </td>
+</tr>
+";
+}
+}
+elseif($val->startedAt && $val->endedAt = "")
+{
+   echo "<td>".$val->startedAt."
+</td>
+<td>".$val->endedAt."
+</td>
+</tr>
+";
+}
+else
+{
+    echo "<td>".$timeStart."
+</td>
+<td>".$timeEnd."
+</td>
+</tr>
+";
+}
+}
 
-                </div>
-                <!-- /.panel-body -->
+?>
+</tbody>
+</table>
+</div>
+<!-- /.table-responsive -->
 
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+</div>
+<!-- /.panel-body -->
+
+</div>
+<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
 

@@ -1,6 +1,7 @@
 <!-- jQuery -->
-</div>
-<!-- /#wrapper -->
+</body>
+</footer>
+    <!-- /#wrapper -->
     <script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -12,15 +13,6 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/dist/js/sb-admin-2.js"></script>
     
-    <!-- Flot Charts JavaScript
-    <script src="<?php echo base_url();?>assets/bower_components/flot/excanvas.min.js"></script>
-    <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.resize.js"></script>
-    <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.time.js"></script>
-    <script src="<?php echo base_url();?>assets/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/appointments/js/operators_graph.js"></script>   -->
-
     <!-- DataTables JavaScript -->
     <!--
     <script src="<?php echo base_url();?>assets/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -31,8 +23,9 @@
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo base_url();?>assets/bower_components/raphael/raphael-min.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/morrisjs/morris.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/morris-data.js"></script>
-    
-</body>
+    <!-- <script src="<?php echo base_url();?>assets/js/morris-data.js"></script> -->
+    <!-- <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/appointments/view.js"></script> -->
+</footer>
 
 </html>

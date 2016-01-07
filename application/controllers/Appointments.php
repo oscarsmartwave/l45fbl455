@@ -6,6 +6,12 @@ class Appointments extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("appointments_model", "am");
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
 	}
 
 	public function index()
@@ -32,18 +38,12 @@ class Appointments extends CI_Controller {
 	}
 	public function assigned()
 	{
-		$this->load->model("appointments_model");
-
-		$appointments = $this->appointments_model->assigned();
-		// die("<pre>".print_r($appointments, true));
-
+		$appointments = $this->am->assigned();
 		$this->load->view("appointments/viewAssigned", $appointments);
 	}
 	public function unassigned()
 	{
-		$this->load->model("appointments_model");
-
-		$appointments = $this->appointments_model->unassigned();
+		$appointments = $this->am->unassigned();
 		$this->load->view("appointments/viewUnassigned", $appointments);
 	}
 	public function assignment($apptId='')
@@ -66,7 +66,6 @@ class Appointments extends CI_Controller {
 	{
 		$this->load->model('operators_model');
 		$users = $this->operators_model->view();
-		$this->load->model('appointments_model');
 //		die('<pre>'.print_r($users, true));
 		$array = array();
 		$data = array();
@@ -77,7 +76,7 @@ class Appointments extends CI_Controller {
 			$ctr=0;
 			foreach($row as $val)
 			{
-				$data[$ctr] =  array($ctr, $this->appointments_model->operators_appointment_count($val->objectId));
+				$data[$ctr] =  array($ctr, $this->am->operators_appointment_count($val->objectId));
 				$ticks[$ctr] = array($ctr, $val->username);
 				$ctr++;
 			}
@@ -92,9 +91,8 @@ class Appointments extends CI_Controller {
 
 	public function day($year='' ,$month='', $day='')
 	{
-		//die($year. $month. $day);
-		$this->load->model('appointments_model');
-		$appointments = $this->appointments_model->view_day($year,$month,$day);
+		// die("<pre>".print_r($year. $month. $day, true));
+		$appointments = $this->am->view_day($year,$month,$day);
 		$this->load->view('appointments/appointmentdays', $appointments);
 	}
 	public function months($year='' ,$month='')
@@ -136,29 +134,27 @@ class Appointments extends CI_Controller {
 			case '11' :
 			$numOfDays = 30;
 			break;
-			case '12' :
+			case 12 :
 			$numOfDays = 31;
 			break;
 		}
 
-		$this->load->model('appointments_model');
 		if($month == '')
 		{
 			$this->load->view('appointments/viewmonths');
 		}
 		else
 		{
-			$this->load->view('appointments/appointmentmonths', $this->appointments_model->view_month($year, $month, $numOfDays));
+			$this->load->view('appointments/appointmentmonths', $this->am->view_month($year, $month));
 		}
 	}
 	public function year($year='')
 	{
-		$this->load->model('appointments_model');
 		if($year == '')
 		{
 			$this->load->view('appointments/appointmentyears', $year);
 		}
-		$data = $this->appointments_model->view_year($year);
+		$data = $this->am->view_year($year);
 		//die('<pre>'.print_r($data, true));
 		$this->load->view('appointments/appointmentyears', $data);
 
