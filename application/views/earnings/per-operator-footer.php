@@ -25,7 +25,7 @@
     <script src="<?php echo base_url();?>assets/bower_components/morrisjs/morris.min.js"></script>
     <!-- <script src="<?php echo base_url();?>assets/js/morris-data.js"></script> -->
     <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/appointments/appointments.js"></script>
+    <script src="<?php echo base_url();?>assets/js/earnings/per-operator.js"></script>
 </footer>
 
 </html>

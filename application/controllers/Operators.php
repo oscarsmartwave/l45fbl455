@@ -23,7 +23,7 @@ class Operators extends CI_Controller {
 		$this->load->model('operators_model');
 		$data = $this->operators_model->view();
 		
-		//die('<pre>'.print_r($data, true));
+		// die('<pre>'.print_r($data, true));
 		$this->load->view('operators/operators', $data);
 	}
 	public function add()

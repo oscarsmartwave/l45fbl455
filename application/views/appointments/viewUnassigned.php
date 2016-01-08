@@ -36,8 +36,8 @@ include APPPATH.'/libraries/header.php';
                             <?php
                             foreach($Data as $val)
                             {
-                               $timeStart = date("j F Y H:i:s A", strtotime($val->startedAt)); 
-                               $timeEnd = date("j F Y H:i:s A", strtotime($val->endedAt)); 
+                               $timeStart = date("j F Y H:i A", strtotime($val->startedAt)); 
+                               $timeEnd = date("j F Y H:i A", strtotime($val->endedAt)); 
 
                                echo "<tr>
                                <td>".$val->locationString."

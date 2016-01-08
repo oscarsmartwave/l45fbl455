@@ -84,7 +84,7 @@ class Operators_model extends CI_Model
 		$results->set("homeAddress", $data["homeAddress"]);
 		$results->set("phoneNumber", $data["phoneNumber"]);
 		$results->set("isOperator", true);
-	
+		
 		
 		try
 		{
@@ -162,7 +162,7 @@ class Operators_model extends CI_Model
 		$results = $cp->get($data["objectId"]);
 
 		$results->set("password", "leafblast");
-			
+		
 		
 		try
 		{
@@ -191,7 +191,7 @@ class Operators_model extends CI_Model
 // 			);
 // 		$url = 'https://api.parse.com/1/classes/OperatorRatings?'.http_build_query($query);
 // 	    $handle = curl_init(); 
-	    
+	
 // 		curl_setopt($handle, CURLOPT_URL, $url);
 // 		curl_setopt($handle, CURLOPT_HTTPHEADER, $this->headers);
 // 		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
