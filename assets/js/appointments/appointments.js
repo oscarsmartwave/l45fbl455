@@ -34,7 +34,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 		}); // end cars.get
 
@@ -48,7 +48,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 
 		});//end users.get
@@ -62,7 +62,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 
 		});//end pkg.get
@@ -77,7 +77,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 
 		});//end opt.get

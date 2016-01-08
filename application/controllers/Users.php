@@ -3,8 +3,27 @@
 
 class Users extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
+	}
+
 	public function index()
 	{
+
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
+
 		$this->load->model('users_model');
 		$results = $this->users_model->view();
 		// die('<pre>'.print_r($results, true));
