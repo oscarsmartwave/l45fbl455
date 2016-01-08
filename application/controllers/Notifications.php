@@ -9,6 +9,12 @@ class Notifications extends CI_controller {
 	{
 		parent::__construct();
 		$this->load->model("notifications_model", "n_model");
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
 	}
 
 	public function all()

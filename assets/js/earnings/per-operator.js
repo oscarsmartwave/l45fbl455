@@ -9,28 +9,42 @@ $(function(){
 	var cars = new Parse.Query(_Car);
 	var pkg = new Parse.Query(_Pkg);
 
+	var operatorId = $("#operatorId").html();
+
+	users.get(operatorId,{
+		success: function(user)
+		{
+			var firstName = user.get("firstName");
+			var lastName = user.get("lastName");
+
+			$("#operatorId").html("Operator: "+firstName + ' ' + lastName);
+		},
+		error: function(object, error) 
+		{
+			console.log(error);
+		}
+
+	});
+
 	$('#dataTables-example > tbody  > tr').each(function(){
 		
-		var carObjectId = this.cells[3].id;
-		var td_car = this.cells[3];
-		var td_model = this.cells[4];
+		var carObjectId = this.cells[2].id;
+		var td_license = this.cells[3];
+		var td_model = this.cells[2];
 
-		var userObjectId = this.cells[5].id;
-		var td_owner = this.cells[5];
+		var userObjectId = this.cells[4].id;
+		var td_owner = this.cells[4];
 
 		var packageObjectId = this.cells[1].id;
 		var td_package = this.cells[1];
-
-		var optrObjectId = this.cells[2].id;
-		var td_optr = this.cells[2];
 
 		cars.get(carObjectId, {
 			success: function(car)
 			{
 				var model = car.get("model");
-				var make = car.get("make");
+				var license = car.get("license");
 				td_model.innerText = model;
-				td_car.innerText = make;
+				td_license.innerText = license;
 			},
 			error: function(object, error) 
 			{
@@ -66,21 +80,6 @@ $(function(){
 			}
 
 		});//end pkg.get
-
-		users.get(optrObjectId, {
-			success: function(optr)
-			{
-				var firstName = optr.get("firstName");
-				var lastName = optr.get("lastName");
-
-				td_optr.innerText = firstName + ' ' + lastName;
-			},
-			error: function(object, error) 
-			{
-				console.log(error);
-			}
-
-		});//end opt.get
 
 	}); // end each function
 
