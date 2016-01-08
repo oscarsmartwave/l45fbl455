@@ -37,7 +37,6 @@ class Packages_model extends CI_Model
 
 	public function view()
 	{
-		$array = array();
 		$query = new ParseQuery('CarWashPackages');
 		$query->equalTo("isRemoved", false);
 		$results["packages"] = $query->find();

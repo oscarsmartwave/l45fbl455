@@ -1,6 +1,6 @@
 <?php
     include APPPATH.'libraries/header.php';
-    //die('<pre>'.print_r($appointmentsTimeline, true));
+    // die('<pre>'.print_r($Data, true));
 ?>
         <div id="page-wrapper">
             <div class="row">
@@ -30,8 +30,21 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    
-
+                                                    if(isset($Data->year))
+                                                    {
+                                                        foreach($Data->months as $val)
+                                                        {
+                                                            $month   = DateTime::createFromFormat('!m', $val->month);
+                                                            echo 
+                                                                "<tr>
+                                                                    <td>".$month->format('F')."</td>
+                                                                    <td>".$val->count."</td>
+                                                                    <td>".$val->sum."</td>
+                                                                <tr>";
+                                                        }
+                                                    }
+                                                    else
+                                                    { }
                                                     ?>
                                                 </tbody>
 
@@ -44,7 +57,7 @@
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <span class="pull-left">TOTAL EARNINGS OF 2015 : </span> <span class="pull-right">$ </span>
+                                            <span class="pull-left">TOTAL EARNINGS OF <?php echo (isset($Data->year) ? $Data->year : "n /a" ); ?> : </span> <span class="pull-right">$ <?php echo (isset($Data->sum) ? $Data->sum : "0" ); ?> </span>
                                         </div>
                                     </div>
                                     <div class="row">

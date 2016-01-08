@@ -26,22 +26,22 @@ include APPPATH.'libraries/header.php';
                                     <form role="form" action="<?php echo base_url(); ?>operators/edit/<?php echo $operators[0]->getObjectId(); ?>" method="post">
                                         
                                         <div class="form-group">
-                                        <input type="text" class="form-control" name="username" value="<?php echo $operators[0]->getUsername(); ?>">
+                                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $operators[0]->getUsername(); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $operators[0]->getEmail(); ?>">
+                                            <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $operators[0]->getEmail(); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="firstName" placeholder="First Name" value="<?php echo $operators[0]->get("firstName"); ?>">
+                                            <input type="text" class="form-control" name="firstName" placeholder="First Name" value="<?php echo $operators[0]->get("firstName"); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="<?php echo $operators[0]->get("lastName"); ?>">
+                                            <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="<?php echo $operators[0]->get("lastName"); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="homeAddress" placeholder="Address" value="<?php echo $operators[0]->get("homeAddress") ?>">
+                                            <input type="text" class="form-control" name="homeAddress" placeholder="Address" value="<?php echo $operators[0]->get("homeAddress") ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="phoneNumber" placeholder="Contact Number" value="<?php echo $operators[0]->get("phoneNumber"); ?>">
+                                            <input type="text" class="form-control" name="phoneNumber" placeholder="Contact Number" value="<?php echo $operators[0]->get("phoneNumber"); ?>" required>
                                         </div>
                                          
                                         <div class="form-group">

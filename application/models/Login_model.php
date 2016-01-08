@@ -25,7 +25,6 @@ class Login_model extends CI_Model
 		$response->token = $curl->responseHeaders["LB_Token"];
 
 		return $response;
-
 	}
 	public function getCurrentUser()
 	{

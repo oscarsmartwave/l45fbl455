@@ -1,6 +1,4 @@
 <?php
-require_once (APPPATH.'libraries/vendor/autoload.php');
-
 use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseACL;
@@ -19,17 +17,6 @@ class Dashboard_model extends CI_Model
 {
 	public function getCurrentUser()
 	{
-		$currentUser = ParseUser::getCurrentUser();
-
-		if($currentUser)
-		{
-			return $currentUser;
-		}
-		else
-		{
-			ParseUser::logOut();
-			return false;
-		}
 
 	}
 	public function operatorsCurrentTasks()

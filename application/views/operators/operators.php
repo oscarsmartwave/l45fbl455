@@ -27,6 +27,7 @@ include APPPATH.'libraries/header.php';
                                             <tr>
                                                 <th>Image</th>
                                                 <th>Email</th>
+                                                <th>Username</th>
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
                                                 <th>Address</th>
@@ -48,6 +49,7 @@ include APPPATH.'libraries/header.php';
                                                             "<img class='img-responsive col-centered' width=50% src='".$operator->get("operatorPicture")->getUrl()."' alt=".$operator->get("operatorPicture")->getName()."/>").
                                                     "</td>
                                                     <td>".$operator->get("email")."</td>
+                                                    <td>".$operator->get("username")."</td>
                                                     <td>".$operator->get("lastName")."</td>
                                                     <td>".$operator->get("firstName")."</td>
                                                     <td>".$operator->get("homeAddress")."</td>
