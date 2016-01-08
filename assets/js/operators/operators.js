@@ -19,14 +19,17 @@ $(function(){
 			{
 				if(userData.length > 0) 
 				{
-					console.log(userData[0].get("user").id);
 					if(userData[0].get("isOnline") == true)
 					{
 						$("#"+userData[0].get("user").id).html("Online");
+						$("#"+userData[0].get("user").id).removeClass();
+						$("#"+userData[0].get("user").id).addClass("bg-success text-success");
 					}
 					else
 					{
 						$("#"+userData[0].get("user").id).html("Offline");
+						$("#"+userData[0].get("user").id).removeClass();
+						$("#"+userData[0].get("user").id).addClass("bg-danger text-danger");
 					}
 				} // find success if
 				else
@@ -44,19 +47,3 @@ $(function(){
 	}); // end each
 
 });
-
-// 		userDataQuery.equalTo('user', userPointer);	
-// 		userDataQuery.find({
-// 			success: function(userData){
-// 				if(userData.length > 0) {
-// 					console.log(userData[0].get("isOnline"));
-// 				} // success if
-// 			}, // find success
-// 			error: function(object, error)
-// 			{
-// 				console.log(this.cells[6]);
-// 			} // error
-// 		}); // find
-
-// 		console.log(userPointer);
-// // 
