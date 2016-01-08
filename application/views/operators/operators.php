@@ -53,7 +53,7 @@ include APPPATH.'libraries/header.php';
                                                     <td>".$operator->get("lastName")."</td>
                                                     <td>".$operator->get("firstName")."</td>
                                                     <td>".$operator->get("phoneNumber")."</td>
-                                                    <td id=".$operator->getObjectId().">Undefined</td>
+                                                    <td id=".$operator->getObjectId()." class='bg-warning text-warning'>Undefined</td>
                                                     <td>
                                                     <a href='".base_url()."operators/edit/".$operator->getObjectId()."'>EDIT</i></a>
                                                     <a href='".base_url()."operators/suspended/".$operator->getObjectId()."'>SUSPEND</i></a>
