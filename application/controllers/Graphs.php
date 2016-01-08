@@ -7,6 +7,12 @@ class Graphs extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("graphs_model");
+		$this->load->driver("session");
+
+		if($this->session->has_userdata('token') == false)
+		{
+			redirect(base_url(), "refresh");
+		}
 	}
 	public function index()
 	{

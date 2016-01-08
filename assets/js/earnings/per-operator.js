@@ -21,11 +21,10 @@ $(function(){
 		},
 		error: function(object, error) 
 		{
-			alert(error);
+			console.log(error);
 		}
 
 	});
-	// alert(operatorId);
 
 	$('#dataTables-example > tbody  > tr').each(function(){
 		
@@ -49,7 +48,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 		}); // end cars.get
 
@@ -63,7 +62,7 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 
 		});//end users.get
@@ -77,25 +76,10 @@ $(function(){
 			},
 			error: function(object, error) 
 			{
-				alert(error);
+				console.log(error);
 			}
 
 		});//end pkg.get
-
-		// users.get(optrObjectId, {
-		// 	success: function(optr)
-		// 	{
-		// 		var firstName = optr.get("firstName");
-		// 		var lastName = optr.get("lastName");
-
-		// 		td_optr.innerText = firstName + ' ' + lastName;
-		// 	},
-		// 	error: function(object, error) 
-		// 	{
-		// 		alert(error);
-		// 	}
-
-		// });//end opt.get
 
 	}); // end each function
 
