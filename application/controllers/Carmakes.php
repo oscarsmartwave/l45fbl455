@@ -5,13 +5,10 @@ class CarMakes extends CI_Controller {
 
 	public function __construct()
 	{
-		// $this->load->driver("session");
-
-		// if($this->session->has_userdata('token') == false)
-		// {
-		// 	redirect(base_url(), "refresh");
-		// }
+		parent::__construct();
+		$this->load->model("carmakes_model","cm");
 	}
+
 	public function index()
 	{
 		$this->load->model("carmakes_model");
