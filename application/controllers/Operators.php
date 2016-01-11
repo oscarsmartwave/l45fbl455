@@ -28,38 +28,38 @@ class Operators extends CI_Controller {
 	}
 	public function add()
 	{
-		$this->load->model('operators_model');
+		// $this->load->model('operators_model');
 
-		if($_SERVER['REQUEST_METHOD'] == 'POST')
-		{
-			// die('<pre>'.print_r($_FILES, true));
-			$post = array_merge($_FILES, $_POST);
-			// die('<pre>'.print_r($post, true));
-			$add = $this->operators_model->add($post);
+		// if($_SERVER['REQUEST_METHOD'] == 'POST')
+		// {
+		// 	// die('<pre>'.print_r($_FILES, true));
+		// 	$post = array_merge($_FILES, $_POST);
+		// 	// die('<pre>'.print_r($post, true));
+		// 	$add = $this->operators_model->add($post);
 			
-			if(isset($add->createdAt))
-			{
-				redirect(base_url()."index.php/operators/add/?add=failed");
-			}
-			else
-			{
-				redirect(base_url()."index.php/operators/?add=success&added=".$add);
-			}
-		}
+		// 	if(isset($add->createdAt))
+		// 	{
+		// 		redirect(base_url()."index.php/operators/add/?add=failed");
+		// 	}
+		// 	else
+		// 	{
+		// 		redirect(base_url()."index.php/operators/?add=success&added=".$add);
+		// 	}
+		// }
 		$this->load->view('operators/add');
 	}
 	public function edit($id='')
 	{
 		$this->load->model('operators_model');
-		if($_SERVER['REQUEST_METHOD'] == 'POST')
-		{
-			$edit = $this->operators_model->edit($id, $_POST);
+		// if($_SERVER['REQUEST_METHOD'] == 'POST')
+		// {
+		// 	$edit = $this->operators_model->edit($id, $_POST);
 			
-			if(isset($edit->updatedAt))
-			{
-				redirect(base_url()."index.php/operators/?update=success&updated=".$id);
-			}
-		}
+		// 	if(isset($edit->updatedAt))
+		// 	{
+		// 		redirect(base_url()."index.php/operators/?update=success&updated=".$id);
+		// 	}
+		// }
 		//die(base_url());
 		$data = $this->operators_model->get_id($id); 
 		//die('<pre>'.print_r($data));
