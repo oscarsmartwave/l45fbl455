@@ -25,21 +25,21 @@ class Packages extends CI_Controller {
 	}
 	public function add()
 	{
-		if($_SERVER['REQUEST_METHOD'] == 'POST')
-		{
-			$this->load->model('packages_model');
-			$data = $this->packages_model->add($_POST);
-			// die('<pre>'.print_r($data, true));
-			if(null != $data->getObjectId())
-			{
-				redirect(base_url()."packages/add?success");
-			}
-			else
-			{
-				redirect(base_url()."packages/add?failed");
-			}
+		// if($_SERVER['REQUEST_METHOD'] == 'POST')
+		// {
+		// 	$this->load->model('packages_model');
+		// 	$data = $this->packages_model->add($_POST);
+		// 	// die('<pre>'.print_r($data, true));
+		// 	if(null != $data->getObjectId())
+		// 	{
+		// 		redirect(base_url()."packages/add?success");
+		// 	}
+		// 	else
+		// 	{
+		// 		redirect(base_url()."packages/add?failed");
+		// 	}
 
-		}
+		// }
 
 		$this->load->view('packages/add');
 
