@@ -5,9 +5,9 @@ class Leafblast extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->driver("session");
-
-		if($this->session->has_userdata('token') == false)
+		// $this->load->driver("session");
+		// die('<pre>'.print_r($this->session->token));
+		if(isset($this->session->token) == true)
 		{
 			redirect(base_url(), "refresh");
 		}
@@ -15,7 +15,6 @@ class Leafblast extends CI_Controller {
 
 	public function index()
 	{
-		// die('<pre>'.print_r($this->session->token));
 		$this->load->view('index');
 	}
 }

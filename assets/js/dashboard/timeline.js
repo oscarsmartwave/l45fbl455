@@ -1,41 +1,101 @@
 $(function(){
 
 	console.log("Ready!");
-	var url = "http://52.24.133.167/api.leafblast/api/v1/timeline"; // localhost ni oscar
+	var url = "http://localhost/api.leafblast/api/v1/"; // localhost ni oscar
 	var ulCount;
 	// var url = "http://52.24.133.167/api.leafblast/api/v1/timeline"; // staging server
 	var timelineIntervalId = 0;
 	
 
-	function timeline()
+	
+
+	$.get(url+"timeline/load")
+	.done(function(data){
+		
+		var timeline = $("#lb-timeline");
+		$.each(data.Data, function(key, value){
+			ulCount = $('#lb-timeline li').length;
+			if((ulCount % 2) == 0)
+			{
+				var li = $('<li class="timeline-inverted" id="'+value.Id+'">'+
+	            				'<div class="timeline-badge info"><i class="fa fa-check"></i>'+
+	            				'</div>'+
+	            				'<div class="timeline-panel">'+
+	                				'<div class="timeline-heading">'+
+					                    '<h4 class="timeline-title">Appointments '+value.Id+'</h4>'+
+					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i> '+value.madeAt+'</small>'+
+					                    '</p>'+
+					                '</div>'+
+					                '<div class="timeline-body">'+
+					                    '<p>Some Order</p>'+
+					                '</div>'+
+					            '</div>'+
+					        '</li>');
+				var prepend = timeline.append(li)
+				prepend.hide();
+				prepend.show("slow");
+			}
+			else
+			{
+				var li = $('<li class="timeline" id="'+value.Id+'">'+
+	            				'<div class="timeline-badge info"><i class="fa fa-check"></i>'+
+	            				'</div>'+
+	            				'<div class="timeline-panel">'+
+	                				'<div class="timeline-heading">'+
+					                    '<h4 class="timeline-title">Appointments '+value.Id+'</h4>'+
+					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i>'+value.madeAt+'</small>'+
+					                    '</p>'+
+					                '</div>'+
+					                '<div class="timeline-body">'+
+					                    '<p>Some Order</p>'+
+					                '</div>'+
+					            '</div>'+
+					        '</li>');
+
+				var prepend = timeline.append(li)
+				prepend.hide();
+				prepend.show("slow");
+			} // else
+
+		}); // each
+
+		// after the page loads call the function with setInterval to load the next orders
+		setInterval(
+			function() {
+
+				latestOrder();
+			}
+			,3000
+		); // end setInterval
+	}) // done
+	.fail(function(object, error){
+		console.log(error);
+	});
+
+	function latestOrder()
 	{
-		$.get(url)
+		$.get(url+"timeline")
 		.done(function(data){
 			var timeline = $('#lb-timeline');
 			ulCount = $('#lb-timeline li').length;
+			console.log(ulCount);
 			
-			
-			if(ulCount > 10)
-			{
-				clearInterval(timelineIntervalId);
-				return;
-			}
 
 			if( $ ('#'+data.Data.Id ).length )
 			{
-				clearInterval(timelineIntervalId);
+				// clearInterval(timelineIntervalId);
 				return;
 			}
 
-			if((ulCount % 2) == 0)
+			if((ulCount % 2) != 0)
 			{
 				var li = $('<li class="timeline-inverted" id="'+data.Data.Id+'">'+
 	            				'<div class="timeline-badge info"><i class="fa fa-check"></i>'+
 	            				'</div>'+
 	            				'<div class="timeline-panel">'+
 	                				'<div class="timeline-heading">'+
-					                    '<h4 class="timeline-title">Appointments</h4>'+
-					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i> Sometime Ago</small>'+
+					                    '<h4 class="timeline-title">Appointments '+data.Data.Id+'</h4>'+
+					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i> '+data.Data.madeAt+'</small>'+
 					                    '</p>'+
 					                '</div>'+
 					                '<div class="timeline-body">'+
@@ -44,8 +104,8 @@ $(function(){
 					            '</div>'+
 					        '</li>');
 				var prepend = timeline.prepend(li)
-				prepend.hide();
-				prepend.show("slow");
+				// prepend.hide();
+				// prepend.show("slow");
 			}
 			else
 			{
@@ -54,8 +114,8 @@ $(function(){
 	            				'</div>'+
 	            				'<div class="timeline-panel">'+
 	                				'<div class="timeline-heading">'+
-					                    '<h4 class="timeline-title">Appointments</h4>'+
-					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i> Sometime Ago</small>'+
+					                    '<h4 class="timeline-title">Appointments '+data.Data.Id+'</h4>'+
+					                    '<p><small class="text-muted"><i class="fa fa-clock-o"></i> '+data.Data.madeAt+'</small>'+
 					                    '</p>'+
 					                '</div>'+
 					                '<div class="timeline-body">'+
@@ -65,19 +125,18 @@ $(function(){
 					        '</li>');
 
 				var prepend = timeline.prepend(li)
-				prepend.hide();
-				prepend.show("slow");
+				// prepend.hide();
+				// prepend.show("slow");
+			}
+
+			if(ulCount > 10)
+			{
+				$("#lb-timeline li:last-child").remove()
 			}
 
 		});
-	}
-	setInterval(
-		function(){
-			console.log(ulCount);
-			timeline();
-		}
-		,3000
-	);
+	} // latestOrder
+
 	
 
 });
