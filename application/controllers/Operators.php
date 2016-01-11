@@ -43,7 +43,7 @@ class Operators extends CI_Controller {
 			}
 			else
 			{
-				redirect(base_url()."index.php/operators/?add=success&added=".$add->objectId);
+				redirect(base_url()."index.php/operators/?add=success&added=".$add);
 			}
 		}
 		$this->load->view('operators/add');

@@ -38,11 +38,9 @@ class Operators_model extends CI_Model
 		$cp->set("operatorPicture", $file);
 		$cp->set("isOperator", true);
 		$cp->set("isRemoved", false);
-
-		
-		
-
-
+		$cp->set("isSuspended", true);
+		$cp->set("isFirstTime", true);
+		$cp->set("isDeactivated", true);
 
 		try 
 		{
@@ -53,7 +51,7 @@ class Operators_model extends CI_Model
 			$cu->set("user", $cp);
 			$cu->save();
 			
-			return $this->get_id($data["objectId"]);
+			return $cp->getObjectId();
 		} 
 		catch (ParseException $ex) 
 		{    
@@ -176,32 +174,6 @@ class Operators_model extends CI_Model
 		}
 
 	}
-
-
-
-	/**********
-	params
-	$optId - ObjectId of Operator
-	**********/
-// 	public function rating($optId)
-// 	{
-// //		$query = urlencode('where={"operatorId":{"__type":"Pointer","className":"_User","objectId":"'.$optId.'"}}');
-// 		$query = array(
-// 			'where' => '{"operatorId":{"__type":"Pointer","className":"_User","objectId":"'.$optId.'"}}',
-// 			);
-// 		$url = 'https://api.parse.com/1/classes/OperatorRatings?'.http_build_query($query);
-// 	    $handle = curl_init(); 
-	
-// 		curl_setopt($handle, CURLOPT_URL, $url);
-// 		curl_setopt($handle, CURLOPT_HTTPHEADER, $this->headers);
-// 		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
-// 		curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-
-// 	    $data = curl_exec($handle);
-// 		curl_close($handle);
-// 		$array = json_decode($data);
-// 		return $array;	
-// 	}
 
 	public function rating($optId)
 	{

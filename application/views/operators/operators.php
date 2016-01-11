@@ -30,8 +30,8 @@ include APPPATH.'libraries/header.php';
                                                 <th>Username</th>
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
-                                                <th>Address</th>
                                                 <th>Contact Number</th>
+                                                <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -52,8 +52,8 @@ include APPPATH.'libraries/header.php';
                                                     <td>".$operator->get("username")."</td>
                                                     <td>".$operator->get("lastName")."</td>
                                                     <td>".$operator->get("firstName")."</td>
-                                                    <td>".$operator->get("homeAddress")."</td>
                                                     <td>".$operator->get("phoneNumber")."</td>
+                                                    <td id=".$operator->getObjectId()." class='bg-warning text-warning'>Undefined</td>
                                                     <td>
                                                     <a href='".base_url()."operators/edit/".$operator->getObjectId()."'>EDIT</i></a>
                                                     <a href='".base_url()."operators/suspended/".$operator->getObjectId()."'>SUSPEND</i></a>
@@ -80,7 +80,8 @@ include APPPATH.'libraries/header.php';
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
+    </div>
     
 <?php
-include APPPATH.'libraries/footer.php';
+include 'operators_footer.php';
 ?>
