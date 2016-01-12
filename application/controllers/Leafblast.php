@@ -6,12 +6,14 @@ class Leafblast extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->driver("session");
-		// die('<pre>'.print_r($this->session));
+		// die('<pre>'.print_r($this->session, true));
 	}
 
 	public function index()
 	{
+		$this->load->view('header');
 		$this->load->view('index');
+		$this->load->view('footer');
 	}
 }
 
