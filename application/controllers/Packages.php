@@ -6,9 +6,9 @@ class Packages extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('packages_model', 'pm');
-		$this->load->driver("session");
-
-		if($this->session->has_userdata('token') == false)
+		// $this->load->driver("session");
+		die('<pre>'.print_r($this->session->all_userdata()));
+		if(!$this->session->userdata('token'))
 		{
 			redirect(base_url(), "refresh");
 		}

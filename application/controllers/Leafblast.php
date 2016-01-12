@@ -5,12 +5,8 @@ class Leafblast extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->driver("session");
-		// die('<pre>'.print_r($this->session->token));
-		if(isset($this->session->token) == true)
-		{
-			redirect(base_url(), "refresh");
-		}
+		$this->load->driver("session");
+		// die('<pre>'.print_r($this->session));
 	}
 
 	public function index()
