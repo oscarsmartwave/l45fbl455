@@ -9,7 +9,7 @@ $(function(){
 		var optr = new Parse.Query(_User);
 		var user = new _User();
 
-		var optrObjectId = $(".formEdit").attr("id");
+		var optrObjectId = $(".formEdit").attr("id"); //retrieve object id
 
 		var email = $("#email").val();
 		var username = $("input#username").val();
@@ -19,15 +19,12 @@ $(function(){
 		var phoneNumber = $("#phoneNumber").val();
 
 		optr.get(optrObjectId, {
-			success: function(user)
-			{
-
+			success: function(user) {
 				var _password = user.get("password");
-				// alert(_password);
 
 				user.set("email", email);
 				user.set("username", username);
-				user.set("password", _password);
+				// user.set("password", _password);
 				user.set("firstName", firstName);
 				user.set("lastName", lastName);
 				user.set("homeAddress", homeAddress);
@@ -36,6 +33,7 @@ $(function(){
 
 				user.save(null, {
 					success: function(user) {
+						user.save(); // save changes
 						alert('Successfully updated Operator Account. \nobjectId: ' + user.id);
 						location.reload();
 					},
@@ -43,7 +41,7 @@ $(function(){
 						console.log('Failed to update Account! \nError: ' + error.message);
 						location.reload();
 					}
-				});
+				}); // end user save
 
 			},
 			error: function(object, error) 
@@ -51,7 +49,7 @@ $(function(){
 				console.log(error.message);
 			}
 
-		});//end users.get
+		}); // end optr get
 
 	});
 
