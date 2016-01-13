@@ -7,27 +7,24 @@ class Earnings extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("earnings_model", "em");
-		$this->load->driver("session");
-		if($this->session->has_userdata('token') == false)
-		{
-			redirect(base_url(), "refresh");
-		}
 	}
 
 	public function year($year = "")
 	{
 		$this->load->model("earnings_model", "em");
 		$result = $this->em->all($year);
-		
-		$this->load->view('earnings/year', $result);
+		$this->load->view("header", array("title" => "Earnings per year"));
+		$this->load->view("earnings/year", $result);
+		$this->load->view("earnings/footer");
 	}
 
 	public function total($year='')
 	{
 		$this->load->model('earnings_model');
 		$results = array();
-		$results = $this->earnings_model->all($year);
+		$this->load->view("header", array("title" => "Earnings per year"));
 		$this->load->view('earnings/total', true);
+		$this->load->view("earnings/footer");
 	}
 
 
@@ -40,12 +37,16 @@ class Earnings extends CI_Controller {
 			case true :
 				$results = $this->em->operator($optrObjectId);
 				// die('<pre>'.print_r($results, true));
+				$this->load->view("header", array("title" => "Earnings | Operator"));
 				$this->load->view("earnings/operator", $results);
+				$this->load->view("earnings/per-operator-footer");
 				break;
 			case false :
 				$operators = $this->em->operators();
 				// die('<pre>'.print_r($operators, true));
+				$this->load->view("header", array("title" => "Earnings | Operators"));
 				$this->load->view("earnings/operators", $operators);
+				$this->load->view("earnings/footer");
 				break;
 			default : break;
 		}
@@ -58,6 +59,8 @@ class Earnings extends CI_Controller {
 		// $results = array();
 		// $results = $this->earnings_model->all($year);
 		//die('<pre>'.print_r($results, true));
-		$this->load->view('earnings/time-period', true);
+		$this->load->view("header", array("title" => "Earnings | Time"));
+		$this->load->view("earnings/time-period", true);
+		$this->load->view("earnings/time-period-footer");
 	}
 }

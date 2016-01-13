@@ -1,7 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-    //die('<pre>'.print_r($appointmentsTimeline, true));
-?>
+<body>
+    <div id="wrapper">
 <div id="page-wrapper">
     <div class="col-lg-12">
         <h4 clas="page-header">Exact Date</h4>
@@ -66,11 +64,4 @@ include APPPATH.'libraries/header.php';
         </div> <!-- /.row -->
     </div> <!-- /.page-wrapper -->
 </div><!-- /#wrapper -->
-<?php
-
-
-include 'time-period-footer.php';
-
-// include 'footer.php';
-
-?>
+</body>

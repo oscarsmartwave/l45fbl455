@@ -1,7 +1,5 @@
-<?php
-    include APPPATH.'libraries/header.php';
-    //die('<pre>'.print_r($appointmentsTimeline, true));
-?>
+<body>
+    <div id="wrapper">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -45,8 +43,4 @@
 
     </div>
     <!-- /#wrapper -->
-<?php
-
-    include 'user_footer.php';
-
-?>
+</body>

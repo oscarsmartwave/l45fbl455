@@ -1,6 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-?>
+<body>
+    <div id="wrapper">
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -148,7 +147,5 @@ else
 </div><!-- /.col-lg-12 -->
 </div><!-- /.page-wrapper -->
 
-<?php
-
-include 'per-operator-footer.php';
-?>
+</div> <!-- /#wrapper -->
+</body>
