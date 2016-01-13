@@ -20,7 +20,7 @@ class Login_model extends CI_Model
 		$curl->post(API."login", 
 			$data
 			);
-		// die('<pre>'.print_r($curl->response, true));
+		// die('<pre>'.print_r($curl->responseHeaders, true));
 		$response = $curl->response;
 		$response->token = $curl->responseHeaders["LB_Token"];
 

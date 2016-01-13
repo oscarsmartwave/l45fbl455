@@ -1,9 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-// die('<pre>'.print_r($users, true));
-?>
-
-
+<body>
+    <div id="wrapper">
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -20,7 +16,7 @@ include APPPATH.'libraries/header.php';
 
                             <div class="dataTable_wrapper users table-responsive">
                         
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="usersTable">
                                     <thead>
                                         <tr>
                                             <th>Username</th>
@@ -77,8 +73,5 @@ include APPPATH.'libraries/header.php';
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
-    
-<?php
-
-include APPPATH.'libraries/footer.php';
-?>
+    </div>
+</body>

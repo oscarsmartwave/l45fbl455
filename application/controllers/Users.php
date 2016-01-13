@@ -8,26 +8,18 @@ class Users extends CI_Controller {
 		parent::__construct();
 		$this->load->driver("session");
 
-		if($this->session->has_userdata('token') == false)
-		{
-			redirect(base_url(), "refresh");
-		}
+
 	}
 
 	public function index()
 	{
 
-		$this->load->driver("session");
-
-		if($this->session->has_userdata('token') == false)
-		{
-			redirect(base_url(), "refresh");
-		}
-
 		$this->load->model('users_model');
 		$results = $this->users_model->view();
-		// die('<pre>'.print_r($results, true));
+		$title["title"] = "Users";
+		$this->load->view("header", $title);
 		$this->load->view('users/users', $results);
+		$this->load->view("users/users-footer");
 	}
 	public function profiles()
 	{
@@ -127,7 +119,10 @@ class Users extends CI_Controller {
 		$this->load->model('users_model');
 		$results = $this->users_model->activated();
 		// die('<pre>'.print_r($results, true));
+		$title["title"] = "Activated";
+		$this->load->view("header", $title);
 		$this->load->view('users/activate_view', $results);
+		$this->load->view("users/users-footer");
 	}
 
 	public function viewCars($userID)
