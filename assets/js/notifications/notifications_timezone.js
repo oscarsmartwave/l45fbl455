@@ -9,7 +9,9 @@ $(document).ready(function(){
 	Parse.initialize("mVOnxcUCEBLer0c0z7yiXOtyRXcMFrgabGyKEYvY", "M4TXuuTzPT4uMCEGR4txOeuQIA4TekIxBhbXhKGg");   
 	
 	// Parse.Cloud.useMasterKey();
+	$("#btnTimeZone").click(function(){
 
+	}); // click
 	var TimeZone = Parse.Object.extend("_Installation");
 	var timezone = new TimeZone();
 	var query = new Parse.Query(TimeZone);

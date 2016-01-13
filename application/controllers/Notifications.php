@@ -28,8 +28,9 @@ class Notifications extends CI_controller {
 			$notif = $this->n_model->pushToAll($_POST);
 			break;
 		}
-
-		$this->load->view('notifications/push');
+		$this->load->view("header", array("title"=>"Push to All"));
+		$this->load->view("notifications/push");
+		$this->load->view("notifications/footer");
 	} 
 
 	public function user()
@@ -43,7 +44,9 @@ class Notifications extends CI_controller {
 			$notif = $this->n_model->pushToUser($_POST);
 			break;
 		}
-		$this->load->view('notifications/user');
+		$this->load->view("header", array("title"=>"Push to User"));
+		$this->load->view("notifications/user");
+		$this->load->view("notifications/user_footer");
 	}
 
 	public function timezone()
@@ -60,8 +63,9 @@ class Notifications extends CI_controller {
 		// $result = $this->n_model->getTimeZone();
 		// $this->load->model("notifications_model","n_model");
 		$tz["america"] = $this->n_model->getTimeZones()["America"];
-		// die('<pre>'.print_r($tz, true));
+		$this->load->view("header", array("title"=>"Push to Timezone"));
 		$this->load->view('notifications/timezone', $tz);
+		$this->load->view("notifications/timezone_footer");
 	}
 }
 

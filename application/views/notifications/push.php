@@ -1,7 +1,5 @@
-<?php
-    include APPPATH.'libraries/header.php';
-    //die('<pre>'.print_r($appointmentsTimeline, true));
-?>
+<body>
+    <div id="wrapper">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -29,19 +27,16 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-rocket"></i>&nbsp;Send</button>
 
-                            </form> <!-- /form > 
-                        </div><!-- /.panel-body>
+                            </form> 
+                            <!-- /form > -->
+                        </div>
+                        <!-- /.panel-body> -->
                     </div>
                 </div>
-            </div>
             <!-- /.row -->
-        </div>
+            </div>
         <!-- /#page-wrapper -->
 
+        </div>
     </div>
-    <!-- /#wrapper -->
-<?php
-
-    include 'footer.php';
-
-?>
+</body>
