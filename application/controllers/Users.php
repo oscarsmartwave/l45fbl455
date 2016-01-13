@@ -68,7 +68,10 @@ class Users extends CI_Controller {
 			case "GET" :
 			$user = $this->users_model->get_id($id);
 				// die('<pre>'.print_r($user, true));
+			$title["title"] = "Deactivate";
+			$this->load->view("header", $title);
 			$this->load->view("users/deactivate", $user);
+			$this->load->view("users/users-footer");
 			break; 
 
 			case "POST" :
@@ -91,7 +94,9 @@ class Users extends CI_Controller {
 			case "GET" :
 			$user = $this->users_model->get_id($id);
 				// die('<pre>'.print_r($user, true));
+			$this->load->view("header", array("title" => "Activate"));
 			$this->load->view("users/activate", $user);
+			$this->load->view("users/users-footer");
 			break; 
 
 			case "POST" :

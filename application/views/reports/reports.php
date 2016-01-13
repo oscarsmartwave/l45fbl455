@@ -16,7 +16,7 @@
 
                             <div class="dataTable_wrapper">
 
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="usersTable">
                                     <thead>
                                         <tr>
                                             <th>Reason</th>
@@ -45,7 +45,7 @@
                                         ";
                                     }
                                     ?>
-                                    s</tbody>
+                                    </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->

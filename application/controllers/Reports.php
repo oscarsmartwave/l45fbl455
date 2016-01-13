@@ -6,12 +6,6 @@ class Reports extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->driver("session");
-
-		if($this->session->has_userdata('token') == false)
-		{
-			redirect(base_url(), "refresh");
-		}
 	}
 
 	public function index()
@@ -19,6 +13,9 @@ class Reports extends CI_Controller
 		$this->load->model("Reports_model", "rm");
 
 		$results = $this->rm->getReports();
+		$title["title"] = "Reports";
+		$this->load->view("header", $title);
 		$this->load->view("reports/reports",$results);
+		$this->load->view("users/users-footer");
 	}
 }
