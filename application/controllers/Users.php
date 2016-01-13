@@ -111,7 +111,10 @@ class Users extends CI_Controller {
 		$this->load->model('users_model');
 		$results = $this->users_model->deactivated();
 		// die('<pre>'.print_r($results, true));
+		$title["title"] = "deactivated";
+		$this->load->view("header", $title);
 		$this->load->view('users/deactivate_view', $results);
+		$this->load->view("users/users-footer");
 	}
 
 	public function activated()
