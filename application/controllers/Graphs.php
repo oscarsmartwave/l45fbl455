@@ -21,12 +21,16 @@ class Graphs extends CI_Controller {
 
 	public function size()
 	{
+		$this->load->view("header", array("title" => "Size"));
 		$this->load->view("graphs/size");
+		$this->load->view("graphs/size-footer");
 	}
 
 	public function time()
 	{
+		$this->load->view("header", array("title" => "Size"));
 		$this->load->view("graphs/time");
+		$this->load->view("graphs/time-footer");
 	}
 
 	public function delete($id)
