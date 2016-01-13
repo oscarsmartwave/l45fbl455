@@ -1,8 +1,8 @@
 $(function() {
 
     var sizeData;
-    var url = "http://52.24.133.167/api.leafblast/api/v1/graphs";
-    // var url = "http://localhost/api.leafblast/api/v1/graphs";
+    // var url = "http://52.24.133.167/api.leafblast/api/v1/graphs";
+    var url = "http://localhost/api.leafblast/api/v1/graphs";
     $.get(url)
         
         .done(function( data ) 
