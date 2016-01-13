@@ -11,7 +11,8 @@ class Leafblast extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
+		$data["title"] = "Dashboard";
+		$this->load->view('header', $data);
 		$this->load->view('index');
 		$this->load->view('footer');
 	}
