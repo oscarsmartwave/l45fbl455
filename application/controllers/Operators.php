@@ -23,8 +23,10 @@ class Operators extends CI_Controller {
 		$this->load->model('operators_model');
 		$data = $this->operators_model->view();
 		
-		// die('<pre>'.print_r($data, true));
+		$title["title"] = "Operators";
+		$this->load->view('header', $title);
 		$this->load->view('operators/operators', $data);
+		$this->load->view('operators/operators_footer');
 	}
 	public function add()
 	{
@@ -46,7 +48,10 @@ class Operators extends CI_Controller {
 		// 		redirect(base_url()."index.php/operators/?add=success&added=".$add);
 		// 	}
 		// }
+		$title["title"] = "Add Operator";
+		$this->load->view('header', $title);
 		$this->load->view('operators/add');
+		$this->load->view('operators/add-footer');
 	}
 	public function edit($id='')
 	{
