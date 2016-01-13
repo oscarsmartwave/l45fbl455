@@ -68,7 +68,10 @@ class Operators extends CI_Controller {
 		//die(base_url());
 		$data = $this->operators_model->get_id($id); 
 		//die('<pre>'.print_r($data));
+		$title["title"] = "Edit Operator";
+		$this->load->view("header", $title);
 		$this->load->view('operators/edit', $data);
+		$this->load->view("operators/edit-footer");
 	}
 	public function delete($id)
 	{
@@ -101,8 +104,10 @@ class Operators extends CI_Controller {
 		}
 
 		$data = $this->operators_model->get_id($id);
-		//die('<pre>'.print_r($data, true));
-		$this->load->view('operators/suspended', $data);
+		$title["title"] = "Suspend Operator";
+		$this->load->view("header", $title);
+		$this->load->view("operators/suspended", $data);
+		$this->load->view("footer");
 	}
 	public function reset($id)
 	{
@@ -118,14 +123,16 @@ class Operators extends CI_Controller {
 		}
 
 		$data = $this->operators_model->get_id($id);
-		//die('<pre>'.print_r($data, true));
+		$title["title"] = "Edit Operator";
+		$this->load->view("header", $title);
 		$this->load->view('operators/reset', $data);
+		$this->load->view("footer");
 	}
 	public function ratings()
 	{
 		$this->load->model('operators_model');
 		$array = array();
-		error_reporting(E_ERROR | E_WARNING | E_PARSE);
+		// error_reporting(E_ERROR | E_WARNING | E_PARSE);
 		$opts = $this->operators_model->view();
 
 		foreach($opts as $row)
@@ -156,7 +163,10 @@ class Operators extends CI_Controller {
 			}
 		}
 //		die('<pre>'.print_r($opts, true));
+		$title["title"] = "Operator Ratings";
+		$this->load->view("header",$title)
 		$this->load->view('operators/ratings', $opts);
+		$this->load->view("footer");
 	}
 	private function exchangeArray($data)
 	{

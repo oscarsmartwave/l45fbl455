@@ -1,9 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-
-?>
-
-
+<body>
+    <div id ="wrapper">
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -63,7 +59,5 @@ include APPPATH.'libraries/header.php';
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
-    
-<?php
-include APPPATH.'libraries/footer.php';
-?>
+    </div>
+</body>

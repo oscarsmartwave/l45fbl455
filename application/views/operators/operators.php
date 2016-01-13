@@ -77,7 +77,4 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-    
-<?php
-include 'operators_footer.php';
-?>
+</body>

@@ -12,8 +12,10 @@ class Ratings extends CI_Controller
 	public function index() // get all ratings of operators
 	{
 		$rate["ratings"] = $this->rm->getAllRatings();
-
+		$title["title"] = "Operator Ratings";
+		$this->load->view("header", $title);
 		$this->load->view("ratings/ratings", $rate);
+		$this->load->view("ratings/ratings-footer.php");
 		// die('<pre>'.print_r($rate, true));
 	}
 
