@@ -10,24 +10,24 @@ $(document).ready(function(){
 	
 	// Parse.Cloud.useMasterKey();
 	$("#btnTimeZone").click(function(){
+		var TimeZone = Parse.Object.extend("_Installation");
+		var timezone = new TimeZone();
+		var query = new Parse.Query(TimeZone);
+		// var query = new Parse.Query(Parse.Installation);
+		query.find({
 
+			success: function(timezone) {
+				var timezones = $("#timezone");
+				$.each(timezone, function(index, item) {
+					timezones.append(new Option(item.get("timeZone"), item.id));
+				});
+
+			},
+			error: function(error) {
+				alert(error.message);
+			}
+		});
 	}); // click
-	var TimeZone = Parse.Object.extend("_Installation");
-	var timezone = new TimeZone();
-	var query = new Parse.Query(TimeZone);
-	// var query = new Parse.Query(Parse.Installation);
-	query.find({
-
-		success: function(timezone) {
-			var timezones = $("#timezone");
-			$.each(timezone, function(index, item) {
-				timezones.append(new Option(item.get("timeZone"), item.id));
-			});
-
-		},
-		error: function(error) {
-			alert(error.message);
-		}
-	});
+	
 
 });
