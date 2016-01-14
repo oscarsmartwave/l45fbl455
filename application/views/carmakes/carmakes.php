@@ -1,7 +1,5 @@
-<?php
-include APPPATH.'/libraries/header.php';
-
-?>
+<body>
+    <div id="wrapper">
 
 
         <!-- Page Content -->
@@ -16,7 +14,6 @@ include APPPATH.'/libraries/header.php';
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="<?php echo base_url(); ?>index.php/carmakes/add" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i> &nbsp; Add Operator</a>
                         <div class="panel-body">
 
                                 <div class="dataTable_wrapper">
@@ -58,6 +55,5 @@ include APPPATH.'/libraries/header.php';
         </div>
         <!-- /#page-wrapper -->
     
-<?php
-include APPPATH.'/libraries/footer.php';
-?>
+    </div>
+</body>

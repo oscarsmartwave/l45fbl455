@@ -147,14 +147,10 @@
                                     <a href="<?php echo base_url(); ?>notifications/all">All</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>notifications/user">user</a>
+                                    <a href="<?php echo base_url(); ?>notifications/user">User</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>notifications/timezone">Time Zone</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#per-operator">View All</a>
                                 </li>
                             </ul>
                         </li>

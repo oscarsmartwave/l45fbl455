@@ -17,7 +17,7 @@
     <script src="<?php echo base_url();?>assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script>
 
-    $('#usersTable').DataTable({
+    $('#ratingsTable').DataTable({
         responsive: true
     });
     </script>

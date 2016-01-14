@@ -64,9 +64,20 @@ class Operators_model extends CI_Model
 		$array = array();
 		$query = new ParseQuery('_User');
 		$query->equalTo("isRemoved", false);
-		$results["operators"] = $query->find();
 		
-		return $results;
+		try
+		{
+			$results["operators"] = $query->find();
+			return $results;
+		}
+		catch(Exception $ex)
+		{
+			die('<pre>'.print_r(array("Exception" => "Exception","Message" => $ex->getMessage(), "Code" => $ex->getCode)));
+		}
+		catch(ParseException $px)
+		{
+			die('<pre>'.print_r(array("Exception" => "ParseException","Message" => $px->getMessage(), "Code" => $px->getCode)));
+		}
 	}//END VIEW ALL
 
 	public function edit($data)

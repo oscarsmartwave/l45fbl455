@@ -164,7 +164,7 @@ class Operators extends CI_Controller {
 		}
 //		die('<pre>'.print_r($opts, true));
 		$title["title"] = "Operator Ratings";
-		$this->load->view("header",$title)
+		$this->load->view("header",$title);
 		$this->load->view('operators/ratings', $opts);
 		$this->load->view("footer");
 	}

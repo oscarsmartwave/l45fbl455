@@ -28,7 +28,7 @@ class Appointments extends CI_Controller {
 			// die('<pre>'.print_r($this->om->view(), true));
 			$this->load->view("header", array("title" => "Operators"));
 			$this->load->view("appointments/viewOperators", $this->om->view());
-			$this->load->view("footer");
+			$this->load->view("appointments/appointments_footer");
 		}
 		else
 		{
@@ -39,12 +39,16 @@ class Appointments extends CI_Controller {
 	public function assigned()
 	{
 		$appointments = $this->am->assigned();
+		$this->load->view("header", array("title" => "Assigned Appointments"));
 		$this->load->view("appointments/viewAssigned", $appointments);
+		$this->load->view("appointments/appointments_footer");
 	}
 	public function unassigned()
 	{
 		$appointments = $this->am->unassigned();
+		$this->load->view("header", array("title"=>"Unassigned Appointments"));
 		$this->load->view("appointments/viewUnassigned", $appointments);
+		$this->load->view("appointments/appointments_footer");
 	}
 	public function assignment($apptId='')
 	{

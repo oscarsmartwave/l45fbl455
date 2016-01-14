@@ -43,7 +43,6 @@ $(function(){
 			} // error
 		}); // find
 
-		console.log(this.cells[6].id);
 	}); // end each
 
 });

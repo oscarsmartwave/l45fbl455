@@ -15,7 +15,7 @@ class Ratings extends CI_Controller
 		$title["title"] = "Operator Ratings";
 		$this->load->view("header", $title);
 		$this->load->view("ratings/ratings", $rate);
-		$this->load->view("ratings/ratings-footer.php");
+		$this->load->view("ratings/ratings-footer");
 		// die('<pre>'.print_r($rate, true));
 	}
 

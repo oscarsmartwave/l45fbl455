@@ -1,5 +1,5 @@
-<!-- /#wrapper -->
 <footer>
+	<!-- /#wrapper -->
 	<script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
@@ -14,5 +14,6 @@
 	<!-- for Parse SDK  -->
 	<script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 </footer>
+
 
 </html>
