@@ -1,10 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-//die('<pre>'.print_r($packages, true));
-
-// die(":P");
-?>
-
+<body>
+    <div id="wrapper">
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -65,6 +60,5 @@ include APPPATH.'libraries/header.php';
         </div>
         <!-- /#page-wrapper -->
     
-<?php
-include APPPATH.'libraries/footer.php';
-?>
+    </div>
+</body>

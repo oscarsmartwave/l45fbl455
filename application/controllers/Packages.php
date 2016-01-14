@@ -7,11 +7,11 @@ class Packages extends CI_Controller {
 		parent::__construct();
 		$this->load->model('packages_model', 'pm');
 		// $this->load->driver("session");
-		die('<pre>'.print_r($this->session->all_userdata()));
-		if(!$this->session->userdata('token'))
-		{
-			redirect(base_url(), "refresh");
-		}
+		// die('<pre>'.print_r($this->session->all_userdata()));
+		// if(!$this->session->userdata('token'))
+		// {
+		// 	redirect(base_url(), "refresh");
+		// }
 	}
 	
 	public function index()
@@ -19,8 +19,9 @@ class Packages extends CI_Controller {
 		
 		$this->load->model('packages_model');
 		$results = $this->packages_model->view();
-		// die('<pre>'.print_r($results, true));
-		$this->load->view('packages/packages', $results);
+		$this->load->view("header", array("title" => "Packages"));
+		$this->load->view("packages/packages", $results);
+		$this->load->view("packages/footer");
 
 	}
 	public function add()
@@ -40,8 +41,9 @@ class Packages extends CI_Controller {
 		// 	}
 
 		// }
-
+		$this->load->view("header", array("title" => "Add Package"));
 		$this->load->view('packages/add');
+		$this->load->view("packages/add-footer");
 
 	}
 	public function edit($id='')
@@ -52,9 +54,12 @@ class Packages extends CI_Controller {
 			$this->packages_model->edit($_POST);
 		}
 		$this->load->model('packages_model');
+
 		$results = $this->packages_model->get_id($id);
 		// die('<pre>'.print_r($results, true));
+		$this->load->view("header", array("title" => "Edit Package"));
 		$this->load->view('packages/edit', $results);
+		$this->load->view("packages/footer");
 	}
 	public function price($id='')
 	{
@@ -64,10 +69,10 @@ class Packages extends CI_Controller {
 		}
 		$this->load->model('packages_model');
 		$results = $this->pm->get_id($id);
-		// die('<pre>'.print_r($results, true));
-		$this->load->view('packages/price', $results);
-		// $data = $this->packages_model->add($_POST);
-
+		
+		$this->load->view("header", array("title" => "Edit Price"));
+		$this->load->view("packages/price", $results);
+		$this->load->view("packages/footer");
 	}
 	public function delete($id='')
 	{	
@@ -79,7 +84,9 @@ class Packages extends CI_Controller {
 			redirect(base_url()."packages?success");
 		}
 		$this->load->model('packages_model');
-		$this->load->view('packages/delete', $this->packages_model->get_id($id));
+		$this->load->view("header", array("title" => "Delete"));
+		$this->load->view("packages/delete", $this->packages_model->get_id($id));
+		$this->load->view("packages/footer");
 	}
 }
 
