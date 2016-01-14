@@ -141,28 +141,36 @@ class Appointments extends CI_Controller {
 
 		if($month == '')
 		{
-			$this->load->view('appointments/viewmonths');
+			$this->load->view("header", array("title" => "Months"));
+			$this->load->view("appointments/viewmonths");
+			$this->load->view("appointments/appointments_footer");
 		}
 		else
 		{
-			$this->load->view('appointments/appointmentmonths', $this->am->view_month($year, $month));
+			$this->load->view("header", array("title" => "Months | $month"));
+			$this->load->view("appointments/appointmentmonths", $this->am->view_month($year, $month));
+			$this->load->view("appointments/appointments_footer");
 		}
 	}
 	public function year($year='')
 	{
 		if($year == '')
 		{
-			$this->load->view('appointments/appointmentyears', $year);
+			$this->load->view('appointments/appointmentYears', $year);
 		}
 		$data = $this->am->view_year($year);
 		//die('<pre>'.print_r($data, true));
-		$this->load->view('appointments/appointmentyears', $data);
+		$this->load->view("header", array("title" => "Years"));
+		$this->load->view('appointments/appointmentYears', $data);
+		$this->load->view("appointments/appointments_footer");
 
 	}
 
 	public function date()
 	{
+		$this->load->view("header", array("title" => "Date"));
 		$this->load->view('appointments/appointmentdays', true);
+		$this->load->view("appointments/date_footer");
 	}
 
 }

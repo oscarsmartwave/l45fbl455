@@ -1,142 +1,137 @@
-<?php
-include APPPATH.'/libraries/header.php';
-
-?>
-
-
-<!-- Page Content -->
-<div id="page-wrapper">
-    <div class="container-fluid">
+<body>
+  <div id="wrapper">
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">All Appointments</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+          <div class="col-lg-12">
+            <h1 class="page-header">All Appointments</h1>
+          </div>
+          <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-12">
-                <div class="panel-body">
+          <div class="col-lg-12">
+            <div class="panel-body">
 
-                    <div class="dataTable_wrapper">
-                        
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th>Location</th>
-                                    <th>Package</th>
-                                    <th>Operator</th>
-                                    <th>Car</th>
-                                    <th>Model</th>
-                                    <th>Owner</th>
-                                    <th>Time Start</th>
-                                    <th>Time End</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              <?php
+              <div class="dataTable_wrapper">
 
-                              foreach($Data as $val)
-                              {
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
+                      <th>Location</th>
+                      <th>Package</th>
+                      <th>Operator</th>
+                      <th>Car</th>
+                      <th>Model</th>
+                      <th>Owner</th>
+                      <th>Time Start</th>
+                      <th>Time End</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
 
-                                  $timeStart = date("j F Y H:i A", strtotime($val->startedAt)); 
-                                  $timeEnd = date("j F Y H:i A", strtotime($val->endedAt)); 
+                    foreach($Data as $val)
+                    {
 
-                                  echo "<tr>
-                                  <td>".$val->locationString."
-                                  </td>
-                                  <td id=".$val->packageObjectId.">
-                                  </td>
-                                  <td id=".$val->optrObjectId.">
-                                  </td>
-                                  <td id=".$val->carObjectId.">
-                                  </td>
-                                  <td id=".$val->carObjectId.">
-                                  </td>
-                                  <td id=".$val->userObjectId.">
-                                  </td>";
+                      $timeStart = date("j F Y H:i A", strtotime($val->startedAt)); 
+                      $timeEnd = date("j F Y H:i A", strtotime($val->endedAt)); 
 
-                                  if($val->startedAt == "")
-                                  {
-                                    if($val->endedAt == "")
-                                    {
-                                        echo "<td>".$val->startedAt."
-                                    </td>
-                                    <td>".$val->endedAt."
-                                    </td>
-                                </tr>
-                                ";
-                            }
-                            else
-                            {
-                               echo "<td>".$val->startedAt."
-                           </td>
-                           <td>".$timeEnd."
-                           </td>
-                       </tr>
-                       ";
-                   }
+                      echo "<tr>
+                      <td>".$val->locationString."
+                      </td>
+                      <td id=".$val->packageObjectId.">
+                      </td>
+                      <td id=".$val->optrObjectId.">
+                      </td>
+                      <td id=".$val->carObjectId.">
+                      </td>
+                      <td id=".$val->carObjectId.">
+                      </td>
+                      <td id=".$val->userObjectId.">
+                      </td>";
 
-               }
-               elseif($val->endedAt = "")
-               {
-                if($val->startedAt = "")
-                {
-                   echo "<td>".$val->startedAt."
-               </td>
-               <td>".$val->endedAt."
-               </td>
-           </tr>
-           ";
-       }
-       else
-       {
-           echo "<td>".$timeStart."
-       </td>
-       <td>".$val->endedAt."
-       </td>
-   </tr>
-   ";
-}
-}
-elseif($val->startedAt && $val->endedAt = "")
-{
- echo "<td>".$val->startedAt."
-</td>
-<td>".$val->endedAt."
-</td>
-</tr>
-";
-}
-else
-{
-    echo "<td>".$timeStart."
-</td>
-<td>".$timeEnd."
-</td>
-</tr>
-";
-}
-}
+                      if($val->startedAt == "")
+                      {
+                        if($val->endedAt == "")
+                        {
+                          echo "<td>".$val->startedAt."
+                          </td>
+                          <td>".$val->endedAt."
+                          </td>
+                          </tr>
+                          ";
+                        }
+                        else
+                        {
+                         echo "<td>".$val->startedAt."
+                         </td>
+                         <td>".$timeEnd."
+                         </td>
+                         </tr>
+                         ";
+                       }
 
-?> 
-</tbody>
-</table>
-</div>
-<!-- /.table-responsive -->
+                      }
+                      elseif($val->endedAt = "")
+                      {
+                        if($val->startedAt = "")
+                        {
+                         echo "<td>".$val->startedAt."
+                         </td>
+                         <td>".$val->endedAt."
+                         </td>
+                         </tr>
+                         ";
+                        }
+                        else
+                        {
+                          echo "<td>".$timeStart."
+                          </td>
+                          <td>".$val->endedAt."
+                          </td>
+                          </tr>
+                          ";
+                        }
+                      }
+                      elseif($val->startedAt && $val->endedAt = "")
+                      {
+                        echo "<td>".$val->startedAt."
+                        </td>
+                        <td>".$val->endedAt."
+                        </td>
+                        </tr>
+                        ";
+                      }
+                      else
+                      {
+                        echo "<td>".$timeStart."
+                        </td>
+                        <td>".$timeEnd."
+                        </td>
+                        </tr>
+                        ";
+                      }
+                    }
 
-</div>
-<!-- /.panel-body -->
+                    ?> 
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
 
-</div>
-<!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+            </div>
+            <!-- /.panel-body -->
 
-<?php
-include 'appointments_footer.php';
-?>
+          </div>
+          <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+  </div> <!-- /#wrapper -->
+</body>

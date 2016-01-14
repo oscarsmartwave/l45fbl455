@@ -1,6 +1,5 @@
-<?php
-include APPPATH.'/libraries/header.php';
-?>
+<body>
+    <div id="wrapper">
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -69,8 +68,6 @@ include APPPATH.'/libraries/header.php';
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
-    
-<?php
-
-include APPPATH.'/libraries/footer.php';
-?>
+    </div>
+    <!-- /#wrapper -->
+</body>
