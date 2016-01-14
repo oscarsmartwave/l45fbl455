@@ -156,21 +156,6 @@
                         </li>
                         <!-- Financial Tables -->
                         <li>
-                            <a href="history"><i class="fa fa-money fa-fw"></i> History<span class="fa arrow"></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url(); ?>history/year/<?php echo date("Y"); ?>">year</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>history/month/<?php echo date("Y")."/".date("m"); ?>">Month</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>history/day">Day</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Financial Tables -->
-                        <li>
                             <a href="#"><i class="fa fa-money fa-fw"></i> Financial Tables<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
