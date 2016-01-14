@@ -1,8 +1,5 @@
-<?php
-include APPPATH.'/libraries/header.php';
-?>
-
-
+<body>
+<div id="wrapper">
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -134,7 +131,5 @@ else
 <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-
-<?php
-include 'appointments_footer.php';
-?>
+</div>
+</body>

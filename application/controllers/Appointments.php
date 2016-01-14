@@ -6,7 +6,6 @@ class Appointments extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("appointments_model", "am");
-		$this->load->driver("session");
 	}
 
 	public function index()
@@ -16,14 +15,20 @@ class Appointments extends CI_Controller {
 	public function view()
 	{
 		$results = $this->am->view();
-		$this->load->view('appointments/view', $results);
+		$this->load->view("header", array("title" => "Appointments"));
+		$this->load->view("appointments/view", $results);
+		$this->load->view("appointments/appointments_footer");
 	}
 	public function operators($id='')
 	{
 		if($id=='')
 		{
-			$this->load->model('operators_model');
-			$this->load->view('appointments/viewOperators', $this->operators_model->view());
+			$this->load->model("operators_model", "om");
+
+			// die('<pre>'.print_r($this->om->view(), true));
+			$this->load->view("header", array("title" => "Operators"));
+			$this->load->view("appointments/viewOperators", $this->om->view());
+			$this->load->view("footer");
 		}
 		else
 		{

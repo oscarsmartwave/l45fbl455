@@ -1,11 +1,11 @@
 <?php
-include APPPATH.'/libraries/header.php';
 foreach($results as $row)
 {
     $operatorDetails = $row->operatorId;
 }
 ?>
-
+<body>
+    <div id="wrapper">
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -55,7 +55,5 @@ foreach($results as $row)
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
-    
-<?php
-include APPPATH.'/libraries/footer.php';
-?>
+    </div>
+</body>
