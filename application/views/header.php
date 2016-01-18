@@ -130,7 +130,7 @@
                         </li>
                         <!-- Graphs -->
                         <li>
-                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-bar-chart fa-fw"></i> Graphs</a>
+                            <a href="<?php echo base_url(); ?>graphs/"><i class="fa fa-bar-chart fa-fw"></i> Graphs <span class="fa arrow"></a></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(); ?>graphs/size">Size</a>

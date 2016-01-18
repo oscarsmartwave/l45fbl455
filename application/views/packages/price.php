@@ -23,19 +23,19 @@
                                     <form role="form" action="<?php echo base_url(); ?>packages/price/<?php echo $packages[0]->getObjectId(); ?>" method="post">
                                         <div class="form-group">
                                             <label for="title">Title : </label>
-                                            <input type="text" class="form-control" name="title" placeholder="Package Title" value="<?php echo $packages[0]->get("title"); ?>">
+                                            <input type="text" class="form-control" name="title" placeholder="Package Title" value="<?php echo $packages[0]->get("title"); ?>" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Price: </label>
-                                            <input type="text" class="form-control" name="priceNum" placeholder="Package Price" value="<?php echo $packages[0]->get("priceNum"); ?>">
+                                            <input type="text" class="form-control" name="priceNum" placeholder="Package Price" value="<?php echo $packages[0]->get("priceNum"); ?>" autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label for="estTime">Est. Wash Time: </label>
-                                            <input type="text" class="form-control" name="estTime" placeholder="Estimated Wash Time" value="<?php echo $packages[0]->get("estTime"); ?>">
+                                            <input type="text" class="form-control" name="estTime" placeholder="Estimated Wash Time" value="<?php echo $packages[0]->get("estTime"); ?>" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label>Details</label>
-                                            <textarea name="details" class="form-control" rows="3" placeholder="Package Details"><?php echo $packages[0]->get("details"); ?></textarea>
+                                            <textarea name="details" class="form-control" rows="3" placeholder="Package Details" disabled><?php echo $packages[0]->get("details"); ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" name="objectId" value="<?php echo $packages[0]->getObjectId(); ?>">
