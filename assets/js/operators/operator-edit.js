@@ -1,14 +1,10 @@
 $(function(){
 
-	Parse.initialize("mVOnxcUCEBLer0c0z7yiXOtyRXcMFrgabGyKEYvY", "M4TXuuTzPT4uMCEGR4txOeuQIA4TekIxBhbXhKGg", "huaX4chDLe2E3ajH1lT8LGuFd6iCTDc6covbyyPu");
+	var optrUrl = "http://localhost/leafblast/operators/edit/";
+	// var optrUrl = "http://52.24.133.167/leafblast/operators/edit/";
 
 	$("#btnUpdate").click(function(event){
-		event.preventDefault();
-
-		var _User = Parse.Object.extend("_User");
-		var optr = new Parse.Query(_User);
-		var user = new _User();
-
+		console.log("btnUpdate clicked !");
 		var optrObjectId = $(".formEdit").attr("id"); //retrieve object id
 
 		var email = $("#email").val();
@@ -18,38 +14,30 @@ $(function(){
 		var homeAddress = $("#homeAddress").val();
 		var phoneNumber = $("#phoneNumber").val();
 
-		optr.get(optrObjectId, {
-			success: function(user) {
-				var _password = user.get("password");
-
-				user.set("email", email);
-				user.set("username", username);
-				// user.set("password", _password);
-				user.set("firstName", firstName);
-				user.set("lastName", lastName);
-				user.set("homeAddress", homeAddress);
-				user.set("phoneNumber", phoneNumber);
-				user.set("isOperator", true);
-
-				user.save(null, {
-					success: function(user) {
-						user.save(); // save changes
-						alert('Successfully updated Operator Account. \nobjectId: ' + user.id);
-						location.reload();
-					},
-					error: function(user, error) {
-						console.log('Failed to update Account! \nError: ' + error.message);
-						location.reload();
-					}
-				}); // end user save
-
-			},
-			error: function(object, error) 
+		$.post(
+			optrUrl+$(".formEdit").attr("id"), 
 			{
-				console.log(error.message);
-			}
+				objectId: $(".formEdit").attr("id"),
+				email: $("#email").val(),
+				username: $("input#username").val(),
+				firstName: $("#firstName").val(),
+				lastName: $("#lastName").val(),
+				homeAddress: $("#homeAddress").val(),
+				phoneNumber: $("#phoneNumber").val()
+			}, 
+			function(response)
+			{
+				
+			},'JSON'
+		) // end $.post();
+		.done(function(data){
+			
+		}) // done
+		.fail(function(error, status)
+		{
+			console.log(error);
+		}) // failed
 
-		}); // end optr get
 
 	});
 

@@ -17,7 +17,7 @@ class Packages_model extends CI_Model
 	public function add($data)
 	{
 		$cp = new ParseObject("CarWashPackages");
-		$cp->set("detail", $data["details"]);
+		$cp->set("detail", $data["detail"]);
 		$cp->set("title", $data["title"]);
 		$cp->set("priceNum", (float) $data["priceNum"]);
 		$cp->set("price", "$".$data["priceNum"]);
@@ -49,7 +49,7 @@ class Packages_model extends CI_Model
 		$results = $cp->get($data["objectId"]);
 
 
-		$results->set("details", $data["details"]);
+		$results->set("detail", $data["detail"]);
 		$results->set("title", $data["title"]);
 		$results->set("priceNum", (float) $data["priceNum"]);
 		$results->set("price", "$".$data["priceNum"]);
@@ -73,17 +73,21 @@ class Packages_model extends CI_Model
 		$cp = new ParseQuery("CarWashPackages");
 		$results = $cp->get($data["objectId"]);
 
-
-		$results->set("details", $data["details"]);
-		$results->set("title", $data["title"]);
-		$results->set("priceNum", (float) $data["priceNum"]);
-		$results->set("price", "$".$data["priceNum"]);
-		$results->set("estTime", (int) $data["estTime"]);
+		$results->set("isRemoved", true);
+		
+		$newPackage = new ParseObject("CarWashPackages");
+		$newPackage->set("detail", $data["detail"]);
+		$newPackage->set("isRemoved", false);
+		$newPackage->set("title", $data["title"]);
+		$newPackage->set("priceNum", (float) $data["priceNum"]);
+		$newPackage->set("price", "$".$data["priceNum"]);
+		$newPackage->set("estTime", (int) $data["estTime"]);
 		
 		try
 		{
 			$results->save();
-			return $results;
+			$newPackage->save();
+			return $newPackage;
 		}
 		catch(ParseException $ex)
 		{

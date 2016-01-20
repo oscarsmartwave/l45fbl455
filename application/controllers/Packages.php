@@ -63,9 +63,12 @@ class Packages extends CI_Controller {
 	}
 	public function price($id='')
 	{
+
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
-			$this->pm->edit($_POST);
+			// die('<pre>'.print_r($this->input->post()));
+			$package = $this->pm->price($this->input->post());
+			redirect(base_url()."packages");
 		}
 		$this->load->model('packages_model');
 		$results = $this->pm->get_id($id);

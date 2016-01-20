@@ -86,7 +86,7 @@ class Operators_model extends CI_Model
 		$results = $cp->get($data["objectId"]);
 
 		$results->set("username", $data["username"]);
-		$results->set("password", $data["password"]);
+		// $results->set("password", $data["password"]);
 		$results->set("firstName", $data["firstName"]);
 		$results->set("lastName", $data["lastName"]);
 		$results->set("email", $data["email"]);
@@ -98,11 +98,23 @@ class Operators_model extends CI_Model
 		try
 		{
 			$results->save(true);
-			return $this->get_id($data["objectId"]);
+			$operator = $this->get_id($data["objectId"]);
+			// die('<pre>'.print_r($operator["operators"]));
+			$successResponse = array(
+				"objectId" => $operator["operators"][0]->getObjectId(),
+				"firstName" => $operator["operators"][0]->get("firstName"),
+				"lastName" => $operator["operators"][0]->get("lastName"),
+				"homeAddress" => $operator["operators"][0]->get("homeAddress"),
+				"phoneNumber" => $operator["operators"][0]->get("phoneNumber"),
+				"isOperator" => $operator["operators"][0]->get("isOperator"),
+				"Status" => "SUCCESS"
+				);
+
+			return $successResponse;
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status" => "FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}
 

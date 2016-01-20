@@ -18,8 +18,18 @@
                             </div>
                             <div class="panel-body panel-body-bg">
                                 <div class="row">
+                                    <div class="container-fluid">
+                                        <div class="alert alert-danger edit-alert" id="edit-failed">
+                                            <strong>Error!</strong> Editting Error. Please Try Again.
+                                        </div>
+                                        <div class="alert alert-success edit-alert">
+                                            <strong>Success!</strong> Editting Success
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-6">
-                                        <form role="form" class="formEdit" id="<?php echo $operators[0]->getObjectId(); ?>" action="<?php echo base_url(); ?>operators/edit/<?php echo $operators[0]->getObjectId(); ?>" method="post">
+                                        <form role="form" class="formEdit" id="<?php echo $operators[0]->getObjectId(); ?>">
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $operators[0]->getUsername(); ?>" required>
@@ -41,7 +51,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-primary" id="btnUpdate">
+                                                <button type="button" class="btn btn-primary" id="btnUpdate">
                                                     <span class="glyphicon glyphicon-edit"></span> Update Record
                                                 </button>
                                                 <a href="<?php echo base_url(); ?>operators/reset/<?php echo $operators[0]->getObjectId(); ?>" class="btn btn-large btn-warning">

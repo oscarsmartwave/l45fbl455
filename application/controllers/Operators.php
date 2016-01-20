@@ -3,21 +3,11 @@
 
 class Operators extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("operators_model", "om");
+	}
 	public function index()
 	{
 		$this->load->model('operators_model');
@@ -30,24 +20,6 @@ class Operators extends CI_Controller {
 	}
 	public function add()
 	{
-		// $this->load->model('operators_model');
-
-		// if($_SERVER['REQUEST_METHOD'] == 'POST')
-		// {
-		// 	// die('<pre>'.print_r($_FILES, true));
-		// 	$post = array_merge($_FILES, $_POST);
-		// 	// die('<pre>'.print_r($post, true));
-		// 	$add = $this->operators_model->add($post);
-			
-		// 	if(isset($add->createdAt))
-		// 	{
-		// 		redirect(base_url()."index.php/operators/add/?add=failed");
-		// 	}
-		// 	else
-		// 	{
-		// 		redirect(base_url()."index.php/operators/?add=success&added=".$add);
-		// 	}
-		// }
 		$title["title"] = "Add Operator";
 		$this->load->view('header', $title);
 		$this->load->view('operators/add');
@@ -56,16 +28,13 @@ class Operators extends CI_Controller {
 	public function edit($id='')
 	{
 		$this->load->model('operators_model');
-		// if($_SERVER['REQUEST_METHOD'] == 'POST')
-		// {
-		// 	$edit = $this->operators_model->edit($id, $_POST);
-			
-		// 	if(isset($edit->updatedAt))
-		// 	{
-		// 		redirect(base_url()."index.php/operators/?update=success&updated=".$id);
-		// 	}
-		// }
-		//die(base_url());
+		if($_SERVER['REQUEST_METHOD'] == 'POST')
+		{
+			// $response["response"] = $_POST;
+			$response["response"] = $this->om->edit($_POST);
+			$this->load->view("operators/response", $response);
+			return;
+		}
 		$data = $this->operators_model->get_id($id); 
 		//die('<pre>'.print_r($data));
 		$title["title"] = "Edit Operator";
