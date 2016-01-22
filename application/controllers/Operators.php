@@ -47,36 +47,34 @@ class Operators extends CI_Controller {
 		$this->load->model('operators_model');
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{	
-			$delete = $this->operators_model->delete($_POST);
-			//die('<pre>'.print_r($delete, true));
-			if($delete == true)
-			{
-				redirect(base_url()."operators/?delete=success&deleted=".$id);
-			}
+			$response["response"] = $this->operators_model->delete($_POST);
+			
+			$this->load->view("operators/response", $response);
+			return;
 		}
 
 		$data = $this->operators_model->get_id($id);
 		//die('<pre>'.print_r($data, true));
-		$this->load->view('operators/delete', $data);
+		$title["title"] = "Delete Operator";
+		$this->load->view("header", $title);
+		$this->load->view("operators/delete", $data);
+		$this->load->view("operators/edit-footer");
 	}
 	public function suspended($id)
 	{
 		$this->load->model('operators_model');
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{	
-			$suspended = $this->operators_model->suspended($_POST);
-			//die('<pre>'.print_r($delete, true));
-			if($suspended == true)
-			{
-				redirect(base_url()."operators/?suspended=success&suspended=".$id);
-			}
+			$response["response"] = $this->operators_model->suspended($_POST);
+			$this->load->view("operators/response", $response);
+			return;
 		}
 
 		$data = $this->operators_model->get_id($id);
 		$title["title"] = "Suspend Operator";
 		$this->load->view("header", $title);
 		$this->load->view("operators/suspended", $data);
-		$this->load->view("footer");
+		$this->load->view("operators/edit-footer");
 	}
 	public function reset($id)
 	{
@@ -95,7 +93,7 @@ class Operators extends CI_Controller {
 		$title["title"] = "Edit Operator";
 		$this->load->view("header", $title);
 		$this->load->view('operators/reset', $data);
-		$this->load->view("footer");
+		$this->load->view("operators/edit-footer");
 	}
 	public function ratings()
 	{

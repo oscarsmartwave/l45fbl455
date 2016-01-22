@@ -17,6 +17,7 @@
 
     <!-- Parse JS -->
     <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="<?php echo base_url();?>assets/js/operators/operator-edit.js"></script>
     
 </footer>

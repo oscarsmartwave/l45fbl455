@@ -4,9 +4,9 @@ $(function(){
 							TIMELINE CHART
 
 	************************************************************/
-	var url = "http://localhost/api.leafblast/api/v1/"; // localhost ni oscar
+	// var url = "http://localhost/api.leafblast/api/v1/"; // localhost ni oscar
 	var ulCount;
-	// var url = "http://52.24.133.167/api.leafblast/api/v1/timeline"; // staging server
+	var url = "http://52.24.133.167/api.leafblast/api/v1/"; // staging server
 	var timelineIntervalId = 0;
 	
 

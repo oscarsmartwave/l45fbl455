@@ -1,7 +1,5 @@
-<?php
-include APPPATH.'libraries/header.php';
-
-?>
+<body>
+    <div id="wrapper">
 
 
         <!-- Page Content -->
@@ -23,7 +21,7 @@ include APPPATH.'libraries/header.php';
                                         <th>Username</th>
                                         <th>Last Name</th>
                                         <th>First Name</th>
-                                        <th>Email</td>
+                                        <th>Email</th>
                                         <th>Address</th>
                                         <th>Contact Number</th>
                                     </tr>
@@ -57,39 +55,42 @@ include APPPATH.'libraries/header.php';
                                 </tbody>
                             </table>
                             <div class="container">
-                            <p>
+                            
                             <?php
                             if($operators[0]->getObjectId() != null)
                             {
                                 ?>
-                                <form method="post" action="<?php echo base_url(); ?>operators/delete/<?php echo $operators[0]->getObjectId(); ?>">
-                                <input type="hidden" name="objectId" value="<?php echo $operators[0]->getObjectId(); ?>" />
-                                <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
-                                <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
+                                <form method="post">
+                                <input type="hidden" id="objectId" name="objectId" value="<?php echo $operators[0]->getObjectId(); ?>" />
+                                <button class="btn btn-large btn-primary" type="button" id="btnDelete" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
+                                <a href="<?php echo base_url(); ?>operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
                                 </form>  
                                 <?php
                             }
                             else
                             {
                                 ?>
-                                <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index</a>
+                                <a href="<?php echo base_url(); ?>operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index</a>
                                 <?php
                             }
                             ?>
-                            </p>
+
                             </div>
                         </div>
-                            <!-- /.panel-body -->
+                        <!-- /.panel-body -->
 
                     </div>
                     <!-- /.col-lg-12 -->
+                
                 </div>
-            <!-- /.row -->
+                <!-- /.row -->
+            
             </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
     
-<?php
-include APPPATH.'libraries/footer.php';
-?>
+    </div>
+    <!-- /#wrapper -->
+
+</body>

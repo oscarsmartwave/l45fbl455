@@ -59,10 +59,10 @@
                             if($operators[0]->getObjectId() != null)
                             {
                                 ?>
-                                <form method="post" action="<?php echo base_url(); ?>operators/suspended/<?php echo $operators[0]->getObjectId(); ?>">
-                                <input type="hidden" name="objectId" value="<?php echo $operators[0]->getObjectId(); ?>" />
-                                <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="fa fa-bomb"></i> &nbsp; YES</button>
-                                <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
+                                <form method="post">
+                                    <input type="hidden" name="objectId" id="objectId" value="<?php echo $operators[0]->getObjectId(); ?>" />
+                                    <button class="btn btn-large btn-primary" type="button" id="btnSuspend" name="btn-suspend"><i class="fa fa-bomb"></i> &nbsp; YES</button>
+                                    <a href="<?php echo base_url(); ?>index.php/operators/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
                                 </form>  
                                 <?php
                             }

@@ -149,11 +149,16 @@ class Operators_model extends CI_Model
 		try
 		{
 			$results->save(true);
-			return true;
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $results->getObjectId(),
+				"deleted" => true
+				);
+			return $response;
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}		
 	}
@@ -168,11 +173,17 @@ class Operators_model extends CI_Model
 		try
 		{
 			$results->save(true);
-			return true;
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $results->getObjectId(),
+				"suspended" => true
+				);
+
+			return $response;
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}		
 	}
