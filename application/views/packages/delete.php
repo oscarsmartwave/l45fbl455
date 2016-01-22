@@ -57,9 +57,9 @@
                             if(isset($packages))
                             {
                                 ?>
-                                <form method="post" action="<?php echo base_url(); ?>packages/delete/<?php echo $packages[0]->getObjectId(); ?>">
-                                <input type="hidden" name="objectId" value="<?php echo $packages[0]->getObjectId(); ?>" />
-                                <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
+                                <form method="post">
+                                <input type="hidden" id="objectId" name="objectId" value="<?php echo $packages[0]->getObjectId(); ?>" />
+                                <button class="btn btn-large btn-primary" type="button" id="btnDeletePackage" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
                                 <a href="<?php echo base_url(); ?>index.php/packages/" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
                                 </form>  
                                 <?php

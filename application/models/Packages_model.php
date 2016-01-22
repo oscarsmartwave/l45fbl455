@@ -17,7 +17,7 @@ class Packages_model extends CI_Model
 	public function add($data)
 	{
 		$cp = new ParseObject("CarWashPackages");
-		$cp->set("detail", $data["detail"]);
+		$cp->set("detail", $data["details"]);
 		$cp->set("title", $data["title"]);
 		$cp->set("priceNum", (float) $data["priceNum"]);
 		$cp->set("price", "$".$data["priceNum"]);
@@ -27,11 +27,21 @@ class Packages_model extends CI_Model
 		try 
 		{
 			$cp->save();
-			return $cp;
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $cp->getObjectId(),
+				"title" => $cp->get("title"),
+				"detail" => $cp->get("detail"),
+				"priceNum" => $cp->get("priceNum"),
+				"estTime" => $cp->get("estTime"),
+				"createdAt" => $cp->getCreatedAt()
+			);
+			return $response;
 		} 
 		catch (ParseException $ex) 
 		{    
-			die('<pre>'.print_r($ex->getMessage(), true));
+			$ex_array = array("Status" => "FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
 		}
 	}//END ADD
 
@@ -51,18 +61,24 @@ class Packages_model extends CI_Model
 
 		$results->set("detail", $data["detail"]);
 		$results->set("title", $data["title"]);
-		$results->set("priceNum", (float) $data["priceNum"]);
-		$results->set("price", "$".$data["priceNum"]);
 		$results->set("estTime", (int) $data["estTime"]);
 		
 		try
 		{
-			$results->save();
-			return $this->get_id($data["objectId"]);
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $results->getObjectId(),
+				"title" => $results->get("title"),
+				"detail" => $results->get("detail"),
+				"priceNum" => $results->get("priceNum"),
+				"estTime" => $results->get("estTime"),
+				"createdAt" => $results->getCreatedAt()
+			);
+			return $response;
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}
 
@@ -123,11 +139,17 @@ class Packages_model extends CI_Model
 		try
 		{
 			$results->save();
-			return true;
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $results->getObjectId()
+			);
+
+			return $response;
+
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status"=>"FAILED","Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}		
 	}

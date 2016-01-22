@@ -1,6 +1,6 @@
 <body>
     <div id="wrapper">
-<!-- Page Content -->
+    <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -37,7 +37,7 @@
                                                 <textarea name="details" id="details" class="form-control" rows="3" placeholder="Package Details" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-primary" id="createNew">
+                                                <button type="button" class="btn btn-primary" id="createNew">
                                                     <span class="glyphicon glyphicon-plus"></span> Create New Record
                                                 </button>  
                                                 <a href="<?php echo base_url(); ?>index.php/packages" class="btn btn-large btn-success">
@@ -58,5 +58,5 @@
         </div>
 <!-- /#page-wrapper -->
 
-</div>
+    </div>
 </body>
