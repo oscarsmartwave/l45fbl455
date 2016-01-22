@@ -90,6 +90,7 @@ class Packages_model extends CI_Model
 		$results = $cp->get($data["objectId"]);
 
 		$results->set("isRemoved", true);
+		$results->save();
 		
 		$newPackage = new ParseObject("CarWashPackages");
 		$newPackage->set("detail", $data["detail"]);
@@ -101,13 +102,23 @@ class Packages_model extends CI_Model
 		
 		try
 		{
-			$results->save();
+			
 			$newPackage->save();
-			return $newPackage;
+			$response = array(
+				"Status" => "SUCCESS",
+				"objectId" => $newPackage->getObjectId(),
+				"title" => $newPackage->get("title"),
+				"detail" => $newPackage->get("detail"),
+				"priceNum" => $newPackage->get("priceNum"),
+				"estTime" => $newPackage->get("estTime"),
+				"createdAt" => $newPackage->getCreatedAt()
+			);
+
+			return $response;
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			$ex_array = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
 			return $ex_array;
 		}
 

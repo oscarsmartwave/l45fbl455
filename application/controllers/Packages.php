@@ -64,15 +64,16 @@ class Packages extends CI_Controller {
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			// die('<pre>'.print_r($this->input->post()));
-			$package = $this->pm->price($this->input->post());
-			redirect(base_url()."packages");
+			$response["response"] = $this->pm->price($this->input->post());
+			$this->load->view("packages/response", $response);
+			return;
 		}
-		$this->load->model('packages_model');
+
 		$results = $this->pm->get_id($id);
 		
 		$this->load->view("header", array("title" => "Edit Price"));
 		$this->load->view("packages/price", $results);
-		$this->load->view("packages/footer");
+		$this->load->view("packages/add-footer"); 	
 	}
 	public function delete($id='')
 	{	

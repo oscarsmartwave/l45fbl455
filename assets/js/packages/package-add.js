@@ -192,4 +192,38 @@ $(function(){
 		});
 	});
 
+	//reprice package
+	$("#btnRepricePackage").click(function(event){
+		$("#btnRepricePackage").prop("disabled", true);
+		console.log("btnRepricePackage clicked");
+		var packageObjectId = $("#objectId").val();
+		$.post(
+			url+"packages/price/"+packageObjectId,
+			{
+				objectId: packageObjectId,
+				title: $("#title").val(),
+				priceNum: $("#priceNum").val(),
+				estTime: $("#estTime").val(),
+				detail: $("#detail").val()
+			}, 
+			function(response)
+			{
+
+			},'JSON'
+		)
+		.done(function(data)
+		{
+			console.log(data.objectId);
+			$("#objectId").val(data.objectId);
+			$("#btnRepricePackage").prop("disabled", false);
+
+		})
+		.fail(function(error)
+		{
+			console.log(error);
+			$("#btnRepricePackage").prop("disabled", false);
+		});
+
+	}); // reprice carwash packages
+
 });
