@@ -1,39 +1,10 @@
 $(function(){
 
-	var url = "http://localhost/leafblast/";
-	// var url = "http://52.24.133.167/leafblast/packages/";
-	// Parse.initialize("mVOnxcUCEBLer0c0z7yiXOtyRXcMFrgabGyKEYvY", "M4TXuuTzPT4uMCEGR4txOeuQIA4TekIxBhbXhKGg");
-
-	// $("#createNew").click(function(event){
-	// 	event.preventDefault();
-
-	// 	var _Package = Parse.Object.extend("CarWashPackages");
-	// 	var pkg = new _Package();
-
-	// 	var title = $("#title").val();
-	// 	var priceNum = Number($("#priceNum").val());
-	// 	var estTime = Number($("#estTime").val());
-	// 	var detail = $("#details").val();
-
-	// 	pkg.set("title", title);
-	// 	pkg.set("priceNum", priceNum);
-	// 	pkg.set("price", "$"+priceNum);
-	// 	pkg.set("detail", detail);
-	// 	pkg.set("estTime", estTime);
-	// 	pkg.set("isRemoved", false);
-
-	// 	pkg.save(null, {
-	// 		success: function(user) {
-	// 			alert('Successfully created Car Wash Package. \nobjectId: ' + pkg.id);
-	// 			location.reload();
-	// 		},
-	// 		error: function(user, error) {
-	// 			alert('Failed to create Car Wash Package! \nError: ' + error.message);
-	// 			location.reload();
-	// 		}
-	// 	});
-
-	// });
+	var http = location.protocol;
+	var slashes = http.concat("//");
+	var host = slashes.concat(window.location.hostname);
+	var url = host+"/leafblast/packages/"
+	
 	$(window).load(function(){
 
 		if($("#package").length) {
@@ -52,7 +23,7 @@ $(function(){
 		$("#createNew").prop("disabled", true);
 		console.log("package");
 		$.post(
-			url+"packages/add",
+			url+"add",
 			{
 				title: $("#title").val(),
 				priceNum: $("#priceNum").val(),
@@ -103,7 +74,7 @@ $(function(){
 		var packageObjectId = $("#objectId").val();
 		
 		$.post(
-			url+"packages/edit/"+packageObjectId,
+			url+"edit/"+packageObjectId,
 			{
 				objectId: packageObjectId,
 				title: $("#title").val(),
@@ -153,7 +124,7 @@ $(function(){
 		var packageObjectId = $("#objectId").val();
 		
 		$.post(
-			url+"packages/delete/"+packageObjectId,
+			url+"delete/"+packageObjectId,
 			{
 				objectId: packageObjectId,
 			},
@@ -198,7 +169,7 @@ $(function(){
 		console.log("btnRepricePackage clicked");
 		var packageObjectId = $("#objectId").val();
 		$.post(
-			url+"packages/price/"+packageObjectId,
+			url+"price/"+packageObjectId,
 			{
 				objectId: packageObjectId,
 				title: $("#title").val(),
@@ -213,6 +184,15 @@ $(function(){
 		)
 		.done(function(data)
 		{
+			$("<div title='Package'>Package Repriced</div>").dialog({
+				modal: true,
+				open: function(){
+					
+				},
+    			close: function(){ 
+    				// window.location.replace(url+"packages/");
+    			}
+			});
 			console.log(data.objectId);
 			$("#objectId").val(data.objectId);
 			$("#btnRepricePackage").prop("disabled", false);
@@ -220,6 +200,15 @@ $(function(){
 		})
 		.fail(function(error)
 		{
+			$("<div title='Package'>Reprice Failed</div>").dialog({
+				modal: true,
+				open: function(){
+					
+				},
+    			close: function(){ 
+    				// window.location.replace(url+"packages");
+    			}
+			});
 			console.log(error);
 			$("#btnRepricePackage").prop("disabled", false);
 		});

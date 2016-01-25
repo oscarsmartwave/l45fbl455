@@ -1,6 +1,9 @@
 $(function(){
+	var http = location.protocol;
+	var slashes = http.concat("//");
+	var host = slashes.concat(window.location.hostname);
 
-	var optrUrl = "http://localhost/leafblast/operators/";
+	var optrUrl = host+"/leafblast/operators/";
 	// var optrUrl = "http://52.24.133.167/leafblast/operators/";
 
 	$("#btnUpdate").click(function(event){

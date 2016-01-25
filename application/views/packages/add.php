@@ -40,7 +40,7 @@
                                                 <button type="button" class="btn btn-primary" id="createNew">
                                                     <span class="glyphicon glyphicon-plus"></span> Create New Record
                                                 </button>  
-                                                <a href="<?php echo base_url(); ?>index.php/packages" class="btn btn-large btn-success">
+                                                <a href="<?php echo base_url(); ?>packages/" class="btn btn-large btn-success">
                                                     <i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index
                                                 </a>
                                                 

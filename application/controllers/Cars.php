@@ -22,7 +22,10 @@ class Cars extends CI_Controller {
 		$result = $this->um->getUserCar($objectId);
 
 		// die(print_r($result));
+		$title["title"] = "Cars";
+		$this->load->view("header", $title);
 		$this->load->view("users/carsOwned_view", $result);
+		$this->load->view("footer");
 		// die("<pre>".print_r($result, true));
 	}
 }

@@ -15,7 +15,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                         <div class="panel-heading">
-                            Edit Operator
+                            Edit Package
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -42,7 +42,7 @@
                                             <button type="button" class="btn btn-primary" id="btnEditPackage">
                                             <span class="glyphicon glyphicon-edit"></span> Update Record
                                             </button>  
-                                        <a href="#" class="btn btn-large btn-success">
+                                        <a href="<?php echo base_url(); ?>packages/" class="btn btn-large btn-success">
                                             <i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index
                                         </a>
             

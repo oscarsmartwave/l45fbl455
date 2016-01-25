@@ -38,9 +38,9 @@
                                                 <td>".$package->get("price")."</td>
                                                 <td>".$package->get("estTime")."</td>
                                                 <td>
-                                                    <a href='".base_url()."packages/edit/".$package->getObjectId()."'>EDIT</a><BR>
-                                                    <a href='".base_url()."packages/price/".$package->getObjectId()."'>EDIT PRICE</a>
-                                                    <a href='".base_url()."packages/delete/".$package->getObjectId()."'>DELETE</a>
+                                                    <a href='".base_url()."packages/edit/".$package->getObjectId()."/'>EDIT</a><BR>
+                                                    <a href='".base_url()."packages/price/".$package->getObjectId()."/'>EDIT PRICE</a>
+                                                    <a href='".base_url()."packages/delete/".$package->getObjectId()."/'>DELETE</a>
                                                 </td>";
                                             }
 
