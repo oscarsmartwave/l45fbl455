@@ -45,14 +45,35 @@ class Notifications_model extends CI_Model
 				"where" => $query,
 				"data" => $data
 				));
+			$return = array("Status"=>"SUCCESS", "Data"=>$data);
+			return $return;
 		}
 		catch(ParseException $ex)
 		{
-			die('<pre>'.print_r(array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode())));
+			return $return = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code" => $ex->getCode());
 		}
 		
 
 		return $send;
+	}
+
+	public function getUsers()
+	{
+		$_User = new ParseQuery("_User");
+		$_User->equalTo("isRemoved", false);
+
+		$users = $_User->find();
+		$user_array = array();
+
+		foreach($users as $user)
+		{
+			$user_array[] = array(
+				"objectId" => $user->getObjectId(),
+				"firstName" => $user->get("firstName"),
+				"lastName" => $user->get("lastName")
+			);
+		}
+		return $user_array;
 	}
 
 	public function pushToUser($data)
@@ -118,16 +139,17 @@ class Notifications_model extends CI_Model
 				"where" => $query,
 				"data" => $data
 				));
+			$return = array("Status"=>"SUCCESS", "Data"=>$data);
+			return $return;
 		}
 		catch(ParseException $ex)
 		{
-			die('<pre>'.print_r(array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode())));
+			return $return = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code" => $ex->getCode());
 		}
 		
 
 		return $send;
 	}
-
 	public function getTimeZone()
 	{
 		// ParseInstallation.getCurrentInstallation().getString("_Installation");
@@ -136,15 +158,20 @@ class Notifications_model extends CI_Model
 
 		try
 		{
-			// $results = $query->get("timeZone");
-			$results["timeZone"] = $query->find();
-
-			// die(print_r($results));
+			$query->select("timeZone");
+			$results = $query->find(true);
+			$array = array();
+			foreach($results as $result)
+			{
+				$array[] = $result->get("timeZone");
+			}
+			// die('<pre>'.print_r(array_unique($array)));
+			return array_unique($array);
 		}
 		catch(ParseException $ex)
 		{
-			$ex_array = array("Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
-			die('<pre>'.print_r($ex_array, true));
+			$ex_array = array("Status"=>"FAILED", "Message"=>$ex->getMessage(), "Code"=>$ex->getCode());
+			return $ex_array;
 		}
 		
 		return $results;

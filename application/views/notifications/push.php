@@ -15,17 +15,17 @@
                             Push Notification
                         </div><!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form role="form" class="form" method="POST" action="<?php echo base_url()."notifications/all"; ?>">
+                            <form role="form" class="form" method="POST" id="pushToAllForm">
 
                                 <div class="form-group">
                                     <label for="message"> Message : </label>
-                                    <textarea class="form-control" rows="4" name="message"></textarea>
+                                    <textarea id="message" class="form-control" rows="4" name="message"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Increment App Badge?</label>
                                     <input type="checkbox" name="incrementAppBadge" class="YesNoSwitch pull-right" checked>
                                 </div>
-                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-rocket"></i>&nbsp;Send</button>
+                                <button id="btnPushToAll" class="btn btn-primary pull-right"><i class="fa fa-rocket"></i>&nbsp;Send</button>
 
                             </form> 
                             <!-- /form > -->

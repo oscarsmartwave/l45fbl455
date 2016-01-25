@@ -25,7 +25,9 @@ class Notifications extends CI_controller {
 			case "GET" :
 			break;
 			case "POST" :
-			$notif = $this->n_model->pushToAll($_POST);
+			$notif["response"] = $this->n_model->pushToAll($_POST);
+			$this->load->view("notifications/response", $notif);
+			return;
 			break;
 		}
 		$this->load->view("header", array("title"=>"Push to All"));
@@ -33,6 +35,11 @@ class Notifications extends CI_controller {
 		$this->load->view("notifications/footer");
 	} 
 
+	public function users()
+	{
+		$users["response"] = $this->n_model->getUsers();
+		$this->load->view("notifications/response", $users);
+	}
 	public function user()
 	{
 
@@ -46,9 +53,8 @@ class Notifications extends CI_controller {
 		}
 		$this->load->view("header", array("title"=>"Push to User"));
 		$this->load->view("notifications/user");
-		$this->load->view("notifications/user_footer");
+		$this->load->view("notifications/footer");
 	}
-
 	public function timezone()
 	{
 
@@ -57,14 +63,16 @@ class Notifications extends CI_controller {
 			case "GET" :
 			break;
 			case "POST" :
-			$notif = $this->n_model->pushToTimeZone($_POST);
+			$notif["response"] = $this->n_model->pushToTimeZone($_POST);
+			$this->load->view("notifications/response", $notif);
+			return;
 			break;
 		}
 		// $result = $this->n_model->getTimeZone();
 		// $this->load->model("notifications_model","n_model");
-		$tz["america"] = $this->n_model->getTimeZones()["America"];
+		$tz["timeZone"] = $this->n_model->getTimeZone();
 		$this->load->view("header", array("title"=>"Push to Timezone"));
 		$this->load->view('notifications/timezone', $tz);
-		$this->load->view("notifications/timezone_footer");
+		$this->load->view("notifications/footer");
 	}
 }

@@ -19,13 +19,13 @@
                                 <div class="form-group">
                                     <label for="timezone" class="control-label"> Time Zone : </label>
                                     <select id="timezone" class="form-control" name="timezone">
-                                        <option name="Asia/Manila" id="Asia/Manila"> Asia/Manila </option>
                                         <?php
 
-                                        foreach ($america as $key => $value) 
+                                        foreach ($timeZone as $key => $value) 
                                         {
-                                            echo "<option id=".$key.">".$key."</option>";
+                                            echo "<option id=".$value.">".$value."</option>";
                                         }
+
                                         ?>
                                     </select>
                                 </div>
@@ -37,7 +37,7 @@
                                     <label>Increment App Badge?</label>
                                     <input type="checkbox" name="incrementAppBadge" class="YesNoSwitch pull-right" checked>
                                 </div>
-                                <button type="submit" class="btn btn-primary pull-right" id="btnTimeZone"><i class="fa fa-rocket"></i>&nbsp;Send</button>
+                                <button type="button" class="btn btn-primary pull-right" id="btnTimeZone"><i class="fa fa-rocket"></i>&nbsp;Send</button>
 
                             </form> <!-- /form --> 
                         </div><!-- /.panel-body -->
