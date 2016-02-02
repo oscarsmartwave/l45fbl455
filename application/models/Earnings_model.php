@@ -17,7 +17,7 @@ class Earnings_model extends CI_Model
 	{
 		$curl = new Curl();
 		$curl->get(API."earnings/year/".$year);
-		
+			
 		$response = $curl->response;
 
 		return $response;
@@ -37,6 +37,7 @@ class Earnings_model extends CI_Model
 	{
 		$curl = new Curl();
 		$curl->get(API."earnings/operator/".$optrObjectId);
+		// die('<pre>'.print_r($curl->response, true));
 		$results["operator"] = $curl->response;
 
 		return $results;
