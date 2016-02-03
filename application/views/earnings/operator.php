@@ -46,10 +46,10 @@
                                                     {
                                                         echo"<tr>
                                                         <td>".$val->locationString."</td>
-                                                        <td>".$val->packageObjectId."</td>
-                                                        <td>".$val->carObjectId."</td>
-                                                        <td>".$val->carObjectId."</td>
-                                                        <td>".$val->userObjectId."</td>
+                                                        <td id='".$val->packageObjectId."'></td>
+                                                        <td id='".$val->carObjectId."'></td>
+                                                        <td id='".$val->carObjectId."'></td>
+                                                        <td id='".$val->userObjectId."'></td>
                                                         <td>".$val->startedAt."</td>
                                                         <td>".$val->endedAt."</td>
                                                         </tr>";
